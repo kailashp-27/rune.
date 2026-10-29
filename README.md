@@ -1,6 +1,6 @@
 # Rune
 
-> Current status (29 October 2026): all six games are playable. Pulse and Fortress Medium now use qualified trained models; the other slots use search opponents. All original games support browser neural inference. See [current status](docs/PROJECT-STATUS.md) and [AI integration](docs/AI-INTEGRATION.md). Older milestones below remain historical.
+> Current status (29 October 2026): all six games are playable. Terraform, Pulse and Fortress Medium now use qualified trained models; the other slots use search opponents. All original games support browser neural inference. See [current status](docs/PROJECT-STATUS.md) and [AI integration](docs/AI-INTEGRATION.md). Older milestones below remain historical.
 
 
 Rune now has six playable web alphas: Connect Four, Terraform, Tidal Lock, Pulse, Fortress, and Mirror Siege. See [docs/PROJECT-STATUS.md](docs/PROJECT-STATUS.md) for what remains before release.

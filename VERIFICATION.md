@@ -1,6 +1,6 @@
 ## Mirror Siege: all six games playable
 
-> Current status (29 October 2026): all six games are playable. Pulse and Fortress Medium now use qualified trained models; the other slots use search opponents. All original games support browser neural inference. See [current status](docs/PROJECT-STATUS.md) and [AI integration](docs/AI-INTEGRATION.md). Older milestones below remain historical.
+> Current status (29 October 2026): all six games are playable. Terraform, Pulse and Fortress Medium now use qualified trained models; the other slots use search opponents. All original games support browser neural inference. See [current status](docs/PROJECT-STATUS.md) and [AI integration](docs/AI-INTEGRATION.md). Older milestones below remain historical.
 
 
 Production build and all 48 Python/34 TypeScript tests pass. Mirror Siege matches 198,803 Python/TS transitions from 2,000 games; its production worker replays states, recovers from errors, and completes a 100-action oracle-checked draw. Mobile browser checks verify help at 320×568, a solid move and AI reply, the one-reply ghost lifecycle, undo and hints, and a 390×844 board without horizontal overflow. Screenshot: `docs/mirror-mobile.png`. See `docs/MIRROR-ALPHA.md` and `docs/PROJECT-STATUS.md` for remaining work; older preview descriptions below are historical.

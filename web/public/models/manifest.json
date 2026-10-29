@@ -7,7 +7,15 @@
   },
   "terraform": {
     "Easy": null,
-    "Medium": null,
+    "Medium": {
+      "game": "terraform",
+      "rulesVersion": "terraform-v0.1",
+      "id": "terraform-e80547f16f17cb43",
+      "url": "/models/terraform-e80547f16f17cb43.onnx",
+      "parityUrl": "/models/terraform-e80547f16f17cb43-parity.json",
+      "status": "promoted",
+      "simulations": 32
+    },
     "Hard": null
   },
   "tidal": {

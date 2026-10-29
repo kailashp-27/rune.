@@ -5,7 +5,7 @@ from training.games.registry import GAMES
 
 ROOT=Path(__file__).resolve().parents[1]
 NAMES=dict(connect4='Connect Four',terraform='Terraform',tidal='Tidal Lock',pulse='Pulse',fortress='Fortress',mirror='Mirror Siege')
-RUNS=[('connect4','phase1-batched','phase1-batched-training.json','phase1-batched-benchmark.json'),('terraform','terraform-pipeline',None,None),('tidal','tidal-random-smoke','tidal-v02-training.json',None),('pulse','pulse-alpha','pulse-alpha-training.json','pulse-alpha-benchmark.json'),('pulse','pulse-teacher-v1',None,'pulse-teacher-benchmark.json'),('fortress','fortress-alpha',None,'fortress-alpha-benchmark.json'),('mirror','mirror-alpha',None,'mirror-alpha-benchmark.json')]
+RUNS=[('connect4','phase1-batched','phase1-batched-training.json','phase1-batched-benchmark.json'),('terraform','terraform-pipeline',None,None),('terraform','terraform-teacher-v1',None,'terraform-teacher-benchmark.json'),('tidal','tidal-random-smoke','tidal-v02-training.json',None),('tidal','tidal-teacher-v1',None,'tidal-teacher-benchmark.json'),('pulse','pulse-alpha','pulse-alpha-training.json','pulse-alpha-benchmark.json'),('pulse','pulse-teacher-v1',None,'pulse-teacher-benchmark.json'),('fortress','fortress-alpha',None,'fortress-alpha-benchmark.json'),('mirror','mirror-alpha',None,'mirror-alpha-benchmark.json')]
 
 def read(path):
     return json.loads(path.read_text()) if path.exists() else None

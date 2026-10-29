@@ -1,0 +1,19 @@
+{
+  "modelId": "terraform-e80547f16f17cb43",
+  "game": "terraform",
+  "rulesVersion": "terraform-v0.1",
+  "states": 50,
+  "maxError": 0.0000171661376953125,
+  "passed": true,
+  "checkedAt": "2026-10-29T17:07:46.801Z",
+  "neuralSearch": {
+    "passed": true,
+    "action": 161,
+    "simulations": 240
+  },
+  "fallback": {
+    "passed": true,
+    "engine": "heuristic"
+  },
+  "runtime": "onnxruntime-web/wasm, single thread"
+}

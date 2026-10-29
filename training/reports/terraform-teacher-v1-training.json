@@ -1,0 +1,20 @@
+{
+  "game": "terraform",
+  "rounds": [],
+  "teacher": {
+    "game": "terraform",
+    "rules_version": "terraform-v0.1",
+    "method": "heuristic-teacher-bootstrap",
+    "teacher_depth": 1,
+    "seed": 610,
+    "games": 64,
+    "positions": 5040,
+    "steps": 1200,
+    "loss": 1.8997087478637695,
+    "average_length": 21.828125,
+    "elapsed_seconds": 29.15611019998323,
+    "qualified": false,
+    "held_value_mse": 0.0528213307261467,
+    "held_policy_loss": 1.7369402647018433
+  }
+}

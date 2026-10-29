@@ -1,6 +1,6 @@
 # Engine contract
 
-> Current status (29 October 2026): all six games are playable. Pulse and Fortress Medium now use qualified trained models; the other slots use search opponents. All original games support browser neural inference. See [current status](docs/PROJECT-STATUS.md) and [AI integration](docs/AI-INTEGRATION.md). Older milestones below remain historical.
+> Current status (29 October 2026): all six games are playable. Terraform, Pulse and Fortress Medium now use qualified trained models; the other slots use search opponents. All original games support browser neural inference. See [current status](docs/PROJECT-STATUS.md) and [AI integration](docs/AI-INTEGRATION.md). Older milestones below remain historical.
 
 
 Each game owns its fixed action space, immutable JSON state, legal mask, transition, terminal adjudication, current-player encoding, and allowed symmetries. Python and TypeScript contract declarations live in `training/core/game.py` and `web/src/engine/game.ts`.

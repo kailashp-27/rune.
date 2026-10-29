@@ -1,0 +1,20 @@
+{
+  "game": "tidal",
+  "rounds": [],
+  "teacher": {
+    "game": "tidal",
+    "rules_version": "tidal-v0.2",
+    "method": "heuristic-teacher-bootstrap",
+    "teacher_depth": 1,
+    "seed": 610,
+    "games": 64,
+    "positions": 688,
+    "steps": 1200,
+    "loss": 2.0424633026123047,
+    "average_length": 12.046875,
+    "elapsed_seconds": 39.239276200009044,
+    "qualified": false,
+    "held_value_mse": 0.09219375997781754,
+    "held_policy_loss": 3.3773033618927
+  }
+}

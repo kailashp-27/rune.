@@ -6,10 +6,11 @@ All six games share lazy single-thread ONNX inference and a versioned model cont
 
 | Slot | Training | Random benchmark | One-ply heuristic benchmark |
 | --- | --- | --- | --- |
+| Terraform Medium, 32 simulations | Heuristic teacher seed | 40 wins / 40 | 16 wins, 14 draws / 40 (57.5% score) |
 | Pulse Medium, 32 simulations | Heuristic teacher seed; later self-play experiments retained separately | 40 wins / 40 | 29 wins / 40 |
 | Fortress Medium, 48 simulations | 32 self-play games, two rounds | 40 wins / 40 | 29 wins / 40 |
 
-Both passed 50-state PyTorch/browser output parity, an immediate-win worker test and broken-model fallback. Pulse additionally beat its prior neural checkpoint in a separate 20-game paired arena with a 100% score. Fortress's selected self-play candidate scored 62.5% in its eight-game local arena. Benchmarks alternate seats with paired openings and separate live-chance/search random streams. Small local tests are not optimal-play strength or a real-phone performance guarantee. Other slots remain search opponents until they qualify.
+All three passed 50-state PyTorch/browser output parity, an immediate-win worker test and broken-model fallback. Pulse additionally beat its prior neural checkpoint in a separate 20-game paired arena with a 100% score. Fortress's selected self-play candidate scored 62.5% in its eight-game local arena. Benchmarks alternate seats with paired openings and separate live-chance/search random streams. Small local tests are not optimal-play strength or a real-phone performance guarantee. Other slots remain search opponents until they qualify.
 
 The previous Pulse candidate selected Wait with 56.4% opening prior and won only 1/40 random games. More search did not resolve that behavior. The optional teacher seed learns a legal policy and a heuristic value from mixed random/heuristic games. This is supervised bootstrapping, not pure AlphaZero training. Self-play resumes with a fresh outcome-only replay; heuristic values never enter its replay buffer. Checkpoints retain this provenance.
 

@@ -234,9 +234,82 @@
           ],
           "benchmark": null,
           "teacher": null
+        },
+        {
+          "id": "terraform-teacher-v1",
+          "method": "Heuristic teacher seed",
+          "games": 0,
+          "rounds": [],
+          "benchmark": {
+            "game": "terraform",
+            "rules_version": "terraform-v0.1",
+            "checkpoint_sha256": "6604f82231db42d56e82876549f4062ec58e388269d0611f9b6816dc59109c63",
+            "games_per_opponent": 40,
+            "simulations": 32,
+            "seed": 7241,
+            "opponents": {
+              "random": {
+                "wins": 40,
+                "losses": 0,
+                "draws": 0,
+                "score": 1.0,
+                "average_length": 14.45,
+                "seats": {
+                  "1": {
+                    "wins": 20,
+                    "losses": 0,
+                    "draws": 0
+                  },
+                  "-1": {
+                    "wins": 20,
+                    "losses": 0,
+                    "draws": 0
+                  }
+                }
+              },
+              "heuristic": {
+                "wins": 16,
+                "losses": 10,
+                "draws": 14,
+                "score": 0.575,
+                "average_length": 41.225,
+                "seats": {
+                  "1": {
+                    "wins": 8,
+                    "losses": 5,
+                    "draws": 7
+                  },
+                  "-1": {
+                    "wins": 8,
+                    "losses": 5,
+                    "draws": 7
+                  }
+                }
+              }
+            },
+            "scope": "Neural PUCT only; random and one-ply heuristic opponents; alternating paired seats, paired two-action random openings, independent chance/search RNG. Not Elo, optimal-play strength, or real-device validation."
+          },
+          "teacher": {
+            "game": "terraform",
+            "rules_version": "terraform-v0.1",
+            "method": "heuristic-teacher-bootstrap",
+            "teacher_depth": 1,
+            "seed": 610,
+            "games": 64,
+            "positions": 5040,
+            "steps": 1200,
+            "loss": 1.8997087478637695,
+            "average_length": 21.828125,
+            "elapsed_seconds": 29.15611019998323,
+            "qualified": false,
+            "held_value_mse": 0.0528213307261467,
+            "held_policy_loss": 1.7369402647018433
+          }
         }
       ],
-      "releasedDifficulties": []
+      "releasedDifficulties": [
+        "Medium"
+      ]
     },
     {
       "id": "tidal",
@@ -271,6 +344,77 @@
           ],
           "benchmark": null,
           "teacher": null
+        },
+        {
+          "id": "tidal-teacher-v1",
+          "method": "Heuristic teacher seed",
+          "games": 0,
+          "rounds": [],
+          "benchmark": {
+            "game": "tidal",
+            "rules_version": "tidal-v0.2",
+            "checkpoint_sha256": "08e9087e73560221590482b252bb4477fccbdfffa804df3671608cfd4984ee8c",
+            "games_per_opponent": 40,
+            "simulations": 32,
+            "seed": 7241,
+            "opponents": {
+              "random": {
+                "wins": 38,
+                "losses": 2,
+                "draws": 0,
+                "score": 0.95,
+                "average_length": 12.85,
+                "seats": {
+                  "1": {
+                    "wins": 20,
+                    "losses": 0,
+                    "draws": 0
+                  },
+                  "-1": {
+                    "wins": 18,
+                    "losses": 2,
+                    "draws": 0
+                  }
+                }
+              },
+              "heuristic": {
+                "wins": 1,
+                "losses": 39,
+                "draws": 0,
+                "score": 0.025,
+                "average_length": 8.425,
+                "seats": {
+                  "1": {
+                    "wins": 1,
+                    "losses": 19,
+                    "draws": 0
+                  },
+                  "-1": {
+                    "wins": 0,
+                    "losses": 20,
+                    "draws": 0
+                  }
+                }
+              }
+            },
+            "scope": "Neural PUCT only; random and one-ply heuristic opponents; alternating paired seats, paired two-action random openings, independent chance/search RNG. Not Elo, optimal-play strength, or real-device validation."
+          },
+          "teacher": {
+            "game": "tidal",
+            "rules_version": "tidal-v0.2",
+            "method": "heuristic-teacher-bootstrap",
+            "teacher_depth": 1,
+            "seed": 610,
+            "games": 64,
+            "positions": 688,
+            "steps": 1200,
+            "loss": 2.0424633026123047,
+            "average_length": 12.046875,
+            "elapsed_seconds": 39.239276200009044,
+            "qualified": false,
+            "held_value_mse": 0.09219375997781754,
+            "held_policy_loss": 3.3773033618927
+          }
         }
       ],
       "releasedDifficulties": []
