@@ -1,0 +1,124 @@
+{
+  "rules": "pulse-v0.1",
+  "rounds": [
+    {
+      "iteration": 1,
+      "loss": 4.167409420013428,
+      "policy_loss": 3.3957722187042236,
+      "value_loss": 0.7716371417045593,
+      "arena_score": 0.375,
+      "promoted": false,
+      "positions": 15360,
+      "average_length": 120.0,
+      "elapsed_seconds": 144.55172930000117,
+      "self_play_seconds": 80.93313810000109,
+      "self_play_games": 16,
+      "self_play_batch": 8,
+      "inference": {
+        "requested_positions": 60477,
+        "evaluated_positions": 43046,
+        "forward_calls": 7427,
+        "cache_hits": 17413,
+        "max_batch_size": 8,
+        "evaluation_seconds": 27.812555099990277
+      }
+    },
+    {
+      "iteration": 2,
+      "loss": 4.261000633239746,
+      "policy_loss": 3.4312796592712402,
+      "value_loss": 0.8297207951545715,
+      "arena_score": 0.1875,
+      "promoted": false,
+      "positions": 30720,
+      "average_length": 120.0,
+      "elapsed_seconds": 143.4192034000007,
+      "self_play_seconds": 95.01250379999692,
+      "self_play_games": 16,
+      "self_play_batch": 8,
+      "inference": {
+        "requested_positions": 60528,
+        "evaluated_positions": 43007,
+        "forward_calls": 7420,
+        "cache_hits": 17488,
+        "max_batch_size": 8,
+        "evaluation_seconds": 33.57642020027561
+      }
+    },
+    {
+      "iteration": 3,
+      "loss": 4.227051258087158,
+      "policy_loss": 3.4461591243743896,
+      "value_loss": 0.7808921337127686,
+      "arena_score": 0.125,
+      "promoted": false,
+      "positions": 46080,
+      "average_length": 120.0,
+      "elapsed_seconds": 119.10962580000341,
+      "self_play_seconds": 78.97759439999936,
+      "self_play_games": 16,
+      "self_play_batch": 8,
+      "inference": {
+        "requested_positions": 60494,
+        "evaluated_positions": 42361,
+        "forward_calls": 7400,
+        "cache_hits": 18100,
+        "max_batch_size": 8,
+        "evaluation_seconds": 27.268288500279596
+      }
+    },
+    {
+      "iteration": 4,
+      "loss": 4.286503791809082,
+      "policy_loss": 3.4503910541534424,
+      "value_loss": 0.8361127972602844,
+      "arena_score": 0.5625,
+      "promoted": true,
+      "positions": 60104,
+      "average_length": 109.5625,
+      "elapsed_seconds": 100.0012155000004,
+      "self_play_seconds": 58.12983250000252,
+      "self_play_games": 16,
+      "self_play_batch": 8,
+      "inference": {
+        "requested_positions": 55217,
+        "evaluated_positions": 39698,
+        "forward_calls": 7515,
+        "cache_hits": 15473,
+        "max_batch_size": 8,
+        "evaluation_seconds": 19.936107100154913
+      }
+    }
+  ],
+  "export": {
+    "game": "pulse",
+    "rules_version": "pulse-v0.1",
+    "model": {
+      "id": "pulse-008f94d2e5bb6cc7",
+      "url": "/models/pulse-008f94d2e5bb6cc7.onnx",
+      "parityUrl": "/models/pulse-008f94d2e5bb6cc7-parity.json",
+      "status": "candidate"
+    },
+    "sha256": "008f94d2e5bb6cc73241f2e7fe26d058e8ae1f69ebfec950069efbb5e6ebc196",
+    "checkpoint_sha256": "28b1486d25c42d501a8b323352b137750d8569624b4d695e332e43710b065c61",
+    "config": {
+      "planes": 7,
+      "height": 5,
+      "width": 5,
+      "actions": 51,
+      "channels": 16,
+      "blocks": 2
+    },
+    "iteration": 4,
+    "arena_score": 0.5625,
+    "promoted": true,
+    "cpu_parity": {
+      "states": 50,
+      "max_error": 1.1920928955078125e-06,
+      "passed": true
+    },
+    "bytes": 62851
+  },
+  "enabled_in_app": false,
+  "release_reason": "Independent strength failed: 1/40 random and 0/40 heuristic wins."
+}

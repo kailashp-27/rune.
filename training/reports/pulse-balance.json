@@ -1,0 +1,22 @@
+{
+  "rules": "pulse-v0.1",
+  "random": {
+    "games": 1000,
+    "gold_wins": 490,
+    "purple_wins": 463,
+    "draws": 47,
+    "first_player_win_rate": 0.49,
+    "average_length": 119.372,
+    "seed": 42
+  },
+  "heuristic": {
+    "games": 200,
+    "gold_wins": 96,
+    "purple_wins": 93,
+    "draws": 11,
+    "first_player_win_rate": 0.48,
+    "average_length": 114.8,
+    "seed": 43
+  },
+  "scope": "Random and one-ply self-play only; not optimal-play balance or measured browser search strength."
+}

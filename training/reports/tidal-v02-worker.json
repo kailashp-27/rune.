@@ -1,0 +1,13 @@
+{
+  "game": "tidal",
+  "passed": true,
+  "productionBundle": "tidal.worker-DW0ErZuW.js",
+  "fixtureRequests": 40,
+  "requestIdsVerified": 49,
+  "errorRecovery": true,
+  "completedGame": {
+    "turns": 7,
+    "winner": 1
+  },
+  "scope": "Node worker_threads shim plus Python rule oracle for production worker messaging; not browser or visual QA"
+}

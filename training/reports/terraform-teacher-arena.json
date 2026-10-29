@@ -1,0 +1,12 @@
+{
+  "game": "terraform",
+  "rules_version": "terraform-v0.1",
+  "challenger_sha256": "6604f82231db42d56e82876549f4062ec58e388269d0611f9b6816dc59109c63",
+  "champion_sha256": "845902e2fb4dd8b6432e5bc1ea448ca148705dcf38bb6de1d554d2d57fb4ba7d",
+  "games": 20,
+  "simulations": 32,
+  "seed": 8191,
+  "score": 1.0,
+  "promoted": true,
+  "scope": "Paired openings, alternating seats. Challenger and champion evaluated with neural PUCT at identical budgets."
+}

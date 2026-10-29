@@ -1,0 +1,20 @@
+{
+  "rules": "terraform-v0-pre-pie",
+  "random": {
+    "games": 1000,
+    "gold_wins": 67,
+    "purple_wins": 52,
+    "draws": 881,
+    "average_length": 77.151,
+    "seed": 42
+  },
+  "heuristic": {
+    "games": 200,
+    "gold_wins": 200,
+    "purple_wins": 0,
+    "draws": 0,
+    "average_length": 12.6,
+    "seed": 43
+  },
+  "scope": "Captured initial audit before adding the swap rule; not a solved-game balance result."
+}

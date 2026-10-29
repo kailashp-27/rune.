@@ -1,0 +1,49 @@
+{
+  "game": "terraform",
+  "rules_version": "terraform-v0.1",
+  "checkpoint_sha256": "6604f82231db42d56e82876549f4062ec58e388269d0611f9b6816dc59109c63",
+  "games_per_opponent": 40,
+  "simulations": 32,
+  "seed": 7241,
+  "opponents": {
+    "random": {
+      "wins": 40,
+      "losses": 0,
+      "draws": 0,
+      "score": 1.0,
+      "average_length": 14.45,
+      "seats": {
+        "1": {
+          "wins": 20,
+          "losses": 0,
+          "draws": 0
+        },
+        "-1": {
+          "wins": 20,
+          "losses": 0,
+          "draws": 0
+        }
+      }
+    },
+    "heuristic": {
+      "wins": 16,
+      "losses": 10,
+      "draws": 14,
+      "score": 0.575,
+      "average_length": 41.225,
+      "seats": {
+        "1": {
+          "wins": 8,
+          "losses": 5,
+          "draws": 7
+        },
+        "-1": {
+          "wins": 8,
+          "losses": 5,
+          "draws": 7
+        }
+      }
+    }
+  },
+  "scope": "Neural PUCT only; random and one-ply heuristic opponents; alternating paired seats, paired two-action random openings, independent chance/search RNG. Not Elo, optimal-play strength, or real-device validation."
+}

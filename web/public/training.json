@@ -1,0 +1,634 @@
+{
+  "schemaVersion": 1,
+  "games": [
+    {
+      "id": "connect4",
+      "name": "Connect Four",
+      "rulesVersion": "connect4-v1",
+      "runs": [
+        {
+          "id": "phase1-batched",
+          "method": "Self-play",
+          "games": 512,
+          "rounds": [
+            {
+              "iteration": 3,
+              "loss": 1.9824920892715454,
+              "policy_loss": 1.6447796821594238,
+              "value_loss": 0.33771243691444397,
+              "arena_score": 0.35,
+              "average_length": 16.8125,
+              "positions": 2152,
+              "promoted": false
+            },
+            {
+              "iteration": 4,
+              "loss": 2.1662001609802246,
+              "policy_loss": 1.7185755968093872,
+              "value_loss": 0.4476246237754822,
+              "arena_score": 0.5,
+              "average_length": 15.640625,
+              "positions": 4154,
+              "promoted": false
+            },
+            {
+              "iteration": 5,
+              "loss": 2.2057738304138184,
+              "policy_loss": 1.7165858745574951,
+              "value_loss": 0.48918792605400085,
+              "arena_score": 0.65,
+              "average_length": 16.53125,
+              "positions": 6270,
+              "promoted": true
+            },
+            {
+              "iteration": 6,
+              "loss": 2.1521921157836914,
+              "policy_loss": 1.6646828651428223,
+              "value_loss": 0.48750922083854675,
+              "arena_score": 0.675,
+              "average_length": 17.421875,
+              "positions": 8500,
+              "promoted": true
+            },
+            {
+              "iteration": 7,
+              "loss": 2.1598050594329834,
+              "policy_loss": 1.687235713005066,
+              "value_loss": 0.47256943583488464,
+              "arena_score": 0.65,
+              "average_length": 16.859375,
+              "positions": 10658,
+              "promoted": true
+            },
+            {
+              "iteration": 8,
+              "loss": 2.0841128826141357,
+              "policy_loss": 1.653806209564209,
+              "value_loss": 0.430306613445282,
+              "arena_score": 0.9,
+              "average_length": 19.578125,
+              "positions": 13164,
+              "promoted": true
+            },
+            {
+              "iteration": 9,
+              "loss": 2.196058750152588,
+              "policy_loss": 1.6632509231567383,
+              "value_loss": 0.5328079462051392,
+              "arena_score": 0.575,
+              "average_length": 18.890625,
+              "positions": 15582,
+              "promoted": true
+            },
+            {
+              "iteration": 10,
+              "loss": 1.9457026720046997,
+              "policy_loss": 1.581363558769226,
+              "value_loss": 0.36433908343315125,
+              "arena_score": 0.65,
+              "average_length": 19.8125,
+              "positions": 18118,
+              "promoted": true
+            }
+          ],
+          "benchmark": {
+            "checkpoint": "training/checkpoints/phase1-batched/best.pt",
+            "checkpoint_sha256": "1f23a64ba90a030c137b09d7a33e868ecaf00726d4a3948159088c7a7ca3ab7a",
+            "games_per_opponent": 40,
+            "simulations": 64,
+            "minimax_depth": 4,
+            "seed": 42,
+            "paired_openings": [
+              [],
+              [],
+              [
+                2,
+                2
+              ],
+              [
+                0
+              ],
+              [],
+              [
+                3,
+                5,
+                1,
+                3
+              ],
+              [],
+              [],
+              [
+                2
+              ],
+              [
+                5,
+                3,
+                5,
+                2
+              ],
+              [
+                1,
+                2,
+                1,
+                5
+              ],
+              [
+                6,
+                6
+              ],
+              [],
+              [
+                0
+              ],
+              [
+                4,
+                4,
+                2
+              ],
+              [
+                6
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                3,
+                4,
+                6
+              ],
+              [
+                5,
+                4
+              ],
+              []
+            ],
+            "opponents": {
+              "random": {
+                "wins": 39,
+                "draws": 0,
+                "losses": 1,
+                "first_player_wins": 19,
+                "second_player_wins": 20,
+                "score": 0.975,
+                "average_remaining_moves": 11.875
+              },
+              "heuristic": {
+                "wins": 12,
+                "draws": 3,
+                "losses": 25,
+                "first_player_wins": 10,
+                "second_player_wins": 2,
+                "score": 0.3375,
+                "average_remaining_moves": 28.375
+              },
+              "minimax": {
+                "wins": 6,
+                "draws": 2,
+                "losses": 32,
+                "first_player_wins": 3,
+                "second_player_wins": 3,
+                "score": 0.175,
+                "average_remaining_moves": 26.5
+              }
+            },
+            "elapsed_seconds": 152.38312110002153,
+            "scope": "Python neural PUCT, without browser tactical override; no perfect-solver benchmark"
+          },
+          "teacher": null
+        }
+      ],
+      "releasedDifficulties": []
+    },
+    {
+      "id": "terraform",
+      "name": "Terraform",
+      "rulesVersion": "terraform-v0.1",
+      "runs": [
+        {
+          "id": "terraform-pipeline",
+          "method": "Self-play",
+          "games": 16,
+          "rounds": [
+            {
+              "iteration": 1,
+              "loss": 5.8860015869140625,
+              "policy_loss": 5.311283111572266,
+              "value_loss": 0.5747184157371521,
+              "arena_score": 0.5,
+              "average_length": 50.625,
+              "positions": 3240,
+              "promoted": false
+            },
+            {
+              "iteration": 2,
+              "loss": 5.680016994476318,
+              "policy_loss": 5.314175605773926,
+              "value_loss": 0.365841269493103,
+              "arena_score": 0.5,
+              "average_length": 68.0,
+              "positions": 7592,
+              "promoted": false
+            }
+          ],
+          "benchmark": null,
+          "teacher": null
+        }
+      ],
+      "releasedDifficulties": []
+    },
+    {
+      "id": "tidal",
+      "name": "Tidal Lock",
+      "rulesVersion": "tidal-v0.2",
+      "runs": [
+        {
+          "id": "tidal-random-smoke",
+          "method": "Self-play",
+          "games": 16,
+          "rounds": [
+            {
+              "iteration": 1,
+              "loss": 4.933923721313477,
+              "policy_loss": 4.324796199798584,
+              "value_loss": 0.6091277003288269,
+              "arena_score": 0.25,
+              "average_length": 16.75,
+              "positions": 268,
+              "promoted": false
+            },
+            {
+              "iteration": 2,
+              "loss": 5.222848415374756,
+              "policy_loss": 4.409415245056152,
+              "value_loss": 0.8134331703186035,
+              "arena_score": 0.5,
+              "average_length": 18.5,
+              "positions": 564,
+              "promoted": false
+            }
+          ],
+          "benchmark": null,
+          "teacher": null
+        }
+      ],
+      "releasedDifficulties": []
+    },
+    {
+      "id": "pulse",
+      "name": "Pulse",
+      "rulesVersion": "pulse-v0.1",
+      "runs": [
+        {
+          "id": "pulse-alpha",
+          "method": "Self-play",
+          "games": 64,
+          "rounds": [
+            {
+              "iteration": 1,
+              "loss": 4.167409420013428,
+              "policy_loss": 3.3957722187042236,
+              "value_loss": 0.7716371417045593,
+              "arena_score": 0.375,
+              "average_length": 120.0,
+              "positions": 15360,
+              "promoted": false
+            },
+            {
+              "iteration": 2,
+              "loss": 4.261000633239746,
+              "policy_loss": 3.4312796592712402,
+              "value_loss": 0.8297207951545715,
+              "arena_score": 0.1875,
+              "average_length": 120.0,
+              "positions": 30720,
+              "promoted": false
+            },
+            {
+              "iteration": 3,
+              "loss": 4.227051258087158,
+              "policy_loss": 3.4461591243743896,
+              "value_loss": 0.7808921337127686,
+              "arena_score": 0.125,
+              "average_length": 120.0,
+              "positions": 46080,
+              "promoted": false
+            },
+            {
+              "iteration": 4,
+              "loss": 4.286503791809082,
+              "policy_loss": 3.4503910541534424,
+              "value_loss": 0.8361127972602844,
+              "arena_score": 0.5625,
+              "average_length": 109.5625,
+              "positions": 60104,
+              "promoted": true
+            }
+          ],
+          "benchmark": {
+            "checkpoint_sha256": "28b1486d25c42d501a8b323352b137750d8569624b4d695e332e43710b065c61",
+            "games_per_opponent": 40,
+            "simulations": 32,
+            "opponents": {
+              "random": {
+                "wins": 1,
+                "draws": 0,
+                "losses": 39,
+                "score": 0.025,
+                "average_length": 83.525
+              },
+              "heuristic": {
+                "wins": 0,
+                "draws": 0,
+                "losses": 40,
+                "score": 0.0,
+                "average_length": 24.15
+              }
+            },
+            "scope": "Neural PUCT without a tactical override, alternating seats with paired two-action random openings. Not Elo or optimal-play strength."
+          },
+          "teacher": null
+        },
+        {
+          "id": "pulse-teacher-v1",
+          "method": "Teacher seed + self-play",
+          "games": 72,
+          "rounds": [
+            {
+              "iteration": 1,
+              "loss": 2.5251102447509766,
+              "policy_loss": 2.0852768421173096,
+              "value_loss": 0.4398334324359894,
+              "arena_score": 0.4166666666666667,
+              "average_length": 105.0,
+              "positions": 20160,
+              "promoted": false
+            },
+            {
+              "iteration": 2,
+              "loss": 2.316228151321411,
+              "policy_loss": 1.881489872932434,
+              "value_loss": 0.43473827838897705,
+              "arena_score": 0.6666666666666666,
+              "average_length": 113.29166666666667,
+              "positions": 41912,
+              "promoted": true
+            },
+            {
+              "iteration": 3,
+              "loss": 2.486170530319214,
+              "policy_loss": 2.0509729385375977,
+              "value_loss": 0.4351976215839386,
+              "arena_score": 0.6666666666666666,
+              "average_length": 112.45833333333333,
+              "positions": 63504,
+              "promoted": true
+            }
+          ],
+          "benchmark": {
+            "game": "pulse",
+            "rules_version": "pulse-v0.1",
+            "checkpoint_sha256": "2b1bea27973833292882f29ab5736385b143c55dc4428bc59d3a2d6afaa6ddfe",
+            "games_per_opponent": 40,
+            "simulations": 32,
+            "seed": 7241,
+            "opponents": {
+              "random": {
+                "wins": 40,
+                "losses": 0,
+                "draws": 0,
+                "score": 1.0,
+                "average_length": 56.6,
+                "seats": {
+                  "1": {
+                    "wins": 20,
+                    "losses": 0,
+                    "draws": 0
+                  },
+                  "-1": {
+                    "wins": 20,
+                    "losses": 0,
+                    "draws": 0
+                  }
+                }
+              },
+              "heuristic": {
+                "wins": 29,
+                "losses": 11,
+                "draws": 0,
+                "score": 0.725,
+                "average_length": 116.6,
+                "seats": {
+                  "1": {
+                    "wins": 15,
+                    "losses": 5,
+                    "draws": 0
+                  },
+                  "-1": {
+                    "wins": 14,
+                    "losses": 6,
+                    "draws": 0
+                  }
+                }
+              }
+            },
+            "scope": "Neural PUCT only; random and one-ply heuristic opponents; alternating paired seats, paired two-action random openings, independent chance/search RNG. Not Elo, optimal-play strength, or real-device validation."
+          },
+          "teacher": {
+            "game": "pulse",
+            "rules_version": "pulse-v0.1",
+            "method": "heuristic-teacher-bootstrap",
+            "teacher_depth": 1,
+            "seed": 610,
+            "games": 64,
+            "positions": 27000,
+            "steps": 1200,
+            "loss": 2.1072733402252197,
+            "average_length": 117.125,
+            "elapsed_seconds": 59.89059699999052,
+            "qualified": false,
+            "held_value_mse": 0.09589223563671112,
+            "held_policy_loss": 2.2649264335632324
+          }
+        }
+      ],
+      "releasedDifficulties": [
+        "Medium"
+      ]
+    },
+    {
+      "id": "fortress",
+      "name": "Fortress",
+      "rulesVersion": "fortress-v0.1",
+      "runs": [
+        {
+          "id": "fortress-alpha",
+          "method": "Self-play",
+          "games": 32,
+          "rounds": [
+            {
+              "iteration": 1,
+              "loss": 4.794487953186035,
+              "policy_loss": 4.145169258117676,
+              "value_loss": 0.6493188142776489,
+              "arena_score": 1.0,
+              "average_length": 36.375,
+              "positions": 4656,
+              "promoted": true
+            },
+            {
+              "iteration": 2,
+              "loss": 4.183420658111572,
+              "policy_loss": 3.563317060470581,
+              "value_loss": 0.6201034188270569,
+              "arena_score": 0.625,
+              "average_length": 11.1875,
+              "positions": 6088,
+              "promoted": true
+            }
+          ],
+          "benchmark": {
+            "game": "fortress",
+            "rules_version": "fortress-v0.1",
+            "checkpoint_sha256": "c27521269e9da34091be41763c0ea15a7b59c65dc8792733d2d0bbaaa3df7392",
+            "games_per_opponent": 40,
+            "simulations": 48,
+            "seed": 7241,
+            "opponents": {
+              "random": {
+                "wins": 40,
+                "losses": 0,
+                "draws": 0,
+                "score": 1.0,
+                "average_length": 10.15,
+                "seats": {
+                  "1": {
+                    "wins": 20,
+                    "losses": 0,
+                    "draws": 0
+                  },
+                  "-1": {
+                    "wins": 20,
+                    "losses": 0,
+                    "draws": 0
+                  }
+                }
+              },
+              "heuristic": {
+                "wins": 29,
+                "losses": 11,
+                "draws": 0,
+                "score": 0.725,
+                "average_length": 12.075,
+                "seats": {
+                  "1": {
+                    "wins": 20,
+                    "losses": 0,
+                    "draws": 0
+                  },
+                  "-1": {
+                    "wins": 9,
+                    "losses": 11,
+                    "draws": 0
+                  }
+                }
+              }
+            },
+            "scope": "Neural PUCT only; random and one-ply heuristic opponents; alternating paired seats, paired two-action random openings, independent chance/search RNG. Not Elo, optimal-play strength, or real-device validation."
+          },
+          "teacher": null
+        }
+      ],
+      "releasedDifficulties": [
+        "Medium"
+      ]
+    },
+    {
+      "id": "mirror",
+      "name": "Mirror Siege",
+      "rulesVersion": "mirror-v0.1",
+      "runs": [
+        {
+          "id": "mirror-alpha",
+          "method": "Self-play",
+          "games": 32,
+          "rounds": [
+            {
+              "iteration": 1,
+              "loss": 4.43281364440918,
+              "policy_loss": 4.085514545440674,
+              "value_loss": 0.347299188375473,
+              "arena_score": 0.75,
+              "average_length": 96.5,
+              "positions": 12352,
+              "promoted": true
+            },
+            {
+              "iteration": 2,
+              "loss": 3.556468963623047,
+              "policy_loss": 3.3175594806671143,
+              "value_loss": 0.2389094978570938,
+              "arena_score": 0.375,
+              "average_length": 100.0,
+              "positions": 25152,
+              "promoted": false
+            }
+          ],
+          "benchmark": {
+            "game": "mirror",
+            "rules_version": "mirror-v0.1",
+            "checkpoint_sha256": "0f6aad356a8e3d0507bd1b75219336b76faf1290082166be2b6382ce0e2fed30",
+            "games_per_opponent": 40,
+            "simulations": 48,
+            "seed": 7241,
+            "opponents": {
+              "random": {
+                "wins": 31,
+                "losses": 2,
+                "draws": 7,
+                "score": 0.8625,
+                "average_length": 95.0,
+                "seats": {
+                  "1": {
+                    "wins": 17,
+                    "losses": 0,
+                    "draws": 3
+                  },
+                  "-1": {
+                    "wins": 14,
+                    "losses": 2,
+                    "draws": 4
+                  }
+                }
+              },
+              "heuristic": {
+                "wins": 33,
+                "losses": 4,
+                "draws": 3,
+                "score": 0.8625,
+                "average_length": 91.575,
+                "seats": {
+                  "1": {
+                    "wins": 17,
+                    "losses": 2,
+                    "draws": 1
+                  },
+                  "-1": {
+                    "wins": 16,
+                    "losses": 2,
+                    "draws": 2
+                  }
+                }
+              }
+            },
+            "scope": "Neural PUCT only; random and one-ply heuristic opponents; alternating paired seats, paired two-action random openings, independent chance/search RNG. Not Elo, optimal-play strength, or real-device validation."
+          },
+          "teacher": null
+        }
+      ],
+      "releasedDifficulties": []
+    }
+  ],
+  "scope": "Recorded local experiments. Arena score compares checkpoints within a run; independent benchmark score compares random/one-ply opponents. No measured Elo or calibrated win probabilities are available."
+}

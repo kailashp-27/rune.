@@ -1,0 +1,17 @@
+{
+  "modelId": "connect4-d426ee3b7db7e616",
+  "states": 50,
+  "maxError": 0.0000018402934074401855,
+  "passed": true,
+  "checkedAt": "2026-10-26T08:31:36.347Z",
+  "neuralSearch": {
+    "passed": true,
+    "action": 0,
+    "simulations": 80
+  },
+  "fallback": {
+    "passed": true,
+    "engine": "rollout"
+  },
+  "runtime": "onnxruntime-web/wasm, single thread"
+}

@@ -1,0 +1,49 @@
+{
+  "game": "fortress",
+  "rules_version": "fortress-v0.1",
+  "checkpoint_sha256": "c27521269e9da34091be41763c0ea15a7b59c65dc8792733d2d0bbaaa3df7392",
+  "games_per_opponent": 40,
+  "simulations": 48,
+  "seed": 7241,
+  "opponents": {
+    "random": {
+      "wins": 40,
+      "losses": 0,
+      "draws": 0,
+      "score": 1.0,
+      "average_length": 10.15,
+      "seats": {
+        "1": {
+          "wins": 20,
+          "losses": 0,
+          "draws": 0
+        },
+        "-1": {
+          "wins": 20,
+          "losses": 0,
+          "draws": 0
+        }
+      }
+    },
+    "heuristic": {
+      "wins": 29,
+      "losses": 11,
+      "draws": 0,
+      "score": 0.725,
+      "average_length": 12.075,
+      "seats": {
+        "1": {
+          "wins": 20,
+          "losses": 0,
+          "draws": 0
+        },
+        "-1": {
+          "wins": 9,
+          "losses": 11,
+          "draws": 0
+        }
+      }
+    }
+  },
+  "scope": "Neural PUCT only; random and one-ply heuristic opponents; alternating paired seats, paired two-action random openings, independent chance/search RNG. Not Elo, optimal-play strength, or real-device validation."
+}

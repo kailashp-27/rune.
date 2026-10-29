@@ -1,0 +1,13 @@
+{
+  "game": "pulse",
+  "passed": true,
+  "productionBundle": "pulse.worker-DC_Be4Md.js",
+  "fixtureRequests": 40,
+  "requestIdsVerified": 162,
+  "errorRecovery": true,
+  "completedGame": {
+    "turns": 120,
+    "winner": -1
+  },
+  "scope": "Node worker_threads shim plus Python rule oracle for production worker messaging; not browser or visual QA"
+}

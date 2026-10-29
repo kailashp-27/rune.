@@ -1,0 +1,25 @@
+{
+  "rules": "pulse-v0.1",
+  "benchmark": {
+    "checkpoint_sha256": "28b1486d25c42d501a8b323352b137750d8569624b4d695e332e43710b065c61",
+    "games_per_opponent": 40,
+    "simulations": 32,
+    "opponents": {
+      "random": {
+        "wins": 1,
+        "draws": 0,
+        "losses": 39,
+        "score": 0.025,
+        "average_length": 83.525
+      },
+      "heuristic": {
+        "wins": 0,
+        "draws": 0,
+        "losses": 40,
+        "score": 0.0,
+        "average_length": 24.15
+      }
+    },
+    "scope": "Neural PUCT without a tactical override, alternating seats with paired two-action random openings. Not Elo or optimal-play strength."
+  }
+}

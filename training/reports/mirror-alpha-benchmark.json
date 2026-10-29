@@ -1,0 +1,49 @@
+{
+  "game": "mirror",
+  "rules_version": "mirror-v0.1",
+  "checkpoint_sha256": "0f6aad356a8e3d0507bd1b75219336b76faf1290082166be2b6382ce0e2fed30",
+  "games_per_opponent": 40,
+  "simulations": 48,
+  "seed": 7241,
+  "opponents": {
+    "random": {
+      "wins": 31,
+      "losses": 2,
+      "draws": 7,
+      "score": 0.8625,
+      "average_length": 95.0,
+      "seats": {
+        "1": {
+          "wins": 17,
+          "losses": 0,
+          "draws": 3
+        },
+        "-1": {
+          "wins": 14,
+          "losses": 2,
+          "draws": 4
+        }
+      }
+    },
+    "heuristic": {
+      "wins": 33,
+      "losses": 4,
+      "draws": 3,
+      "score": 0.8625,
+      "average_length": 91.575,
+      "seats": {
+        "1": {
+          "wins": 17,
+          "losses": 2,
+          "draws": 1
+        },
+        "-1": {
+          "wins": 16,
+          "losses": 2,
+          "draws": 2
+        }
+      }
+    }
+  },
+  "scope": "Neural PUCT only; random and one-ply heuristic opponents; alternating paired seats, paired two-action random openings, independent chance/search RNG. Not Elo, optimal-play strength, or real-device validation."
+}

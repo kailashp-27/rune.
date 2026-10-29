@@ -1,0 +1,12 @@
+{
+  "game": "pulse",
+  "rules_version": "pulse-v0.1",
+  "challenger_sha256": "2b1bea27973833292882f29ab5736385b143c55dc4428bc59d3a2d6afaa6ddfe",
+  "champion_sha256": "28b1486d25c42d501a8b323352b137750d8569624b4d695e332e43710b065c61",
+  "games": 20,
+  "simulations": 32,
+  "seed": 8191,
+  "score": 1.0,
+  "promoted": true,
+  "scope": "Paired openings, alternating seats. Challenger and champion evaluated with neural PUCT at identical budgets."
+}

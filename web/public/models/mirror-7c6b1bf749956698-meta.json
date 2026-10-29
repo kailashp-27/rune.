@@ -1,0 +1,31 @@
+{
+  "game": "mirror",
+  "rules_version": "mirror-v0.1",
+  "model": {
+    "game": "mirror",
+    "rulesVersion": "mirror-v0.1",
+    "id": "mirror-7c6b1bf749956698",
+    "url": "/models/mirror-7c6b1bf749956698.onnx",
+    "parityUrl": "/models/mirror-7c6b1bf749956698-parity.json",
+    "status": "candidate"
+  },
+  "sha256": "7c6b1bf749956698baf39d05c763f77180177b42fb4b1a3b9cb1dbd92c1c84c5",
+  "checkpoint_sha256": "0f6aad356a8e3d0507bd1b75219336b76faf1290082166be2b6382ce0e2fed30",
+  "config": {
+    "planes": 6,
+    "height": 5,
+    "width": 5,
+    "actions": 625,
+    "channels": 16,
+    "blocks": 2
+  },
+  "iteration": 1,
+  "arena_score": 0.75,
+  "promoted": true,
+  "cpu_parity": {
+    "states": 50,
+    "max_error": 3.814697265625e-06,
+    "passed": true
+  },
+  "bytes": 179376
+}

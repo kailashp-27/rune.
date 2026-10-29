@@ -1,0 +1,19 @@
+{
+  "modelId": "tidal-1296c983242f7d04",
+  "game": "tidal",
+  "rulesVersion": "tidal-v0.2",
+  "states": 50,
+  "maxError": 4.172325134277344e-7,
+  "passed": true,
+  "checkedAt": "2026-10-29T16:52:06.613Z",
+  "neuralSearch": {
+    "passed": true,
+    "action": 23,
+    "simulations": 240
+  },
+  "fallback": {
+    "passed": true,
+    "engine": "heuristic"
+  },
+  "runtime": "onnxruntime-web/wasm, single thread"
+}

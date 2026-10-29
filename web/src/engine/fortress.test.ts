@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {createReadStream,readFileSync} from 'node:fs';
+import {createInterface} from 'node:readline';
+import * as g from './fortress';
+import {searchFortress} from './fortress-search';
+test('Fortress Python/TS full-mask and transition parity',async()=>{let count=0;for await(const line of createInterface({input:createReadStream(new URL(process.env.RUNE_FORTRESS_PARITY_FILE||'../../../parity/fortress.jsonl',import.meta.url)),crlfDelay:Infinity})){const f=JSON.parse(line);assert.deepEqual(g.legalMoves(f.state).flatMap((ok,a)=>ok?[a]:[]),f.legal_actions);assert.deepEqual(g.applyMove(f.state,f.action),f.next_state);assert.deepEqual(g.isTerminal(f.next_state),f.terminal);count++;}assert.ok(count>100);});
+test('Fortress encoding and policy symmetries match Python',()=>{const fixtures=JSON.parse(readFileSync(new URL('../../../parity/fortress-symmetry.json',import.meta.url),'utf8'));for(const f of fixtures){assert.deepEqual(g.encode(f.state),f.encoded);assert.deepEqual(g.symmetries(f.state,f.policy),f.symmetries.map(([state,policy]:[g.State,number[]])=>({state,policy})));}});
+test('Fortress rook blockers and simultaneous line captures',()=>{const s=g.initialState();assert.equal(g.legalMoves(s)[20*25+22],false);assert.throws(()=>g.applyMove(s,20*25+16));s.board=Array(25).fill(0);for(const [c,p] of [[10,1],[2,1],[7,-1],[13,-1],[14,1],[17,-1],[22,1],[24,-1]])s.board[c]=p;const n=g.applyMove(s,10*25+12);assert.deepEqual(n.captured,[7,13,17]);assert.equal(s.board[7],-1);assert.equal(n.hold[0],1);});
+test('Fortress center hold wins only after three own turns and leaving resets it',()=>{const s=g.initialState();s.board=Array(25).fill(0);s.board[12]=1;s.board[20]=1;s.board[4]=-1;s.hold=[2,0];const result=searchFortress(s,2,100);assert.equal(g.isTerminal(g.applyMove(s,result.action)).winner,1);assert.equal(g.applyMove(s,12*25+13).hold[0],0);assert.ok(g.legalMoves(g.initialState())[searchFortress(g.initialState(),5,1).action]);});

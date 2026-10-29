@@ -1,0 +1,31 @@
+{
+  "game": "fortress",
+  "rules_version": "fortress-v0.1",
+  "model": {
+    "game": "fortress",
+    "rulesVersion": "fortress-v0.1",
+    "id": "fortress-129d96f789a5398b",
+    "url": "/models/fortress-129d96f789a5398b.onnx",
+    "parityUrl": "/models/fortress-129d96f789a5398b-parity.json",
+    "status": "candidate"
+  },
+  "sha256": "129d96f789a5398bed6c3699a66e2f50436603fbfe4fa0da270e3e584f88b9d1",
+  "checkpoint_sha256": "c27521269e9da34091be41763c0ea15a7b59c65dc8792733d2d0bbaaa3df7392",
+  "config": {
+    "planes": 6,
+    "height": 5,
+    "width": 5,
+    "actions": 625,
+    "channels": 16,
+    "blocks": 2
+  },
+  "iteration": 2,
+  "arena_score": 0.625,
+  "promoted": true,
+  "cpu_parity": {
+    "states": 50,
+    "max_error": 5.7220458984375e-06,
+    "passed": true
+  },
+  "bytes": 179376
+}

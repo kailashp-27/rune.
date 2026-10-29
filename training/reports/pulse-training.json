@@ -1,0 +1,58 @@
+{
+  "rules": "pulse-v0.1",
+  "scope": "Training/export integration check only; not strength-qualified.",
+  "rounds": [
+    {
+      "iteration": 1,
+      "loss": 4.794853687286377,
+      "policy_loss": 3.8102192878723145,
+      "value_loss": 0.984634280204773,
+      "arena_score": 0.0,
+      "promoted": false,
+      "positions": 3000,
+      "average_length": 93.75,
+      "elapsed_seconds": 49.55170320000616,
+      "self_play_seconds": 22.893687200004933,
+      "self_play_games": 4,
+      "self_play_batch": 4,
+      "inference": {
+        "requested_positions": 5925,
+        "evaluated_positions": 4595,
+        "forward_calls": 1759,
+        "cache_hits": 1317,
+        "max_batch_size": 4,
+        "evaluation_seconds": 11.431155500074965
+      }
+    }
+  ],
+  "export": {
+    "game": "pulse",
+    "rules_version": "pulse-v0.1",
+    "model": {
+      "id": "pulse-831e578a6681c619",
+      "url": "/models/pulse-831e578a6681c619.onnx",
+      "parityUrl": "/models/pulse-831e578a6681c619-parity.json",
+      "status": "candidate"
+    },
+    "sha256": "831e578a6681c619417dd7421c56e240210bb9f4e18d307ec1ac36b468724654",
+    "checkpoint_sha256": "984e4059fe772ed16676aff55d4aab0215af4f20da65d87085572459fbcf1feb",
+    "config": {
+      "planes": 7,
+      "height": 5,
+      "width": 5,
+      "actions": 51,
+      "channels": 16,
+      "blocks": 2
+    },
+    "iteration": 1,
+    "arena_score": 0.0,
+    "promoted": false,
+    "cpu_parity": {
+      "states": 50,
+      "max_error": 1.1920928955078125e-07,
+      "passed": true
+    },
+    "bytes": 62851
+  },
+  "enabled_in_app": false
+}

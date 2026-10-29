@@ -1,0 +1,77 @@
+{
+  "training": {
+    "rounds": 8,
+    "self_play_games": 512,
+    "simulations": 64,
+    "self_play_batch": 16,
+    "replay_entries": 18118,
+    "arena_promotions": 6,
+    "elapsed_seconds": 653.824989500019,
+    "self_play_seconds": 316.4726798000338
+  },
+  "profile_speedup": 1.9009329928019298,
+  "benchmark": {
+    "random": {
+      "wins": 39,
+      "draws": 0,
+      "losses": 1,
+      "first_player_wins": 19,
+      "second_player_wins": 20,
+      "score": 0.975,
+      "average_remaining_moves": 11.875
+    },
+    "heuristic": {
+      "wins": 12,
+      "draws": 3,
+      "losses": 25,
+      "first_player_wins": 10,
+      "second_player_wins": 2,
+      "score": 0.3375,
+      "average_remaining_moves": 28.375
+    },
+    "minimax": {
+      "wins": 6,
+      "draws": 2,
+      "losses": 32,
+      "first_player_wins": 3,
+      "second_player_wins": 3,
+      "score": 0.175,
+      "average_remaining_moves": 26.5
+    }
+  },
+  "export": {
+    "model": {
+      "id": "connect4-fdc4326ddece562d",
+      "url": "/models/connect4-fdc4326ddece562d.onnx",
+      "parityUrl": "/models/connect4-fdc4326ddece562d-parity.json",
+      "status": "candidate"
+    },
+    "sha256": "fdc4326ddece562d779259f0acd691a9bff2ce5e032e7e64e1409e1f902f6611",
+    "checkpoint_sha256": "1f23a64ba90a030c137b09d7a33e868ecaf00726d4a3948159088c7a7ca3ab7a",
+    "config": {
+      "planes": 3,
+      "height": 6,
+      "width": 7,
+      "actions": 7,
+      "channels": 32,
+      "blocks": 4
+    },
+    "iteration": 10,
+    "arena_score": 0.65,
+    "promoted": true,
+    "cpu_parity": {
+      "states": 50,
+      "max_error": 1.8477439880371094e-06,
+      "passed": true
+    },
+    "bytes": 319625
+  },
+  "runtime": {
+    "python": "3.12.10",
+    "torch": "2.12.0",
+    "device": "cpu",
+    "threads": 2
+  },
+  "strength_gate_passed": false,
+  "decision": "Not activated: random wins 39/40; heuristic score 33.75%, below release thresholds. New candidate browser parity has not been run."
+}

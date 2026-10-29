@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {createReadStream,readFileSync} from 'node:fs';
+import {createInterface} from 'node:readline';
+import * as g from './mirror';
+import {searchMirror} from './mirror-search';
+test('Mirror Siege Python/TS masks, ghosts, expiry and transition parity',async()=>{let count=0;for await(const line of createInterface({input:createReadStream(new URL(process.env.RUNE_MIRROR_PARITY_FILE||'../../../parity/mirror.jsonl',import.meta.url)),crlfDelay:Infinity})){const f=JSON.parse(line);assert.deepEqual(g.legalMoves(f.state).flatMap((ok,a)=>ok?[a]:[]),f.legal_actions);assert.deepEqual(g.applyMove(f.state,f.action),f.next_state);assert.deepEqual(g.isTerminal(f.next_state),f.terminal);count++;}assert.ok(count>100);});
+test('Mirror Siege encoding and all eight policy/state symmetries match Python',()=>{const fixtures=JSON.parse(readFileSync(new URL('../../../parity/mirror-symmetry.json',import.meta.url),'utf8'));for(const f of fixtures){assert.deepEqual(g.encode(f.state),f.encoded);assert.deepEqual(g.symmetries(f.state,f.policy),f.symmetries.map(([state,policy]:[g.State,number[]])=>({state,policy})));}});
+test('Mirror ghost blocks rays, expires after the reply and cannot close a capture',()=>{const initial=g.initialState(),a=g.applyMove(initial,21*25+11),b=g.applyMove(a,1*25+6);assert.equal(a.ghosts[21],1);assert.equal(b.ghostTimers[21],0);assert.equal(b.ghosts[1],-1);assert.deepEqual(initial,g.initialState());const s=g.initialState();s.board=Array(25).fill(0);s.board[10]=1;s.board[12]=-1;s.board[4]=-1;s.ghosts[13]=1;s.ghostTimers[13]=1;const n=g.applyMove(s,10*25+11);assert.deepEqual(n.captured,[]);assert.equal(n.board[12],-1);assert.equal(n.ghostTimers[13],0);});
+test('Mirror search stays legal, solid pieces decide the cap, ghosts never count',()=>{const s=g.initialState();assert.ok(g.legalMoves(s)[searchMirror(s,3,1).action]);s.turn=100;s.ghosts[12]=1;s.ghostTimers[12]=1;assert.deepEqual(g.isTerminal(s),{done:true,winner:0});assert.ok(g.legalMoves(s).every(ok=>!ok));});

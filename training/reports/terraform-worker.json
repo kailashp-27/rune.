@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "productionBundle": "terraform.worker-BFlIFPPp.js",
+  "fixtureRequests": 40,
+  "requestIdsVerified": 56,
+  "errorRecovery": true,
+  "completedGame": {
+    "turns": 14,
+    "winner": -1
+  },
+  "scope": "Node worker_threads shim plus Python rule oracle for production worker messaging; not browser or visual QA"
+}

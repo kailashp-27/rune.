@@ -1,0 +1,31 @@
+{
+  "game": "tidal",
+  "rules_version": "tidal-v0.2",
+  "model": {
+    "game": "tidal",
+    "rulesVersion": "tidal-v0.2",
+    "id": "tidal-1296c983242f7d04",
+    "url": "/models/tidal-1296c983242f7d04.onnx",
+    "parityUrl": "/models/tidal-1296c983242f7d04-parity.json",
+    "status": "candidate"
+  },
+  "sha256": "1296c983242f7d04b2dd3f9f92af0e334e8d26494795b399e8b18511de154604",
+  "checkpoint_sha256": "5a46afa6253eb2df872c88d575a0472c54acf86d980b443afbc4ae72f12ce5b4",
+  "config": {
+    "planes": 6,
+    "height": 5,
+    "width": 5,
+    "actions": 125,
+    "channels": 16,
+    "blocks": 2
+  },
+  "iteration": 2,
+  "arena_score": 0.5,
+  "promoted": false,
+  "cpu_parity": {
+    "states": 50,
+    "max_error": 3.5762786865234375e-07,
+    "passed": true
+  },
+  "bytes": 77373
+}

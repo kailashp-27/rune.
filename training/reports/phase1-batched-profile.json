@@ -1,0 +1,38 @@
+{
+  "checkpoint_sha256": "4049c3ded5f1328017a584aa7c450d1cc2c2fb84178b9d6c43b40b182334d846",
+  "games": 16,
+  "simulations": 32,
+  "batch_size": 8,
+  "seed": 73,
+  "threads": 2,
+  "results": {
+    "scalar": {
+      "seconds": 7.254142599995248,
+      "positions": 247,
+      "positions_per_second": 34.04950986215267,
+      "inference": {
+        "requested_positions": 7071,
+        "evaluated_positions": 3537,
+        "forward_calls": 3537,
+        "cache_hits": 3534,
+        "max_batch_size": 1,
+        "evaluation_seconds": 5.643672099773539
+      }
+    },
+    "batched": {
+      "seconds": 3.8160958999942522,
+      "positions": 247,
+      "positions_per_second": 64.7258366857007,
+      "inference": {
+        "requested_positions": 7071,
+        "evaluated_positions": 3537,
+        "forward_calls": 1157,
+        "cache_hits": 3462,
+        "max_batch_size": 8,
+        "evaluation_seconds": 2.7035818989097606
+      }
+    }
+  },
+  "wall_time_speedup": 1.9009329928019298,
+  "note": "CPU reference measurement; float rounding across tensor batch sizes may change near-tied search choices. No playing-strength claim."
+}

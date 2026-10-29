@@ -1,0 +1,46 @@
+name: Rune checks
+on: [push, pull_request]
+jobs:
+  neural-training-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: training/requirements.txt
+      - run: python -m pip install "torch>=2.6,<3" --index-url https://download.pytorch.org/whl/cpu
+      - run: python -m unittest discover -s training/tests
+  rules-and-web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: python -m unittest discover -s training/tests
+      - run: python -m training.generate_parity --games 2000
+      - run: python -m training.generate_parity --game terraform --games 2000
+      - run: python -m training.generate_parity --game tidal --games 2000 --output parity/tidal-full.jsonl
+      - run: python -m training.generate_parity --game pulse --games 2000 --output parity/pulse-full.jsonl
+      - run: python -m training.generate_parity --game fortress --games 2000 --output parity/fortress-full.jsonl
+      - run: python -m training.generate_parity --game mirror --games 2000 --output parity/mirror-full.jsonl
+      - run: npm ci
+        working-directory: web
+      - run: npm test
+        working-directory: web
+        env:
+          RUNE_TIDAL_PARITY_FILE: ../../../parity/tidal-full.jsonl
+          RUNE_PULSE_PARITY_FILE: ../../../parity/pulse-full.jsonl
+          RUNE_FORTRESS_PARITY_FILE: ../../../parity/fortress-full.jsonl
+          RUNE_MIRROR_PARITY_FILE: ../../../parity/mirror-full.jsonl
+      - run: npm run build
+        working-directory: web
+      - run: npm run test:workers
+        working-directory: web

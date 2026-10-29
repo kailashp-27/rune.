@@ -1,0 +1,49 @@
+{
+  "game": "tidal",
+  "rules_version": "tidal-v0.2",
+  "checkpoint_sha256": "08e9087e73560221590482b252bb4477fccbdfffa804df3671608cfd4984ee8c",
+  "games_per_opponent": 40,
+  "simulations": 32,
+  "seed": 7241,
+  "opponents": {
+    "random": {
+      "wins": 38,
+      "losses": 2,
+      "draws": 0,
+      "score": 0.95,
+      "average_length": 12.85,
+      "seats": {
+        "1": {
+          "wins": 20,
+          "losses": 0,
+          "draws": 0
+        },
+        "-1": {
+          "wins": 18,
+          "losses": 2,
+          "draws": 0
+        }
+      }
+    },
+    "heuristic": {
+      "wins": 1,
+      "losses": 39,
+      "draws": 0,
+      "score": 0.025,
+      "average_length": 8.425,
+      "seats": {
+        "1": {
+          "wins": 1,
+          "losses": 19,
+          "draws": 0
+        },
+        "-1": {
+          "wins": 0,
+          "losses": 20,
+          "draws": 0
+        }
+      }
+    }
+  },
+  "scope": "Neural PUCT only; random and one-ply heuristic opponents; alternating paired seats, paired two-action random openings, independent chance/search RNG. Not Elo, optimal-play strength, or real-device validation."
+}

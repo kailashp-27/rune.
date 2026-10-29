@@ -1,0 +1,13 @@
+{
+  "game": "mirror",
+  "passed": true,
+  "productionBundle": "mirror.worker-d0kNsWR5.js",
+  "fixtureRequests": 40,
+  "requestIdsVerified": 142,
+  "errorRecovery": true,
+  "completedGame": {
+    "turns": 100,
+    "winner": 0
+  },
+  "scope": "Node worker_threads shim plus Python rule oracle for production worker messaging; not browser or visual QA"
+}

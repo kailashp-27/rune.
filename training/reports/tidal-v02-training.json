@@ -1,0 +1,80 @@
+{
+  "rules": "tidal-v0.2",
+  "scope": "Chance-aware training/export integration check only; not a strength-qualified model.",
+  "rounds": [
+    {
+      "iteration": 1,
+      "loss": 4.933923721313477,
+      "policy_loss": 4.324796199798584,
+      "value_loss": 0.6091277003288269,
+      "arena_score": 0.25,
+      "promoted": false,
+      "positions": 268,
+      "average_length": 16.75,
+      "elapsed_seconds": 17.599466499999835,
+      "self_play_seconds": 3.9708442999999534,
+      "self_play_games": 8,
+      "self_play_batch": 4,
+      "inference": {
+        "requested_positions": 2073,
+        "evaluated_positions": 2007,
+        "forward_calls": 604,
+        "cache_hits": 66,
+        "max_batch_size": 4,
+        "evaluation_seconds": 3.003976000007242
+      }
+    },
+    {
+      "iteration": 2,
+      "loss": 5.222848415374756,
+      "policy_loss": 4.409415245056152,
+      "value_loss": 0.8134331703186035,
+      "arena_score": 0.5,
+      "promoted": false,
+      "positions": 564,
+      "average_length": 18.5,
+      "elapsed_seconds": 5.994071999999505,
+      "self_play_seconds": 3.9949642999999924,
+      "self_play_games": 8,
+      "self_play_batch": 4,
+      "inference": {
+        "requested_positions": 2277,
+        "evaluated_positions": 2208,
+        "forward_calls": 678,
+        "cache_hits": 69,
+        "max_batch_size": 4,
+        "evaluation_seconds": 2.9283506000192574
+      }
+    }
+  ],
+  "export": {
+    "game": "tidal",
+    "rules_version": "tidal-v0.2",
+    "model": {
+      "id": "tidal-1296c983242f7d04",
+      "url": "/models/tidal-1296c983242f7d04.onnx",
+      "parityUrl": "/models/tidal-1296c983242f7d04-parity.json",
+      "status": "candidate"
+    },
+    "sha256": "1296c983242f7d04b2dd3f9f92af0e334e8d26494795b399e8b18511de154604",
+    "checkpoint_sha256": "5a46afa6253eb2df872c88d575a0472c54acf86d980b443afbc4ae72f12ce5b4",
+    "config": {
+      "planes": 6,
+      "height": 5,
+      "width": 5,
+      "actions": 125,
+      "channels": 16,
+      "blocks": 2
+    },
+    "iteration": 2,
+    "arena_score": 0.5,
+    "promoted": false,
+    "cpu_parity": {
+      "states": 50,
+      "max_error": 3.5762786865234375e-07,
+      "passed": true
+    },
+    "bytes": 77373
+  },
+  "enabled_in_app": false
+}

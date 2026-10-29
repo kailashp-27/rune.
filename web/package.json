@@ -1,0 +1,29 @@
+{
+  "name": "rune-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "test": "tsx --test src/engine/*.test.ts",
+    "predev": "node scripts/prepare-ort.mjs",
+    "prebuild": "node scripts/prepare-ort.mjs",
+    "test:workers": "node scripts/check-terraform-worker.mjs && node scripts/check-terraform-worker.mjs --game tidal && node scripts/check-terraform-worker.mjs --game pulse && node scripts/check-terraform-worker.mjs --game fortress && node scripts/check-terraform-worker.mjs --game mirror"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "onnxruntime-web": "^1.23.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.4.0",
+    "tsx": "^4.19.0",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.0"
+  }
+}

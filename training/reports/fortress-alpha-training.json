@@ -1,0 +1,62 @@
+{
+  "game": "fortress",
+  "rounds": [
+    {
+      "iteration": 1,
+      "loss": 4.794487953186035,
+      "policy_loss": 4.145169258117676,
+      "value_loss": 0.6493188142776489,
+      "arena_score": 1.0,
+      "promoted": true,
+      "positions": 4656,
+      "average_length": 36.375,
+      "elapsed_seconds": 55.78581279999344,
+      "self_play_seconds": 36.341111400019145,
+      "self_play_games": 16,
+      "self_play_batch": 8,
+      "inference": {
+        "requested_positions": 26780,
+        "evaluated_positions": 20394,
+        "forward_calls": 4655,
+        "cache_hits": 6378,
+        "max_batch_size": 8,
+        "evaluation_seconds": 17.278005300555378
+      },
+      "opening": {
+        "value": 0.09398376941680908,
+        "policy_entropy": 2.6365885199803185,
+        "top_action": 505,
+        "top_probability": 0.0807994157075882
+      }
+    },
+    {
+      "iteration": 2,
+      "loss": 4.183420658111572,
+      "policy_loss": 3.563317060470581,
+      "value_loss": 0.6201034188270569,
+      "arena_score": 0.625,
+      "promoted": true,
+      "positions": 6088,
+      "average_length": 11.1875,
+      "elapsed_seconds": 21.39218009999604,
+      "self_play_seconds": 10.197211199993035,
+      "self_play_games": 16,
+      "self_play_batch": 8,
+      "inference": {
+        "requested_positions": 7290,
+        "evaluated_positions": 3881,
+        "forward_calls": 1145,
+        "cache_hits": 3374,
+        "max_batch_size": 8,
+        "evaluation_seconds": 3.7333523005072493
+      },
+      "opening": {
+        "value": 0.1270948201417923,
+        "policy_entropy": 2.5026255144033707,
+        "top_action": 593,
+        "top_probability": 0.1654817909002304
+      }
+    }
+  ],
+  "teacher": null
+}

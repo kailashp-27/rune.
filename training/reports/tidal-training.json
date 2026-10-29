@@ -1,0 +1,127 @@
+{
+  "rules": "tidal-v0.1",
+  "seed": 42,
+  "rounds": [
+    {
+      "iteration": 1,
+      "loss": 3.8837788105010986,
+      "policy_loss": 3.7548668384552,
+      "value_loss": 0.12891188263893127,
+      "arena_score": 0.55,
+      "promoted": true,
+      "positions": 762,
+      "average_length": 15.875,
+      "elapsed_seconds": 43.02118270000028,
+      "self_play_seconds": 18.052855400001135,
+      "self_play_games": 24,
+      "self_play_batch": 8,
+      "inference": {
+        "requested_positions": 17162,
+        "evaluated_positions": 12784,
+        "forward_calls": 2388,
+        "cache_hits": 4352,
+        "max_batch_size": 8,
+        "evaluation_seconds": 6.946369699942807
+      }
+    },
+    {
+      "iteration": 2,
+      "loss": 3.7453527450561523,
+      "policy_loss": 3.3414664268493652,
+      "value_loss": 0.4038864076137543,
+      "arena_score": 0.55,
+      "promoted": true,
+      "positions": 1476,
+      "average_length": 14.875,
+      "elapsed_seconds": 39.56285819999903,
+      "self_play_seconds": 16.69392929999958,
+      "self_play_games": 24,
+      "self_play_batch": 8,
+      "inference": {
+        "requested_positions": 15202,
+        "evaluated_positions": 8460,
+        "forward_calls": 2053,
+        "cache_hits": 6713,
+        "max_batch_size": 8,
+        "evaluation_seconds": 5.434515399998418
+      }
+    },
+    {
+      "iteration": 3,
+      "loss": 3.549656867980957,
+      "policy_loss": 3.076617956161499,
+      "value_loss": 0.47303879261016846,
+      "arena_score": 0.7,
+      "promoted": true,
+      "positions": 2078,
+      "average_length": 12.541666666666666,
+      "elapsed_seconds": 29.9297303000003,
+      "self_play_seconds": 14.159283500001038,
+      "self_play_games": 24,
+      "self_play_batch": 8,
+      "inference": {
+        "requested_positions": 13004,
+        "evaluated_positions": 7304,
+        "forward_calls": 1853,
+        "cache_hits": 5671,
+        "max_batch_size": 8,
+        "evaluation_seconds": 5.0457488000247395
+      }
+    },
+    {
+      "iteration": 4,
+      "loss": 3.396245241165161,
+      "policy_loss": 2.967576503753662,
+      "value_loss": 0.42866867780685425,
+      "arena_score": 0.65,
+      "promoted": true,
+      "positions": 2712,
+      "average_length": 13.208333333333334,
+      "elapsed_seconds": 38.78432650000104,
+      "self_play_seconds": 17.931805800000802,
+      "self_play_games": 24,
+      "self_play_batch": 8,
+      "inference": {
+        "requested_positions": 13475,
+        "evaluated_positions": 7044,
+        "forward_calls": 1938,
+        "cache_hits": 6410,
+        "max_batch_size": 8,
+        "evaluation_seconds": 6.2943748999605305
+      }
+    }
+  ],
+  "total_self_play_games": 96,
+  "export": {
+    "game": "tidal",
+    "rules_version": "tidal-v0.1",
+    "model": {
+      "id": "tidal-af7c308008701c71",
+      "url": "/models/tidal-af7c308008701c71.onnx",
+      "parityUrl": "/models/tidal-af7c308008701c71-parity.json",
+      "status": "candidate"
+    },
+    "sha256": "af7c308008701c717391fee9bd5a7c6ca751fc340d6155fd917bca762f73f050",
+    "checkpoint_sha256": "2a2b93406e84dcf2daeb29e7324fad339766e3322bb064ad57cb5be85557f969",
+    "config": {
+      "planes": 6,
+      "height": 5,
+      "width": 5,
+      "actions": 125,
+      "channels": 32,
+      "blocks": 3
+    },
+    "iteration": 4,
+    "arena_score": 0.65,
+    "promoted": true,
+    "cpu_parity": {
+      "states": 50,
+      "max_error": 6.67572021484375e-06,
+      "passed": true
+    },
+    "bytes": 266889
+  },
+  "browser_neural_parity": "not run",
+  "enabled_in_app": false,
+  "release_reason": "39/40 random wins and 2/40 heuristic wins; insufficient independent strength."
+}

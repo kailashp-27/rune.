@@ -1,0 +1,49 @@
+{
+  "game": "pulse",
+  "rules_version": "pulse-v0.1",
+  "checkpoint_sha256": "2b1bea27973833292882f29ab5736385b143c55dc4428bc59d3a2d6afaa6ddfe",
+  "games_per_opponent": 40,
+  "simulations": 32,
+  "seed": 7241,
+  "opponents": {
+    "random": {
+      "wins": 40,
+      "losses": 0,
+      "draws": 0,
+      "score": 1.0,
+      "average_length": 56.6,
+      "seats": {
+        "1": {
+          "wins": 20,
+          "losses": 0,
+          "draws": 0
+        },
+        "-1": {
+          "wins": 20,
+          "losses": 0,
+          "draws": 0
+        }
+      }
+    },
+    "heuristic": {
+      "wins": 29,
+      "losses": 11,
+      "draws": 0,
+      "score": 0.725,
+      "average_length": 116.6,
+      "seats": {
+        "1": {
+          "wins": 15,
+          "losses": 5,
+          "draws": 0
+        },
+        "-1": {
+          "wins": 14,
+          "losses": 6,
+          "draws": 0
+        }
+      }
+    }
+  },
+  "scope": "Neural PUCT only; random and one-ply heuristic opponents; alternating paired seats, paired two-action random openings, independent chance/search RNG. Not Elo, optimal-play strength, or real-device validation."
+}

@@ -1,0 +1,31 @@
+{
+  "game": "pulse",
+  "rules_version": "pulse-v0.1",
+  "model": {
+    "game": "pulse",
+    "rulesVersion": "pulse-v0.1",
+    "id": "pulse-9200e7e35dfa7ac5",
+    "url": "/models/pulse-9200e7e35dfa7ac5.onnx",
+    "parityUrl": "/models/pulse-9200e7e35dfa7ac5-parity.json",
+    "status": "candidate"
+  },
+  "sha256": "9200e7e35dfa7ac5ba31eb348b41f50683b59f9c0c54e9b6d45083f0455e3c52",
+  "checkpoint_sha256": "2b1bea27973833292882f29ab5736385b143c55dc4428bc59d3a2d6afaa6ddfe",
+  "config": {
+    "planes": 7,
+    "height": 5,
+    "width": 5,
+    "actions": 51,
+    "channels": 32,
+    "blocks": 2
+  },
+  "iteration": 1,
+  "arena_score": 0,
+  "promoted": false,
+  "cpu_parity": {
+    "states": 50,
+    "max_error": 3.814697265625e-06,
+    "passed": true
+  },
+  "bytes": 178007
+}

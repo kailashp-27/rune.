@@ -1,0 +1,25 @@
+{
+  "rules": "terraform-v0.1",
+  "random": {
+    "gold_wins": 67,
+    "purple_wins": 59,
+    "draws": 874,
+    "games": 1000,
+    "first_player_win_rate": 0.067,
+    "first_player_share_of_decisive": 0.5317460317460317,
+    "average_length": 76.943,
+    "seed": 42
+  },
+  "heuristic": {
+    "gold_wins": 54,
+    "purple_wins": 136,
+    "draws": 10,
+    "games": 200,
+    "first_player_win_rate": 0.27,
+    "first_player_share_of_decisive": 0.28421052631578947,
+    "average_length": 16.7,
+    "seed": 43
+  },
+  "elapsed_seconds": 2.6871020999969915,
+  "scope": "Random and one-ply self-play with opening-swap awareness and random tie-breaking; not a proof of balance or browser opponent strength."
+}

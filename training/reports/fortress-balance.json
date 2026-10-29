@@ -1,0 +1,10 @@
+{
+  "rules": "fortress-v0.1",
+  "games": 1000,
+  "gold_wins": 481,
+  "purple_wins": 492,
+  "draws": 27,
+  "average_length": 45.148,
+  "seed": 42,
+  "scope": "Random self-play only; not solved balance or browser AI strength."
+}

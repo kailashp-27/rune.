@@ -1,0 +1,10 @@
+{
+  "rules": "mirror-v0.1",
+  "games": 1000,
+  "gold_wins": 371,
+  "purple_wins": 420,
+  "draws": 209,
+  "average_length": 99.493,
+  "seed": 42,
+  "scope": "Random self-play only; not solved balance or browser search strength."
+}

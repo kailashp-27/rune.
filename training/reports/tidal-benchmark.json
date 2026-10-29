@@ -1,0 +1,27 @@
+{
+  "rules": "tidal-v0.1",
+  "benchmark": {
+    "checkpoint_sha256": "2a2b93406e84dcf2daeb29e7324fad339766e3322bb064ad57cb5be85557f969",
+    "simulations": 64,
+    "games_per_opponent": 40,
+    "opponents": {
+      "random": {
+        "wins": 39,
+        "losses": 1,
+        "draws": 0,
+        "games": 40,
+        "score": 0.975,
+        "average_length": 13.875
+      },
+      "heuristic": {
+        "wins": 2,
+        "losses": 38,
+        "draws": 0,
+        "games": 40,
+        "score": 0.05,
+        "average_length": 9.85
+      }
+    },
+    "scope": "Neural PUCT, alternating seats with paired one-action random openings; no tactical override. Small local strength sample, not Elo or solved play."
+  }
+}

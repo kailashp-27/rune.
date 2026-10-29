@@ -1,0 +1,104 @@
+{
+  "checkpoint": "training/checkpoints/phase1-batched/best.pt",
+  "checkpoint_sha256": "1f23a64ba90a030c137b09d7a33e868ecaf00726d4a3948159088c7a7ca3ab7a",
+  "games_per_opponent": 40,
+  "simulations": 64,
+  "minimax_depth": 4,
+  "seed": 42,
+  "paired_openings": [
+    [],
+    [],
+    [
+      2,
+      2
+    ],
+    [
+      0
+    ],
+    [],
+    [
+      3,
+      5,
+      1,
+      3
+    ],
+    [],
+    [],
+    [
+      2
+    ],
+    [
+      5,
+      3,
+      5,
+      2
+    ],
+    [
+      1,
+      2,
+      1,
+      5
+    ],
+    [
+      6,
+      6
+    ],
+    [],
+    [
+      0
+    ],
+    [
+      4,
+      4,
+      2
+    ],
+    [
+      6
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      3,
+      4,
+      6
+    ],
+    [
+      5,
+      4
+    ],
+    []
+  ],
+  "opponents": {
+    "random": {
+      "wins": 39,
+      "draws": 0,
+      "losses": 1,
+      "first_player_wins": 19,
+      "second_player_wins": 20,
+      "score": 0.975,
+      "average_remaining_moves": 11.875
+    },
+    "heuristic": {
+      "wins": 12,
+      "draws": 3,
+      "losses": 25,
+      "first_player_wins": 10,
+      "second_player_wins": 2,
+      "score": 0.3375,
+      "average_remaining_moves": 28.375
+    },
+    "minimax": {
+      "wins": 6,
+      "draws": 2,
+      "losses": 32,
+      "first_player_wins": 3,
+      "second_player_wins": 3,
+      "score": 0.175,
+      "average_remaining_moves": 26.5
+    }
+  },
+  "elapsed_seconds": 152.38312110002153,
+  "scope": "Python neural PUCT, without browser tactical override; no perfect-solver benchmark"
+}

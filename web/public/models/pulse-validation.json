@@ -1,0 +1,8 @@
+{
+  "game": "pulse",
+  "rulesVersion": "pulse-v0.1",
+  "id": "pulse-9200e7e35dfa7ac5",
+  "url": "/models/pulse-9200e7e35dfa7ac5.onnx",
+  "parityUrl": "/models/pulse-9200e7e35dfa7ac5-parity.json",
+  "status": "candidate"
+}

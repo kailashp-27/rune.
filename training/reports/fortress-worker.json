@@ -1,0 +1,13 @@
+{
+  "game": "fortress",
+  "passed": true,
+  "productionBundle": "fortress.worker-KdIpuKsd.js",
+  "fixtureRequests": 40,
+  "requestIdsVerified": 53,
+  "errorRecovery": true,
+  "completedGame": {
+    "turns": 11,
+    "winner": 1
+  },
+  "scope": "Node worker_threads shim plus Python rule oracle for production worker messaging; not browser or visual QA"
+}

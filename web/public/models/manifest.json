@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "connect4": {
+    "Easy": null,
+    "Medium": null,
+    "Hard": null
+  },
+  "terraform": {
+    "Easy": null,
+    "Medium": null,
+    "Hard": null
+  },
+  "tidal": {
+    "Easy": null,
+    "Medium": null,
+    "Hard": null
+  },
+  "pulse": {
+    "Easy": null,
+    "Medium": {
+      "game": "pulse",
+      "rulesVersion": "pulse-v0.1",
+      "id": "pulse-9200e7e35dfa7ac5",
+      "url": "/models/pulse-9200e7e35dfa7ac5.onnx",
+      "parityUrl": "/models/pulse-9200e7e35dfa7ac5-parity.json",
+      "status": "promoted",
+      "simulations": 32
+    },
+    "Hard": null
+  },
+  "fortress": {
+    "Easy": null,
+    "Medium": {
+      "game": "fortress",
+      "rulesVersion": "fortress-v0.1",
+      "id": "fortress-129d96f789a5398b",
+      "url": "/models/fortress-129d96f789a5398b.onnx",
+      "parityUrl": "/models/fortress-129d96f789a5398b-parity.json",
+      "status": "promoted",
+      "simulations": 48
+    },
+    "Hard": null
+  },
+  "mirror": {
+    "Easy": null,
+    "Medium": null,
+    "Hard": null
+  }
+}

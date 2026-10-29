@@ -1,0 +1,129 @@
+{
+  "rules": "terraform-v0.1",
+  "seed": 731,
+  "games_per_branch": 50,
+  "openings": [
+    {
+      "action": 161,
+      "keep": {
+        "gold_wins": 50,
+        "purple_wins": 0,
+        "draws": 0,
+        "games": 50,
+        "gold_score": 1.0,
+        "average_length": 13.28
+      },
+      "swap": {
+        "gold_wins": 0,
+        "purple_wins": 50,
+        "draws": 0,
+        "games": 50,
+        "gold_score": 0.0,
+        "average_length": 14.28
+      },
+      "gold_score_with_best_response": 0.0
+    },
+    {
+      "action": 162,
+      "keep": {
+        "gold_wins": 50,
+        "purple_wins": 0,
+        "draws": 0,
+        "games": 50,
+        "gold_score": 1.0,
+        "average_length": 13.28
+      },
+      "swap": {
+        "gold_wins": 0,
+        "purple_wins": 50,
+        "draws": 0,
+        "games": 50,
+        "gold_score": 0.0,
+        "average_length": 14.28
+      },
+      "gold_score_with_best_response": 0.0
+    },
+    {
+      "action": 164,
+      "keep": {
+        "gold_wins": 50,
+        "purple_wins": 0,
+        "draws": 0,
+        "games": 50,
+        "gold_score": 1.0,
+        "average_length": 13.28
+      },
+      "swap": {
+        "gold_wins": 0,
+        "purple_wins": 50,
+        "draws": 0,
+        "games": 50,
+        "gold_score": 0.0,
+        "average_length": 14.28
+      },
+      "gold_score_with_best_response": 0.0
+    },
+    {
+      "action": 215,
+      "keep": {
+        "gold_wins": 0,
+        "purple_wins": 50,
+        "draws": 0,
+        "games": 50,
+        "gold_score": 0.0,
+        "average_length": 13.64
+      },
+      "swap": {
+        "gold_wins": 50,
+        "purple_wins": 0,
+        "draws": 0,
+        "games": 50,
+        "gold_score": 1.0,
+        "average_length": 14.64
+      },
+      "gold_score_with_best_response": 0.0
+    },
+    {
+      "action": 216,
+      "keep": {
+        "gold_wins": 44,
+        "purple_wins": 0,
+        "draws": 6,
+        "games": 50,
+        "gold_score": 0.94,
+        "average_length": 20.32
+      },
+      "swap": {
+        "gold_wins": 0,
+        "purple_wins": 44,
+        "draws": 6,
+        "games": 50,
+        "gold_score": 0.06,
+        "average_length": 21.2
+      },
+      "gold_score_with_best_response": 0.06
+    },
+    {
+      "action": 221,
+      "keep": {
+        "gold_wins": 0,
+        "purple_wins": 50,
+        "draws": 0,
+        "games": 50,
+        "gold_score": 0.0,
+        "average_length": 13.64
+      },
+      "swap": {
+        "gold_wins": 50,
+        "purple_wins": 0,
+        "draws": 0,
+        "games": 50,
+        "gold_score": 1.0,
+        "average_length": 14.64
+      },
+      "gold_score_with_best_response": 0.0
+    }
+  ],
+  "total_games": 600,
+  "scope": "Forced legal Gold openings, paired seeds, forced keep/swap, then one-ply heuristic self-play. Scores describe this bot only; they do not establish optimal play or justify a rules change."
+}

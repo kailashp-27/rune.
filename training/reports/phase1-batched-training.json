@@ -1,0 +1,188 @@
+{
+  "rounds": 8,
+  "self_play_games": 512,
+  "simulations": 64,
+  "self_play_batch": 16,
+  "replay_entries": 18118,
+  "arena_promotions": 6,
+  "elapsed_seconds": 653.824989500019,
+  "self_play_seconds": 316.4726798000338,
+  "metrics": [
+    {
+      "iteration": 3,
+      "loss": 1.9824920892715454,
+      "policy_loss": 1.6447796821594238,
+      "value_loss": 0.33771243691444397,
+      "arena_score": 0.35,
+      "promoted": false,
+      "positions": 2152,
+      "average_length": 16.8125,
+      "elapsed_seconds": 83.26466600000276,
+      "self_play_seconds": 34.50070899998536,
+      "self_play_games": 64,
+      "self_play_batch": 16,
+      "inference": {
+        "requested_positions": 60200,
+        "evaluated_positions": 25950,
+        "forward_calls": 4458,
+        "cache_hits": 34093,
+        "max_batch_size": 14,
+        "evaluation_seconds": 18.269959200755693
+      }
+    },
+    {
+      "iteration": 4,
+      "loss": 2.1662001609802246,
+      "policy_loss": 1.7185755968093872,
+      "value_loss": 0.4476246237754822,
+      "arena_score": 0.5,
+      "promoted": false,
+      "positions": 4154,
+      "average_length": 15.640625,
+      "elapsed_seconds": 66.61128250000183,
+      "self_play_seconds": 37.44284200001857,
+      "self_play_games": 64,
+      "self_play_batch": 16,
+      "inference": {
+        "requested_positions": 55831,
+        "evaluated_positions": 24454,
+        "forward_calls": 4237,
+        "cache_hits": 31276,
+        "max_batch_size": 15,
+        "evaluation_seconds": 19.797563599888235
+      }
+    },
+    {
+      "iteration": 5,
+      "loss": 2.2057738304138184,
+      "policy_loss": 1.7165858745574951,
+      "value_loss": 0.48918792605400085,
+      "arena_score": 0.65,
+      "promoted": true,
+      "positions": 6270,
+      "average_length": 16.53125,
+      "elapsed_seconds": 79.73461319998023,
+      "self_play_seconds": 33.49825249999412,
+      "self_play_games": 64,
+      "self_play_batch": 16,
+      "inference": {
+        "requested_positions": 58239,
+        "evaluated_positions": 27075,
+        "forward_calls": 4238,
+        "cache_hits": 31095,
+        "max_batch_size": 15,
+        "evaluation_seconds": 17.26233679894358
+      }
+    },
+    {
+      "iteration": 6,
+      "loss": 2.1521921157836914,
+      "policy_loss": 1.6646828651428223,
+      "value_loss": 0.48750922083854675,
+      "arena_score": 0.675,
+      "promoted": true,
+      "positions": 8500,
+      "average_length": 17.421875,
+      "elapsed_seconds": 87.84725650001201,
+      "self_play_seconds": 43.613961299997754,
+      "self_play_games": 64,
+      "self_play_batch": 16,
+      "inference": {
+        "requested_positions": 62279,
+        "evaluated_positions": 26567,
+        "forward_calls": 4550,
+        "cache_hits": 35630,
+        "max_batch_size": 15,
+        "evaluation_seconds": 21.291840098943794
+      }
+    },
+    {
+      "iteration": 7,
+      "loss": 2.1598050594329834,
+      "policy_loss": 1.687235713005066,
+      "value_loss": 0.47256943583488464,
+      "arena_score": 0.65,
+      "promoted": true,
+      "positions": 10658,
+      "average_length": 16.859375,
+      "elapsed_seconds": 73.74657350001507,
+      "self_play_seconds": 36.39016609999817,
+      "self_play_games": 64,
+      "self_play_batch": 16,
+      "inference": {
+        "requested_positions": 62153,
+        "evaluated_positions": 25680,
+        "forward_calls": 4768,
+        "cache_hits": 36398,
+        "max_batch_size": 14,
+        "evaluation_seconds": 18.716532200429356
+      }
+    },
+    {
+      "iteration": 8,
+      "loss": 2.0841128826141357,
+      "policy_loss": 1.653806209564209,
+      "value_loss": 0.430306613445282,
+      "arena_score": 0.9,
+      "promoted": true,
+      "positions": 13164,
+      "average_length": 19.578125,
+      "elapsed_seconds": 83.33031869999832,
+      "self_play_seconds": 44.173397100006696,
+      "self_play_games": 64,
+      "self_play_batch": 16,
+      "inference": {
+        "requested_positions": 70581,
+        "evaluated_positions": 30342,
+        "forward_calls": 5124,
+        "cache_hits": 40183,
+        "max_batch_size": 15,
+        "evaluation_seconds": 21.964904899941757
+      }
+    },
+    {
+      "iteration": 9,
+      "loss": 2.196058750152588,
+      "policy_loss": 1.6632509231567383,
+      "value_loss": 0.5328079462051392,
+      "arena_score": 0.575,
+      "promoted": true,
+      "positions": 15582,
+      "average_length": 18.890625,
+      "elapsed_seconds": 83.63942620001035,
+      "self_play_seconds": 43.08828240001458,
+      "self_play_games": 64,
+      "self_play_batch": 16,
+      "inference": {
+        "requested_positions": 66044,
+        "evaluated_positions": 28015,
+        "forward_calls": 4964,
+        "cache_hits": 37962,
+        "max_batch_size": 16,
+        "evaluation_seconds": 21.36145250123809
+      }
+    },
+    {
+      "iteration": 10,
+      "loss": 1.9457026720046997,
+      "policy_loss": 1.581363558769226,
+      "value_loss": 0.36433908343315125,
+      "arena_score": 0.65,
+      "promoted": true,
+      "positions": 18118,
+      "average_length": 19.8125,
+      "elapsed_seconds": 95.65085289999843,
+      "self_play_seconds": 43.76506940001855,
+      "self_play_games": 64,
+      "self_play_batch": 16,
+      "inference": {
+        "requested_positions": 70174,
+        "evaluated_positions": 30036,
+        "forward_calls": 5176,
+        "cache_hits": 40062,
+        "max_batch_size": 15,
+        "evaluation_seconds": 21.061150800873293
+      }
+    }
+  ]
+}

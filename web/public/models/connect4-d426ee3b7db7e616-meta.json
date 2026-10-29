@@ -1,0 +1,27 @@
+{
+  "model": {
+    "id": "connect4-d426ee3b7db7e616",
+    "url": "/models/connect4-d426ee3b7db7e616.onnx",
+    "parityUrl": "/models/connect4-d426ee3b7db7e616-parity.json",
+    "status": "candidate"
+  },
+  "sha256": "d426ee3b7db7e61618bbc362e88ee6334c17a4a18d47e4be919963e19aa7c200",
+  "checkpoint_sha256": "4049c3ded5f1328017a584aa7c450d1cc2c2fb84178b9d6c43b40b182334d846",
+  "config": {
+    "planes": 3,
+    "height": 6,
+    "width": 7,
+    "actions": 7,
+    "channels": 32,
+    "blocks": 4
+  },
+  "iteration": 2,
+  "arena_score": 1.0,
+  "promoted": true,
+  "cpu_parity": {
+    "states": 50,
+    "max_error": 1.5497207641601562E-06,
+    "passed": true
+  },
+  "bytes": 319625
+}

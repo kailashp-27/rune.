@@ -1,0 +1,24 @@
+{
+  "rules": "tidal-v0.2",
+  "random": {
+    "games": 1000,
+    "gold_wins": 505,
+    "purple_wins": 495,
+    "draws": 0,
+    "gold_win_rate": 0.505,
+    "average_length": 25.507,
+    "nudges": 7987,
+    "seed": 42
+  },
+  "heuristic": {
+    "games": 200,
+    "gold_wins": 116,
+    "purple_wins": 84,
+    "draws": 0,
+    "gold_win_rate": 0.58,
+    "average_length": 11.3,
+    "nudges": 39,
+    "seed": 43
+  },
+  "scope": "Random and one-ply self-play only; not a proof of balanced optimal play."
+}

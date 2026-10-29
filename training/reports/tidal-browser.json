@@ -1,0 +1,37 @@
+{
+  "rules": "tidal-v0.1",
+  "browser": "local Vite development preview",
+  "viewports": [
+    [
+      390,
+      844
+    ],
+    [
+      320,
+      568
+    ]
+  ],
+  "passed": true,
+  "checks": [
+    "setup and per-game tutorial",
+    "human placement and worker response",
+    "tide progression",
+    "two-tap nudge and endpoint highlights",
+    "hint then manual action mode change",
+    "undo restores full round",
+    "full-page menu without favourites entry",
+    "full-page settings with Vibration",
+    "small-phone tutorial fits without horizontal overflow",
+    "AI-vs-AI completes"
+  ],
+  "watch_game": {
+    "turns": 11,
+    "winner": 1
+  },
+  "captured_browser_errors": [],
+  "screenshots": [
+    "docs/tidal-mobile.png",
+    "docs/tidal-tutorial.png"
+  ],
+  "scope": "Desktop browser viewport and interaction checks; no physical-device haptics or Tidal neural-browser inference validation."
+}

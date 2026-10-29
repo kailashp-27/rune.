@@ -1,0 +1,31 @@
+{
+  "game": "terraform",
+  "rules_version": "terraform-v0.1",
+  "model": {
+    "game": "terraform",
+    "rulesVersion": "terraform-v0.1",
+    "id": "terraform-34cc6b0dc9572948",
+    "url": "/models/terraform-34cc6b0dc9572948.onnx",
+    "parityUrl": "/models/terraform-34cc6b0dc9572948-parity.json",
+    "status": "candidate"
+  },
+  "sha256": "34cc6b0dc9572948586df6d0dcb0d56bc226000d4294f906fe7a807c2b38ecb1",
+  "checkpoint_sha256": "6c2f31829cfcd7abbdf7523f99dcb5a07604b069fb18e2d93234498db0a7586c",
+  "config": {
+    "planes": 8,
+    "height": 5,
+    "width": 5,
+    "actions": 251,
+    "channels": 16,
+    "blocks": 2
+  },
+  "iteration": 2,
+  "arena_score": 0.5,
+  "promoted": false,
+  "cpu_parity": {
+    "states": 50,
+    "max_error": 2.384185791015625e-07,
+    "passed": true
+  },
+  "bytes": 104232
+}

@@ -1,0 +1,19 @@
+{
+  "modelId": "fortress-129d96f789a5398b",
+  "game": "fortress",
+  "rulesVersion": "fortress-v0.1",
+  "states": 50,
+  "maxError": 0.00000762939453125,
+  "passed": true,
+  "checkedAt": "2026-10-29T16:57:00.198Z",
+  "neuralSearch": {
+    "passed": true,
+    "action": 261,
+    "simulations": 240
+  },
+  "fallback": {
+    "passed": true,
+    "engine": "heuristic"
+  },
+  "runtime": "onnxruntime-web/wasm, single thread"
+}
