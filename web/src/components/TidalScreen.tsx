@@ -1,10 +1,9 @@
-import {DifficultySlider} from './DifficultySlider';
 import {MatchResult} from './MatchResult';
 import {LastMove,latestMove} from './LastMove';
 import {MatchError} from './MatchError';
 import {SearchInsights} from './SearchInsights';
 import {useState} from 'react';
-import {CircleHelp,Lightbulb,Undo2,RotateCcw,Plus,Move,Waves} from 'lucide-react';
+import {Lightbulb,Undo2,RotateCcw,Plus,Move,Waves} from 'lucide-react';
 import * as rules from '../engine/tidal';
 import type {Difficulty,Mode} from '../data';
 import {useMatch} from './useMatch';
@@ -26,7 +25,7 @@ export function TidalBoard({state,targets=[],sources=[],selected=-1,hint=null,on
   </div>;
 }
 
-export function TidalScreen({difficulty,mode,paused,muted,vibration,showSearch,onHelp,onBack,onDifficultyChange}:{difficulty:Difficulty;mode:Mode;paused:boolean;muted:boolean;vibration:boolean;showSearch:boolean;onHelp:()=>void;onBack:()=>void;onDifficultyChange:(value:Difficulty)=>void}){
+export function TidalScreen({difficulty,mode,paused,muted,vibration,showSearch,onBack}:{difficulty:Difficulty;mode:Mode;paused:boolean;muted:boolean;vibration:boolean;showSearch:boolean;onBack:()=>void;}){
   const {state,history,actionHistory,terminal,aiTurn,busy,hintPending,hint,reply,error,retry,play,undo,reset,requestHint,clearHint}=useMatch({rules:liveRules,createWorker,request,difficulty,mode,paused,muted,vibration});
   const [choice,setChoice]=useState<{turn:number;kind:'place'|'nudge';source:number}>({turn:0,kind:'place',source:-1});
   const current=choice.turn===state.turn?choice:{turn:state.turn,kind:'place' as const,source:-1};
@@ -39,7 +38,7 @@ export function TidalScreen({difficulty,mode,paused,muted,vibration,showSearch,o
   const status=error?'MOVE PAUSED':terminal.done?terminal.winner===0?'IT’S A DRAW!':terminal.winner===1?mode==='watch'?'GOLD WINS!':'YOU WIN!':mode==='watch'?'PURPLE WINS!':'RUNE WINS!':busy?hintPending?'FINDING A HINT…':'RUNE IS THINKING…':mode==='watch'?'WATCH THE TIDE':'YOUR TURN';
   function restart(){reset();setChoice({turn:0,kind:'place',source:-1});}
   return <section className="match-screen tidal-match">
-    <div className="match-meta"><DifficultySlider compact value={difficulty} onChange={onDifficultyChange}/><span>{mode==='watch'?'AI vs AI':'You vs Rune'}</span><button className="round-button small help-shortcut" onClick={onHelp} aria-label="How to play"><CircleHelp/></button></div>
+    <div className="match-meta"><span className={`difficulty-tag tag-${difficulty.toLowerCase()}`}>{difficulty}</span><span>{mode==='watch'?'AI vs AI':'You vs Rune'}</span></div>
     <div className={`turn-banner ${terminal.done?'match-ended':''}`} role="status">{status}</div>
     <div className="players"><span className={state.player===1&&!terminal.done?'player-active':''}><i className="gold"/>{mode==='watch'?'GOLD':'YOU'}</span><span className="move-count">TURN {state.turn+(terminal.done?0:1)} / 80</span><span className={state.player===-1&&!terminal.done?'player-active':''}><i className="purple"/>{mode==='watch'?'PURPLE':'RUNE'}</span></div>
     <div className="tidal-frame"><div className="tide-indicator" role="status"><Waves size={22}/><span>WATER · {rules.waveLabel(state)}</span></div><TidalBoard state={state} targets={actions.map(rules.destination)} sources={sources} selected={source} hint={hint} onCell={cell=>{if(sources.includes(cell)){clearHint();setChoice({turn:state.turn,kind:'nudge',source:cell});return;}const action=actions.find(a=>rules.destination(a)===cell);if(action!==undefined)play(action);}}/><div className="tidal-board-key"><span><i className="water-key"/>LOCKED</span><strong>CONNECT 4</strong></div></div>

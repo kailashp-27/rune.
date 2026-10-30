@@ -1,10 +1,9 @@
-import {DifficultySlider} from './DifficultySlider';
 import {MatchResult} from './MatchResult';
 import {LastMove,latestMove} from './LastMove';
 import {MatchError} from './MatchError';
 import {SearchInsights} from './SearchInsights';
 import {useState} from 'react';
-import {CircleHelp,Lightbulb,Undo2,RotateCcw,Crown} from 'lucide-react';
+import {Lightbulb,Undo2,RotateCcw,Crown} from 'lucide-react';
 import * as rules from '../engine/fortress';
 import type {Difficulty,Mode} from '../data';
 import {useMatch} from './useMatch';
@@ -24,7 +23,7 @@ export function FortressBoard({state,targets=[],sources=[],selected=-1,hint=null
   })}</div>;
 }
 
-export function FortressScreen({difficulty,mode,paused,muted,vibration,showSearch,onHelp,onBack,onDifficultyChange}:{difficulty:Difficulty;mode:Mode;paused:boolean;muted:boolean;vibration:boolean;showSearch:boolean;onHelp:()=>void;onBack:()=>void;onDifficultyChange:(value:Difficulty)=>void}){
+export function FortressScreen({difficulty,mode,paused,muted,vibration,showSearch,onBack}:{difficulty:Difficulty;mode:Mode;paused:boolean;muted:boolean;vibration:boolean;showSearch:boolean;onBack:()=>void;}){
   const {state,history,actionHistory,terminal,aiTurn,busy,hintPending,hint,reply,error,retry,play,undo,reset,requestHint,clearHint}=useMatch({rules,createWorker,request,difficulty,mode,paused,muted,vibration});
   const [selection,setSelection]=useState({turn:-1,cell:-1});
   const selected=hint!==null?Math.floor(hint/25):selection.turn===state.turn?selection.cell:-1;
@@ -36,7 +35,7 @@ export function FortressScreen({difficulty,mode,paused,muted,vibration,showSearc
   const counts=[1,-1].map(p=>state.board.filter(owner=>owner===p).length);
   function restart(){reset();setSelection({turn:-1,cell:-1});}
   return <section className="match-screen fortress-match">
-    <div className="match-meta"><DifficultySlider compact value={difficulty} onChange={onDifficultyChange}/><span>{mode==='watch'?'AI vs AI':'You vs Rune'}</span><button className="round-button small help-shortcut" onClick={onHelp} aria-label="How to play"><CircleHelp/></button></div>
+    <div className="match-meta"><span className={`difficulty-tag tag-${difficulty.toLowerCase()}`}>{difficulty}</span><span>{mode==='watch'?'AI vs AI':'You vs Rune'}</span></div>
     <div className={`turn-banner ${terminal.done?'match-ended':''}`} role="status">{status}</div>
     <div className="players"><span className={state.player===1&&!terminal.done?'player-active':''}><i className="gold"/>{mode==='watch'?'GOLD':'YOU'} · {counts[0]}</span><span className="move-count">TURN {state.turn+(terminal.done?0:1)} / 100</span><span className={state.player===-1&&!terminal.done?'player-active':''}><i className="purple"/>{mode==='watch'?'PURPLE':'RUNE'} · {counts[1]}</span></div>
     <div className="fortress-frame"><div className="fortress-columns" aria-hidden="true">{['A','B','C','D','E'].map(c=><span key={c}>{c}</span>)}</div><FortressBoard state={state} targets={targets} sources={sources} selected={selected} hint={hint} onCell={cell=>{if(sources.includes(cell)){clearHint();setSelection({turn:state.turn,cell});}else if(targets.includes(cell))play(selected*25+cell);}}/></div>

@@ -15,3 +15,9 @@ The first calibration correctly rejected the older Pulse and Fortress Hard selec
 Final evidence: 18 models × 50 browser parity states; 12 paired-seat games × 3 pairings × 6 games (216 matches). Hard/Medium scores were 100% Connect Four, 87.5% Terraform, 83.3% Tidal Lock, 58.3% Pulse, 66.7% Fortress and 87.5% Mirror Siege. This is a small sample, not a statistical strength guarantee or Elo rating.
 
 See training/reports/difficulty-validation.json, training/reports/difficulty-training-20261030.json and training/reports/playability-20261030.json. Old reports and model artifacts are retained as historical records and are not silently reused under changed rules.
+
+## Setup slider correction
+
+Following the user’s annotated clarification, difficulty is now chosen only on the game setup page. Its native range has a continuous 0–100 track (`step=any`); the thumb keeps its dragged position while selecting the nearest Easy/Medium/Hard checkpoint. Labels are landmarks, not toggle buttons. Every playing screen has a static difficulty badge and no help shortcut. The setup How to Play button and Settings guide remain available.
+
+Production build passed. In the browser, the Tidal Lock slider held 37.5, dragged freely to 66.069, and selected Hard at 91.2 before entering a Hard match. All six playing screens were checked for the absence of a slider and help shortcut. Screenshot: setup-smooth-slider.png.
