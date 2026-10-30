@@ -1,3 +1,6 @@
+import {DifficultySlider} from './DifficultySlider';
+import {MatchResult} from './MatchResult';
+import {LastMove,latestMove} from './LastMove';
 import {MatchError} from './MatchError';
 import { CircleHelp, Lightbulb, RotateCcw, Undo2 } from 'lucide-react';
 import * as rules from '../engine/connect4';
@@ -5,18 +8,20 @@ import { budgets, type Difficulty, type Mode } from '../data';
 import { useMatch } from './useMatch';
 const createWorker=()=>new Worker(new URL('../workers/ai.worker.ts',import.meta.url),{type:'module'});
 const request=(state:rules.State,difficulty:Difficulty)=>({state,difficulty,simulations:budgets[difficulty]});
-export function GameScreen({ difficulty, mode, muted, vibration, paused, showSearch, onHelp }: {
-  difficulty: Difficulty; mode: Mode; muted: boolean; vibration: boolean; paused: boolean; showSearch: boolean; onHelp: () => void;
+export function GameScreen({ difficulty, mode, muted, vibration, paused, showSearch, onHelp, onBack, onDifficultyChange }: {
+  difficulty: Difficulty; mode: Mode; muted: boolean; vibration: boolean; paused: boolean; showSearch: boolean; onHelp: () => void; onBack: () => void; onDifficultyChange:(value:Difficulty)=>void;
 }) {
-  const {state,history,terminal,aiTurn,busy,hintPending,hint,reply,error,retry,play:move,reset,undo,requestHint}=useMatch({rules,createWorker,request,difficulty,mode,muted,vibration,paused});
+  const {state,history,actionHistory,terminal,aiTurn,busy,hintPending,hint,reply,error,retry,play:move,reset,undo,requestHint}=useMatch({rules,createWorker,request,difficulty,mode,muted,vibration,paused});
   const legal=rules.legalMoves(state),winning=rules.winningCells(state),analysis=reply?.policy??null;
+  const last=latestMove(history,actionHistory,mode);
+  const lastText=last?`${mode==='watch'?(last.player===1?'Gold':'Purple'):'Rune'}: ${`drop in column ${last.action+1}`}`:null;
   const engineInfo=reply?.engine==='neural'?`Neural search · ${reply.modelId}`:reply?.fallbackReason?'Search baseline · model unavailable':'Search baseline';
   const status = error ? 'MOVE PAUSED' : terminal.done
-    ? terminal.winner === 0 ? 'IT’S A DRAW!' : terminal.winner === 1 ? mode === 'watch' ? 'GOLD WINS!' : 'YOU WIN!' : 'RUNE WINS!'
+    ? terminal.winner === 0 ? 'IT’S A DRAW!' : terminal.winner === 1 ? mode === 'watch' ? 'GOLD WINS!' : 'YOU WIN!' : mode==='watch'?'PURPLE WINS!':'RUNE WINS!'
     : busy ? hintPending ? 'FINDING A HINT…' : 'RUNE IS THINKING…' : mode === 'watch' ? 'WATCH THEM PLAY' : 'YOUR TURN';
 
   return <section className="match-screen">
-    <div className="match-meta"><span className={`difficulty-tag tag-${difficulty.toLowerCase()}`}>{difficulty}</span><span>{mode === 'watch' ? 'AI vs AI' : 'You vs Rune'}</span><button className="round-button small help-shortcut" onClick={onHelp} aria-label="How to play"><CircleHelp size={25} /></button></div>
+    <div className="match-meta"><DifficultySlider compact value={difficulty} onChange={onDifficultyChange}/><span>{mode === 'watch' ? 'AI vs AI' : 'You vs Rune'}</span><button className="round-button small help-shortcut" onClick={onHelp} aria-label="How to play"><CircleHelp size={25} /></button></div>
     <div className={`turn-banner ${terminal.done ? 'match-ended' : ''}`} role="status" aria-live="polite">{status}</div>
     <div className="players"><span className={state.player === 1 && !terminal.done ? 'player-active' : ''}><i className="gold" />{mode === 'watch' ? 'GOLD' : 'YOU'}</span><span className="move-count">MOVE {state.turn + (terminal.done ? 0 : 1)}</span><span className={state.player === -1 && !terminal.done ? 'player-active' : ''}><i className="purple" />{mode === 'watch' ? 'PURPLE' : 'RUNE'}</span></div>
     <div className="board-base"><div className="play-board" aria-label="Connect Four board">
@@ -26,7 +31,8 @@ export function GameScreen({ difficulty, mode, muted, vibration, paused, showSea
       </button>)}
     </div></div>
     {hint !== null && !busy && <p className="hint-message" role="status">Try column {hint + 1} — it’s glowing on the board.</p>}
-    <div className="match-actions"><button className="chunky purple-button" onClick={undo} disabled={history.length < 2 || mode === 'watch'}><Undo2 /><span>UNDO</span></button><button className="chunky purple-button" onClick={requestHint} disabled={paused || busy || aiTurn || terminal.done || mode === 'watch'}><Lightbulb /><span>HINT</span></button><button className="chunky purple-button" onClick={reset}><RotateCcw /><span>NEW GAME</span></button></div>
+    <LastMove text={lastText}/><div className="match-actions"><button className="chunky purple-button" onClick={undo} disabled={history.length < 2 || mode === 'watch'}><Undo2 /><span>UNDO</span></button><button className="chunky purple-button" onClick={requestHint} disabled={paused || busy || aiTurn || terminal.done || mode === 'watch'}><Lightbulb /><span>HINT</span></button><button className="chunky purple-button" onClick={reset}><RotateCcw /><span>NEW GAME</span></button></div>
+    {terminal.done && <MatchResult key={state.turn} winner={terminal.winner} mode={mode} onReplay={reset} onBack={onBack}/>}
     {terminal.done && <button className="chunky coral-button rematch" onClick={reset}>PLAY AGAIN</button>}
     {error && <MatchError message={error} onRetry={retry}/>}
     {showSearch && <details className="search-details" open><summary>Search & move history</summary><p>{engineInfo}</p><div className="policy-bars">{Array.from({ length: 7 }, (_, i) => <div key={i}><span style={{ height: `${Math.max(3, (analysis?.[i] ?? 0) * 100)}%` }} /><small>{i + 1}</small></div>)}</div><p>{analysis ? 'Search visits by column' : 'Search appears after Rune’s first move.'}</p><p className="history">{history.slice(1).map((s, i) => `${i + 1}. ${s.board.findIndex((value, j) => value !== history[i].board[j]) % 7 + 1}`).join(' · ') || 'No moves yet.'}</p></details>}

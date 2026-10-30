@@ -1,0 +1,568 @@
+{
+  "games": [
+    {
+      "game": "connect4",
+      "models": {
+        "Easy": {
+          "game": "connect4",
+          "rulesVersion": "connect4-v1",
+          "id": "connect4-8501664b4e3b72d9",
+          "url": "/models/connect4-8501664b4e3b72d9.onnx",
+          "parityUrl": "/models/connect4-8501664b4e3b72d9-parity.json",
+          "status": "candidate",
+          "trainingGames": 8,
+          "tier": "Easy",
+          "simulations": 8
+        },
+        "Medium": {
+          "game": "connect4",
+          "rulesVersion": "connect4-v1",
+          "id": "connect4-412cb65872211d49",
+          "url": "/models/connect4-412cb65872211d49.onnx",
+          "parityUrl": "/models/connect4-412cb65872211d49-parity.json",
+          "status": "candidate",
+          "trainingGames": 24,
+          "tier": "Medium",
+          "simulations": 40
+        },
+        "Hard": {
+          "game": "connect4",
+          "rulesVersion": "connect4-v1",
+          "id": "connect4-6e6c655ebea5d8fd",
+          "url": "/models/connect4-6e6c655ebea5d8fd.onnx",
+          "parityUrl": "/models/connect4-6e6c655ebea5d8fd-parity.json",
+          "status": "candidate",
+          "trainingGames": 64,
+          "tier": "Hard",
+          "simulations": 128
+        }
+      },
+      "parity": {
+        "Easy": {
+          "modelId": "connect4-8501664b4e3b72d9",
+          "game": "connect4",
+          "rulesVersion": "connect4-v1",
+          "states": 50,
+          "maxError": 0.0000035762786865234375,
+          "passed": true
+        },
+        "Medium": {
+          "modelId": "connect4-412cb65872211d49",
+          "game": "connect4",
+          "rulesVersion": "connect4-v1",
+          "states": 50,
+          "maxError": 0.0000019073486328125,
+          "passed": true
+        },
+        "Hard": {
+          "modelId": "connect4-6e6c655ebea5d8fd",
+          "game": "connect4",
+          "rulesVersion": "connect4-v1",
+          "states": 50,
+          "maxError": 0.000003337860107421875,
+          "passed": true
+        }
+      },
+      "duels": [
+        {
+          "strong": "Hard",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 12,
+          "losses": 0,
+          "draws": 0,
+          "score": 1
+        },
+        {
+          "strong": "Medium",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 12,
+          "losses": 0,
+          "draws": 0,
+          "score": 1
+        },
+        {
+          "strong": "Hard",
+          "weak": "Medium",
+          "games": 12,
+          "wins": 12,
+          "losses": 0,
+          "draws": 0,
+          "score": 1
+        }
+      ],
+      "ordered": true
+    },
+    {
+      "game": "terraform",
+      "models": {
+        "Easy": {
+          "game": "terraform",
+          "rulesVersion": "terraform-v0.1",
+          "id": "terraform-a5eff687576627cd",
+          "url": "/models/terraform-a5eff687576627cd.onnx",
+          "parityUrl": "/models/terraform-a5eff687576627cd-parity.json",
+          "status": "candidate",
+          "trainingGames": 8,
+          "tier": "Easy",
+          "simulations": 8
+        },
+        "Medium": {
+          "game": "terraform",
+          "rulesVersion": "terraform-v0.1",
+          "id": "terraform-13a72ca49dad8e12",
+          "url": "/models/terraform-13a72ca49dad8e12.onnx",
+          "parityUrl": "/models/terraform-13a72ca49dad8e12-parity.json",
+          "status": "candidate",
+          "trainingGames": 24,
+          "tier": "Medium",
+          "simulations": 40
+        },
+        "Hard": {
+          "game": "terraform",
+          "rulesVersion": "terraform-v0.1",
+          "id": "terraform-e80547f16f17cb43",
+          "url": "/models/terraform-e80547f16f17cb43.onnx",
+          "parityUrl": "/models/terraform-e80547f16f17cb43-parity.json",
+          "status": "candidate",
+          "simulations": 128,
+          "trainingGames": 64,
+          "tier": "Hard"
+        }
+      },
+      "parity": {
+        "Easy": {
+          "modelId": "terraform-a5eff687576627cd",
+          "game": "terraform",
+          "rulesVersion": "terraform-v0.1",
+          "states": 50,
+          "maxError": 0.00000858306884765625,
+          "passed": true
+        },
+        "Medium": {
+          "modelId": "terraform-13a72ca49dad8e12",
+          "game": "terraform",
+          "rulesVersion": "terraform-v0.1",
+          "states": 50,
+          "maxError": 0.0000095367431640625,
+          "passed": true
+        },
+        "Hard": {
+          "modelId": "terraform-e80547f16f17cb43",
+          "game": "terraform",
+          "rulesVersion": "terraform-v0.1",
+          "states": 50,
+          "maxError": 0.0000171661376953125,
+          "passed": true
+        }
+      },
+      "duels": [
+        {
+          "strong": "Hard",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 12,
+          "losses": 0,
+          "draws": 0,
+          "score": 1
+        },
+        {
+          "strong": "Medium",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 12,
+          "losses": 0,
+          "draws": 0,
+          "score": 1
+        },
+        {
+          "strong": "Hard",
+          "weak": "Medium",
+          "games": 12,
+          "wins": 9,
+          "losses": 0,
+          "draws": 3,
+          "score": 0.875
+        }
+      ],
+      "ordered": true
+    },
+    {
+      "game": "tidal",
+      "models": {
+        "Easy": {
+          "game": "tidal",
+          "rulesVersion": "tidal-v0.2",
+          "id": "tidal-75c0849e77e890b7",
+          "url": "/models/tidal-75c0849e77e890b7.onnx",
+          "parityUrl": "/models/tidal-75c0849e77e890b7-parity.json",
+          "status": "candidate",
+          "trainingGames": 8,
+          "tier": "Easy",
+          "simulations": 8
+        },
+        "Medium": {
+          "game": "tidal",
+          "rulesVersion": "tidal-v0.2",
+          "id": "tidal-0a41b90e7571f2c8",
+          "url": "/models/tidal-0a41b90e7571f2c8.onnx",
+          "parityUrl": "/models/tidal-0a41b90e7571f2c8-parity.json",
+          "status": "candidate",
+          "trainingGames": 24,
+          "tier": "Medium",
+          "simulations": 40
+        },
+        "Hard": {
+          "game": "tidal",
+          "rulesVersion": "tidal-v0.2",
+          "id": "tidal-16d0881da765e91b",
+          "url": "/models/tidal-16d0881da765e91b.onnx",
+          "parityUrl": "/models/tidal-16d0881da765e91b-parity.json",
+          "status": "candidate",
+          "trainingGames": 64,
+          "tier": "Hard",
+          "simulations": 128
+        }
+      },
+      "parity": {
+        "Easy": {
+          "modelId": "tidal-75c0849e77e890b7",
+          "game": "tidal",
+          "rulesVersion": "tidal-v0.2",
+          "states": 50,
+          "maxError": 0.000006198883056640625,
+          "passed": true
+        },
+        "Medium": {
+          "modelId": "tidal-0a41b90e7571f2c8",
+          "game": "tidal",
+          "rulesVersion": "tidal-v0.2",
+          "states": 50,
+          "maxError": 0.0000095367431640625,
+          "passed": true
+        },
+        "Hard": {
+          "modelId": "tidal-16d0881da765e91b",
+          "game": "tidal",
+          "rulesVersion": "tidal-v0.2",
+          "states": 50,
+          "maxError": 0.000011444091796875,
+          "passed": true
+        }
+      },
+      "duels": [
+        {
+          "strong": "Hard",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 12,
+          "losses": 0,
+          "draws": 0,
+          "score": 1
+        },
+        {
+          "strong": "Medium",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 11,
+          "losses": 1,
+          "draws": 0,
+          "score": 0.9166666666666666
+        },
+        {
+          "strong": "Hard",
+          "weak": "Medium",
+          "games": 12,
+          "wins": 10,
+          "losses": 2,
+          "draws": 0,
+          "score": 0.8333333333333334
+        }
+      ],
+      "ordered": true
+    },
+    {
+      "game": "pulse",
+      "models": {
+        "Easy": {
+          "game": "pulse",
+          "rulesVersion": "pulse-v0.1",
+          "id": "pulse-de06d69ba0543c38",
+          "url": "/models/pulse-de06d69ba0543c38.onnx",
+          "parityUrl": "/models/pulse-de06d69ba0543c38-parity.json",
+          "status": "candidate",
+          "trainingGames": 8,
+          "tier": "Easy",
+          "simulations": 8
+        },
+        "Medium": {
+          "game": "pulse",
+          "rulesVersion": "pulse-v0.1",
+          "id": "pulse-afd1a909d2ad8792",
+          "url": "/models/pulse-afd1a909d2ad8792.onnx",
+          "parityUrl": "/models/pulse-afd1a909d2ad8792-parity.json",
+          "status": "candidate",
+          "trainingGames": 24,
+          "tier": "Medium",
+          "simulations": 40
+        },
+        "Hard": {
+          "game": "pulse",
+          "rulesVersion": "pulse-v0.1",
+          "id": "pulse-9200e7e35dfa7ac5",
+          "url": "/models/pulse-9200e7e35dfa7ac5.onnx",
+          "parityUrl": "/models/pulse-9200e7e35dfa7ac5-parity.json",
+          "status": "candidate",
+          "simulations": 128,
+          "trainingGames": 64,
+          "tier": "Hard"
+        }
+      },
+      "parity": {
+        "Easy": {
+          "modelId": "pulse-de06d69ba0543c38",
+          "game": "pulse",
+          "rulesVersion": "pulse-v0.1",
+          "states": 50,
+          "maxError": 0.000004291534423828125,
+          "passed": true
+        },
+        "Medium": {
+          "modelId": "pulse-afd1a909d2ad8792",
+          "game": "pulse",
+          "rulesVersion": "pulse-v0.1",
+          "states": 50,
+          "maxError": 0.000004291534423828125,
+          "passed": true
+        },
+        "Hard": {
+          "modelId": "pulse-9200e7e35dfa7ac5",
+          "game": "pulse",
+          "rulesVersion": "pulse-v0.1",
+          "states": 50,
+          "maxError": 0.00000476837158203125,
+          "passed": true
+        }
+      },
+      "duels": [
+        {
+          "strong": "Hard",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 12,
+          "losses": 0,
+          "draws": 0,
+          "score": 1
+        },
+        {
+          "strong": "Medium",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 12,
+          "losses": 0,
+          "draws": 0,
+          "score": 1
+        },
+        {
+          "strong": "Hard",
+          "weak": "Medium",
+          "games": 12,
+          "wins": 5,
+          "losses": 6,
+          "draws": 1,
+          "score": 0.4583333333333333
+        }
+      ],
+      "ordered": false
+    },
+    {
+      "game": "fortress",
+      "models": {
+        "Easy": {
+          "game": "fortress",
+          "rulesVersion": "fortress-v0.1",
+          "id": "fortress-83257af8a79fa4f2",
+          "url": "/models/fortress-83257af8a79fa4f2.onnx",
+          "parityUrl": "/models/fortress-83257af8a79fa4f2-parity.json",
+          "status": "candidate",
+          "trainingGames": 8,
+          "tier": "Easy",
+          "simulations": 8
+        },
+        "Medium": {
+          "game": "fortress",
+          "rulesVersion": "fortress-v0.1",
+          "id": "fortress-da4ff8850f82ca29",
+          "url": "/models/fortress-da4ff8850f82ca29.onnx",
+          "parityUrl": "/models/fortress-da4ff8850f82ca29-parity.json",
+          "status": "candidate",
+          "trainingGames": 24,
+          "tier": "Medium",
+          "simulations": 40
+        },
+        "Hard": {
+          "game": "fortress",
+          "rulesVersion": "fortress-v0.1",
+          "id": "fortress-129d96f789a5398b",
+          "url": "/models/fortress-129d96f789a5398b.onnx",
+          "parityUrl": "/models/fortress-129d96f789a5398b-parity.json",
+          "status": "candidate",
+          "simulations": 128,
+          "trainingGames": 32,
+          "tier": "Hard"
+        }
+      },
+      "parity": {
+        "Easy": {
+          "modelId": "fortress-83257af8a79fa4f2",
+          "game": "fortress",
+          "rulesVersion": "fortress-v0.1",
+          "states": 50,
+          "maxError": 0.00000667572021484375,
+          "passed": true
+        },
+        "Medium": {
+          "modelId": "fortress-da4ff8850f82ca29",
+          "game": "fortress",
+          "rulesVersion": "fortress-v0.1",
+          "states": 50,
+          "maxError": 0.00000762939453125,
+          "passed": true
+        },
+        "Hard": {
+          "modelId": "fortress-129d96f789a5398b",
+          "game": "fortress",
+          "rulesVersion": "fortress-v0.1",
+          "states": 50,
+          "maxError": 0.00000762939453125,
+          "passed": true
+        }
+      },
+      "duels": [
+        {
+          "strong": "Hard",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 10,
+          "losses": 2,
+          "draws": 0,
+          "score": 0.8333333333333334
+        },
+        {
+          "strong": "Medium",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 10,
+          "losses": 2,
+          "draws": 0,
+          "score": 0.8333333333333334
+        },
+        {
+          "strong": "Hard",
+          "weak": "Medium",
+          "games": 12,
+          "wins": 6,
+          "losses": 6,
+          "draws": 0,
+          "score": 0.5
+        }
+      ],
+      "ordered": false
+    },
+    {
+      "game": "mirror",
+      "models": {
+        "Easy": {
+          "game": "mirror",
+          "rulesVersion": "mirror-v0.2",
+          "id": "mirror-5669454245a606eb",
+          "url": "/models/mirror-5669454245a606eb.onnx",
+          "parityUrl": "/models/mirror-5669454245a606eb-parity.json",
+          "status": "candidate",
+          "trainingGames": 8,
+          "tier": "Easy",
+          "simulations": 8
+        },
+        "Medium": {
+          "game": "mirror",
+          "rulesVersion": "mirror-v0.2",
+          "id": "mirror-24808fe103329c1c",
+          "url": "/models/mirror-24808fe103329c1c.onnx",
+          "parityUrl": "/models/mirror-24808fe103329c1c-parity.json",
+          "status": "candidate",
+          "trainingGames": 24,
+          "tier": "Medium",
+          "simulations": 40
+        },
+        "Hard": {
+          "game": "mirror",
+          "rulesVersion": "mirror-v0.2",
+          "id": "mirror-8e3e4d3ce650e5ca",
+          "url": "/models/mirror-8e3e4d3ce650e5ca.onnx",
+          "parityUrl": "/models/mirror-8e3e4d3ce650e5ca-parity.json",
+          "status": "candidate",
+          "trainingGames": 64,
+          "tier": "Hard",
+          "simulations": 128
+        }
+      },
+      "parity": {
+        "Easy": {
+          "modelId": "mirror-5669454245a606eb",
+          "game": "mirror",
+          "rulesVersion": "mirror-v0.2",
+          "states": 50,
+          "maxError": 0.0000057220458984375,
+          "passed": true
+        },
+        "Medium": {
+          "modelId": "mirror-24808fe103329c1c",
+          "game": "mirror",
+          "rulesVersion": "mirror-v0.2",
+          "states": 50,
+          "maxError": 0.00000667572021484375,
+          "passed": true
+        },
+        "Hard": {
+          "modelId": "mirror-8e3e4d3ce650e5ca",
+          "game": "mirror",
+          "rulesVersion": "mirror-v0.2",
+          "states": 50,
+          "maxError": 0.00000762939453125,
+          "passed": true
+        }
+      },
+      "duels": [
+        {
+          "strong": "Hard",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 12,
+          "losses": 0,
+          "draws": 0,
+          "score": 1
+        },
+        {
+          "strong": "Medium",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 11,
+          "losses": 1,
+          "draws": 0,
+          "score": 0.9166666666666666
+        },
+        {
+          "strong": "Hard",
+          "weak": "Medium",
+          "games": 12,
+          "wins": 10,
+          "losses": 1,
+          "draws": 1,
+          "score": 0.875
+        }
+      ],
+      "ordered": true
+    }
+  ]
+}

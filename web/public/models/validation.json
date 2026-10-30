@@ -1,6 +1,8 @@
 {
-  "id": "connect4-d426ee3b7db7e616",
-  "url": "/models/connect4-d426ee3b7db7e616.onnx",
-  "parityUrl": "/models/connect4-d426ee3b7db7e616-parity.json",
+  "game": "connect4",
+  "rulesVersion": "connect4-v1",
+  "id": "connect4-6e6c655ebea5d8fd",
+  "url": "/models/connect4-6e6c655ebea5d8fd.onnx",
+  "parityUrl": "/models/connect4-6e6c655ebea5d8fd-parity.json",
   "status": "candidate"
 }

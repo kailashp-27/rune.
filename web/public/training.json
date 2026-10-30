@@ -199,7 +199,28 @@
           "teacher": null
         }
       ],
-      "releasedDifficulties": []
+      "releasedDifficulties": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "difficultyCheckpoints": [
+        {
+          "level": "Easy",
+          "games": 8,
+          "modelId": "connect4-8501664b4e3b72d9"
+        },
+        {
+          "level": "Medium",
+          "games": 24,
+          "modelId": "connect4-412cb65872211d49"
+        },
+        {
+          "level": "Hard",
+          "games": 64,
+          "modelId": "connect4-6e6c655ebea5d8fd"
+        }
+      ]
     },
     {
       "id": "terraform",
@@ -308,7 +329,26 @@
         }
       ],
       "releasedDifficulties": [
-        "Medium"
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "difficultyCheckpoints": [
+        {
+          "level": "Easy",
+          "games": 8,
+          "modelId": "terraform-a5eff687576627cd"
+        },
+        {
+          "level": "Medium",
+          "games": 24,
+          "modelId": "terraform-13a72ca49dad8e12"
+        },
+        {
+          "level": "Hard",
+          "games": 64,
+          "modelId": "terraform-e80547f16f17cb43"
+        }
       ]
     },
     {
@@ -417,7 +457,28 @@
           }
         }
       ],
-      "releasedDifficulties": []
+      "releasedDifficulties": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "difficultyCheckpoints": [
+        {
+          "level": "Easy",
+          "games": 8,
+          "modelId": "tidal-75c0849e77e890b7"
+        },
+        {
+          "level": "Medium",
+          "games": 24,
+          "modelId": "tidal-0a41b90e7571f2c8"
+        },
+        {
+          "level": "Hard",
+          "games": 64,
+          "modelId": "tidal-16d0881da765e91b"
+        }
+      ]
     },
     {
       "id": "pulse",
@@ -598,7 +659,26 @@
         }
       ],
       "releasedDifficulties": [
-        "Medium"
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "difficultyCheckpoints": [
+        {
+          "level": "Easy",
+          "games": 8,
+          "modelId": "pulse-de06d69ba0543c38"
+        },
+        {
+          "level": "Medium",
+          "games": 24,
+          "modelId": "pulse-afd1a909d2ad8792"
+        },
+        {
+          "level": "Hard",
+          "games": 64,
+          "modelId": "pulse-2b87d441f8a1d88d"
+        }
       ]
     },
     {
@@ -685,13 +765,32 @@
         }
       ],
       "releasedDifficulties": [
-        "Medium"
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "difficultyCheckpoints": [
+        {
+          "level": "Easy",
+          "games": 8,
+          "modelId": "fortress-83257af8a79fa4f2"
+        },
+        {
+          "level": "Medium",
+          "games": 24,
+          "modelId": "fortress-da4ff8850f82ca29"
+        },
+        {
+          "level": "Hard",
+          "games": 64,
+          "modelId": "fortress-e23090508f60d0af"
+        }
       ]
     },
     {
       "id": "mirror",
       "name": "Mirror Siege",
-      "rulesVersion": "mirror-v0.1",
+      "rulesVersion": "mirror-v0.2",
       "runs": [
         {
           "id": "mirror-alpha",
@@ -771,7 +870,28 @@
           "teacher": null
         }
       ],
-      "releasedDifficulties": []
+      "releasedDifficulties": [
+        "Easy",
+        "Medium",
+        "Hard"
+      ],
+      "difficultyCheckpoints": [
+        {
+          "level": "Easy",
+          "games": 8,
+          "modelId": "mirror-5669454245a606eb"
+        },
+        {
+          "level": "Medium",
+          "games": 24,
+          "modelId": "mirror-24808fe103329c1c"
+        },
+        {
+          "level": "Hard",
+          "games": 64,
+          "modelId": "mirror-8e3e4d3ce650e5ca"
+        }
+      ]
     }
   ],
   "scope": "Recorded local experiments. Arena score compares checkpoints within a run; independent benchmark score compares random/one-ply opponents. No measured Elo or calibrated win probabilities are available."

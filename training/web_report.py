@@ -14,7 +14,8 @@ def main():
     games={key:dict(id=key,name=NAMES[key],rulesVersion=game.RULES_VERSION,runs=[],releasedDifficulties=[]) for key,game in GAMES.items()}
     manifest=read(ROOT/'web/public/models/manifest.json')
     for key,entry in games.items():
-        entry['releasedDifficulties']=[level for level,model in manifest.get(key,{}).items() if model and model.get('status')=='promoted']
+        entry['releasedDifficulties']=[level for level,model in manifest.get(key,{}).items() if model and model.get('status') in ('promoted','validated')]
+        entry['difficultyCheckpoints']=[dict(level=level,games=model.get('trainingGames'),modelId=model['id']) for level,model in manifest.get(key,{}).items() if model and model.get('status') in ('promoted','validated')]
     for game_id,run,report_file,benchmark_file in RUNS:
         folder=ROOT/'training/checkpoints'/run
         metrics_file=folder/'metrics.jsonl'

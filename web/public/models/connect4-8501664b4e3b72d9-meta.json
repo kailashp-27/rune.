@@ -1,0 +1,38 @@
+{
+  "game": "connect4",
+  "rules_version": "connect4-v1",
+  "model": {
+    "game": "connect4",
+    "rulesVersion": "connect4-v1",
+    "id": "connect4-8501664b4e3b72d9",
+    "url": "/models/connect4-8501664b4e3b72d9.onnx",
+    "parityUrl": "/models/connect4-8501664b4e3b72d9-parity.json",
+    "status": "candidate"
+  },
+  "sha256": "8501664b4e3b72d94f1d0267a5249c045eb5bcabdf1e4768dd170bf83213d373",
+  "checkpoint_sha256": "cf0d38c789764297447756b05659ac9267646b97315b9af6be0195f2d88af527",
+  "config": {
+    "planes": 3,
+    "height": 6,
+    "width": 7,
+    "actions": 7,
+    "channels": 32,
+    "blocks": 2
+  },
+  "iteration": 1,
+  "arena_score": null,
+  "promoted": false,
+  "cpu_parity": {
+    "states": 50,
+    "max_error": 2.384185791015625e-06,
+    "passed": true
+  },
+  "bytes": 169725,
+  "training_origin": {
+    "method": "cumulative-heuristic-teacher",
+    "games": 8,
+    "steps": 200,
+    "tier": "Easy",
+    "seed": 891
+  }
+}

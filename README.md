@@ -2,7 +2,7 @@
 
 To run locally on Windows, double-click **Rune.cmd** in this folder, then open http://127.0.0.1:5173/. It prepares a stable build and keeps the local server running after its window closes, reusing it if already started. Server logs stay in the ignored `.rune-local` folder. Node.js and the existing web dependencies are required.
 
-> Current status (29 October 2026): all six games are playable. Terraform, Pulse and Fortress Medium now use qualified trained models; the other slots use search opponents. All original games support browser neural inference. See [current status](docs/PROJECT-STATUS.md) and [AI integration](docs/AI-INTEGRATION.md). Older milestones below remain historical.
+> Current status (30 October 2026): all six games use distinct 8/24/64-game Easy/Medium/Hard checkpoints, one-second AI presentation, previous-move feedback and result popups. Mirror Siege v0.2 seals the edge after 24 moves. See [current status](docs/PROJECT-STATUS.md) and [playability update](docs/PLAYABILITY-2026-10-30.md). Earlier milestones below are historical.
 
 
 Rune now has six playable web alphas: Connect Four, Terraform, Tidal Lock, Pulse, Fortress, and Mirror Siege. See [docs/PROJECT-STATUS.md](docs/PROJECT-STATUS.md) for what remains before release.

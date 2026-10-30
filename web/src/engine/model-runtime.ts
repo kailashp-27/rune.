@@ -1,7 +1,7 @@
 import { maskedPolicy } from './neural-search';
 import type { TurnState, Evaluation } from './generic-neural';
 export type GameId = 'connect4' | 'terraform' | 'tidal' | 'pulse' | 'fortress' | 'mirror';
-export interface ModelEntry { id: string; url: string; parityUrl: string; status: 'candidate' | 'promoted'; game?: GameId; rulesVersion?: string; simulations?:number }
+export interface ModelEntry { id: string; url: string; parityUrl: string; status: 'candidate' | 'promoted' | 'validated'; game?: GameId; rulesVersion?: string; simulations?:number; trainingGames?:number; tier?:'Easy'|'Medium'|'Hard' }
 export interface ModelSpec<S> { id: GameId; rulesVersion: string; shape: [number, number, number]; actions: number; encode(state: S): number[][][]; legalMoves(state: S): boolean[] }
 type Manifest = { schemaVersion: number } & Partial<Record<GameId, Partial<Record<'Easy' | 'Medium' | 'Hard', ModelEntry | null>>>>;
 export async function resource<T>(url: string, json: boolean, noCache = false): Promise<T> {
@@ -24,7 +24,8 @@ export async function selectedGameModel<S>(spec: ModelSpec<S>, difficulty: strin
   if (!['Easy', 'Medium', 'Hard'].includes(difficulty)) throw new Error('Invalid difficulty');
   const entry = manifest[spec.id]?.[difficulty as 'Easy' | 'Medium' | 'Hard'];
   if (!entry) return null;
-  if (entry.status !== 'promoted') throw new Error('Checkpoint is not promoted');
+  if (entry.status !== 'promoted' && entry.status !== 'validated') throw new Error('Checkpoint has not passed validation');
+  if(entry.status==='validated'&&(entry.tier!==difficulty||!Number.isInteger(entry.trainingGames)||entry.trainingGames!<1))throw new Error('Invalid difficulty checkpoint');
   validateEntry(entry, spec); return entry;
 }
 export async function loadGameModel<S extends TurnState>(entry: ModelEntry, spec: ModelSpec<S>) {

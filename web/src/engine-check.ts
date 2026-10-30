@@ -1,3 +1,4 @@
+import './tier-check';
 import type { ModelEntry, GameId } from './engine/model-runtime';
 const button=document.querySelector<HTMLButtonElement>('#run')!;
 const select=document.querySelector<HTMLSelectElement>('#game')!;

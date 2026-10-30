@@ -1,5 +1,8 @@
 # Mirror Siege playable alpha
 
+> Historical milestone. The current 30 October build uses distinct difficulty checkpoints and Mirror Siege v0.2. See [current status](PROJECT-STATUS.md) and [playability update](PLAYABILITY-2026-10-30.md).
+
+
 Mirror Siege is implemented, making all six Rune cards playable: Connect Four plus the five original games.
 
 Implemented: rook selection and legal destinations, one-reply ghost rendering, blocked movement/capture rays, simultaneous sandwich captures, army counts, hints, undo, reset/rematch, optional history, watch mode, and eight illustrated lessons. The full-page menu and Settings/Vibration remain shared. No progression levels were added.

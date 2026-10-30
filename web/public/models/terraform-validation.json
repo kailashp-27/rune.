@@ -1,8 +1,8 @@
 {
   "game": "terraform",
   "rulesVersion": "terraform-v0.1",
-  "id": "terraform-e80547f16f17cb43",
-  "url": "/models/terraform-e80547f16f17cb43.onnx",
-  "parityUrl": "/models/terraform-e80547f16f17cb43-parity.json",
+  "id": "terraform-13a72ca49dad8e12",
+  "url": "/models/terraform-13a72ca49dad8e12.onnx",
+  "parityUrl": "/models/terraform-13a72ca49dad8e12-parity.json",
   "status": "candidate"
 }

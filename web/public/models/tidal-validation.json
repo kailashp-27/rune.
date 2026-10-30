@@ -1,8 +1,8 @@
 {
   "game": "tidal",
   "rulesVersion": "tidal-v0.2",
-  "id": "tidal-1296c983242f7d04",
-  "url": "/models/tidal-1296c983242f7d04.onnx",
-  "parityUrl": "/models/tidal-1296c983242f7d04-parity.json",
+  "id": "tidal-16d0881da765e91b",
+  "url": "/models/tidal-16d0881da765e91b.onnx",
+  "parityUrl": "/models/tidal-16d0881da765e91b-parity.json",
   "status": "candidate"
 }

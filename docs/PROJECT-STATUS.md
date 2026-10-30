@@ -1,29 +1,32 @@
-# Rune: built and remaining
+# Rune: current build and remaining work
 
-Updated 29 October 2026. All six games are playable web alphas with Python/TypeScript parity, hints, undo, watch mode, step-by-step help and worker opponents.
+Updated 30 October 2026. All six games are playable mobile-first web alphas. Deployment remains deferred at the user's request; the project is pushed to GitHub and Rune.cmd starts a persistent local app.
 
-## Completed this phase
+## Current gameplay
 
-- Lazy ONNX loading, versioned model contracts, neural PUCT and failure fallback for all five original games. Tidal Lock samples independent chance outcomes, with no future-wave preview or stored seed.
-- Fifty-state browser parity, immediate-win and broken-model recovery checks passed for every original game.
-- **Pulse Medium** enabled: a clearly labelled teacher-trained seed won 40/40 random games, 29/40 one-ply heuristic games, and scored 100% against the previous checkpoint in a 20-game paired arena. A further 72 self-play games across three rounds completed; those newer checkpoints remain experiments until independently evaluated.
-- **Fortress Medium** enabled: 32 self-play games, 40/40 random wins, 29/40 heuristic wins, and 62.5% local arena score.
-- Mirror Siege completed 32 self-play games and browser checks. It scored 86.25% against both measured baselines but won only 31/40 random games, so it remains disabled. Tidal's new teacher seed won 38/40 random and 1/40 heuristic games and remains disabled.
-- **Terraform Medium** enabled: 64 teacher games, 40/40 random wins, 57.5% heuristic score, 100% in its 20-game arena, and 50-state browser parity/search/fallback checks.
-- Full-page Rune's training page with real curves and paired-seat benchmark results. Consistent top-candidate displays remain inside optional Search details. Raw values and visit shares are not presented as win probabilities.
-- Compact replay storage, safe legacy replay conversion, teacher provenance, digest-bound external arena evidence and generic checkpoint benchmarking.
-- Exact Connect Four endgame benchmark: 40/40 optimal W/D/L choices at 34 moves played. Budget exhaustion is reported as unsolved; this does not establish full-game perfect play.
-- Pulse mobile board, tutorial, trained reply, undo, hint and analysis verified in the browser. Backgrounding the page cancels the current worker; returning restarts the request from the preserved match.
-- Project uploaded to the user-provided `kailashp-27/rune.` GitHub repository; GitHub Actions is configured. Netlify deployment is deferred at the user's request.
+- Every AI turn is displayed after at least one second, including already-computed moves. A pending reply is cancelled safely by undo, reset, menu pause, backgrounding or a difficulty change.
+- A shared result popup reports the winner or draw in all six games, with Try Again and Back to Games.
+- Each game shows Rune's previous action. Terraform also highlights the affected square and shows before/after terrain heights.
+- Real three-position difficulty sliders are present on setup and inside a match.
+- Mirror Siege v0.2 seals the outer sixteen squares after action 24, removes exposed rooks, and finishes by action 60. This forces corner campers into the inner board. Its seven-plane models are incompatible with v0.1. Fortress's rules are unchanged.
 
-## Still required
+## AI difficulty
 
-1. Qualify remaining trained models/difficulties; continue Tidal experiments and evaluate new Pulse/Mirror checkpoints independently. Easy and Hard currently remain search opponents.
-2. Human balance/pacing playtests, especially Terraform's opening, Pulse/Mirror cap-length play, and Fortress's seat asymmetry. Prototype rules have not been declared stable.
-3. Physical Android/iPhone checks for sound, vibration, touch performance and resumed searches. Desktop phone-sized browser checks are not physical-device tests.
-4. Calibrated win probabilities, measured Elo, and full-game Connect Four perfect-opponent matches. The page currently shows the evidence actually collected.
-5. Confirm GitHub CI results. Netlify publication and deployed-origin checks are deferred at the user's request. Netlify configuration includes SPA routing, model/runtime cache handling and hashed asset caching.
+All 18 slots now reference distinct models: Easy uses an eight-game checkpoint, Medium a 24-game checkpoint, and Hard a 64-game checkpoint. Terraform retains its previously qualified 64-game teacher checkpoint for Hard. The other games use their later checkpoint from the new cumulative teacher run. These are supervised heuristic-teacher seeds; they are not claimed to be completed pure AlphaZero training. Existing self-play runs remain separate experiments.
 
-Optional: installable PWA/offline support, Android/iOS store packaging, Rust rules, larger GPU runs and WebGPU/quantization when measurements justify them.
+Tier behavior includes search budgets and more exploration/missed moves for Easy; it does not use presentation delay to create difficulty. All tiers have the same one-second minimum. Browser validation checked 50 fixed states per model and 12 paired-seat games for each tier pairing per game. Hard beat Medium, Medium beat Easy and Hard beat Easy in every game's final sample. These are small local difficulty comparisons, not Elo or perfect-play claims. The first comparison and corrected Pulse/Fortress comparisons are retained in training/reports.
 
-See [AI integration](AI-INTEGRATION.md) for training methods, validation and commands. Prior milestone reports are historical and may describe older disabled models.
+## Verification
+
+- Production build, 56 Python tests and 46 TypeScript tests passed.
+- Mirror v0.2 matched 89,140 Python/TypeScript transitions from 2,000 games and all sampled symmetry/encoding fixtures.
+- All six games and three difficulties were played through a legal human move, trained AI reply, hint and undo in the actual browser. Model IDs were checked, and every AI reply took at least one second.
+- A deliberate corner-camping browser game ended at edge closure with a draw popup at action 24.
+- A natural Fortress game showed its win popup; Try Again and Back to Games worked.
+- Production workers completed full oracle-checked games; browser model comparisons exercised 216 complete neural games.
+
+## Remaining release work
+
+Larger self-play training, more independent strength/balance testing, calibrated win probabilities, measured Elo, full-game perfect-solver comparisons, and physical Android/iPhone sound/vibration/performance checks remain. Current model values and visit shares are not calibrated win probabilities. Human playtesting is still needed before treating prototype rules as final. Netlify publication and native-store packaging remain deferred/optional.
+
+See [playability update](PLAYABILITY-2026-10-30.md), [Mirror rules](MIRROR-RULES.md), and the checked-in browser reports for evidence. Earlier milestone documents are historical.

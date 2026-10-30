@@ -1,0 +1,98 @@
+{
+  "games": [
+    {
+      "game": "pulse",
+      "models": {
+        "Easy": {
+          "game": "pulse",
+          "rulesVersion": "pulse-v0.1",
+          "id": "pulse-de06d69ba0543c38",
+          "url": "/models/pulse-de06d69ba0543c38.onnx",
+          "parityUrl": "/models/pulse-de06d69ba0543c38-parity.json",
+          "status": "candidate",
+          "trainingGames": 8,
+          "tier": "Easy",
+          "simulations": 8
+        },
+        "Medium": {
+          "game": "pulse",
+          "rulesVersion": "pulse-v0.1",
+          "id": "pulse-afd1a909d2ad8792",
+          "url": "/models/pulse-afd1a909d2ad8792.onnx",
+          "parityUrl": "/models/pulse-afd1a909d2ad8792-parity.json",
+          "status": "candidate",
+          "trainingGames": 24,
+          "tier": "Medium",
+          "simulations": 40
+        },
+        "Hard": {
+          "game": "pulse",
+          "rulesVersion": "pulse-v0.1",
+          "id": "pulse-2b87d441f8a1d88d",
+          "url": "/models/pulse-2b87d441f8a1d88d.onnx",
+          "parityUrl": "/models/pulse-2b87d441f8a1d88d-parity.json",
+          "status": "candidate",
+          "trainingGames": 64,
+          "tier": "Hard",
+          "simulations": 128
+        }
+      },
+      "parity": {
+        "Easy": {
+          "modelId": "pulse-de06d69ba0543c38",
+          "game": "pulse",
+          "rulesVersion": "pulse-v0.1",
+          "states": 50,
+          "maxError": 0.000004291534423828125,
+          "passed": true
+        },
+        "Medium": {
+          "modelId": "pulse-afd1a909d2ad8792",
+          "game": "pulse",
+          "rulesVersion": "pulse-v0.1",
+          "states": 50,
+          "maxError": 0.000004291534423828125,
+          "passed": true
+        },
+        "Hard": {
+          "modelId": "pulse-2b87d441f8a1d88d",
+          "game": "pulse",
+          "rulesVersion": "pulse-v0.1",
+          "states": 50,
+          "maxError": 0.000004649162292480469,
+          "passed": true
+        }
+      },
+      "duels": [
+        {
+          "strong": "Hard",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 12,
+          "losses": 0,
+          "draws": 0,
+          "score": 1
+        },
+        {
+          "strong": "Medium",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 12,
+          "losses": 0,
+          "draws": 0,
+          "score": 1
+        },
+        {
+          "strong": "Hard",
+          "weak": "Medium",
+          "games": 12,
+          "wins": 7,
+          "losses": 5,
+          "draws": 0,
+          "score": 0.5833333333333334
+        }
+      ],
+      "ordered": true
+    }
+  ]
+}

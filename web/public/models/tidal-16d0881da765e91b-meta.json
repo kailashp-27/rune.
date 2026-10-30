@@ -1,0 +1,38 @@
+{
+  "game": "tidal",
+  "rules_version": "tidal-v0.2",
+  "model": {
+    "game": "tidal",
+    "rulesVersion": "tidal-v0.2",
+    "id": "tidal-16d0881da765e91b",
+    "url": "/models/tidal-16d0881da765e91b.onnx",
+    "parityUrl": "/models/tidal-16d0881da765e91b-parity.json",
+    "status": "candidate"
+  },
+  "sha256": "16d0881da765e91be28c05ded0edd3525e9129d7b0de8e4cb37ea20cca6630e7",
+  "checkpoint_sha256": "cfce8068b3c2ecf5fe3a8f308a537764681afc2c30fdb0f7e05db6d7675434f6",
+  "config": {
+    "planes": 6,
+    "height": 5,
+    "width": 5,
+    "actions": 125,
+    "channels": 32,
+    "blocks": 2
+  },
+  "iteration": 3,
+  "arena_score": null,
+  "promoted": false,
+  "cpu_parity": {
+    "states": 50,
+    "max_error": 1.0013580322265625e-05,
+    "passed": true
+  },
+  "bytes": 191953,
+  "training_origin": {
+    "method": "cumulative-heuristic-teacher",
+    "games": 64,
+    "steps": 1400,
+    "tier": "Hard",
+    "seed": 891
+  }
+}

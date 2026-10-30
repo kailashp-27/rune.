@@ -32,7 +32,7 @@ try{
   const invalid=await request({state:null,depth:1,maxMs:20});assert.ok(invalid.error);
   const valid=await request({state:fixtures[0].state,depth:2,maxMs:60});assert.equal(valid.error,undefined);assert.ok(fixtures[0].legal_actions.includes(valid.action));
   let position={state:fixtures[0].state,terminal:{done:false,winner:0},legal_actions:fixtures[0].legal_actions};
-  while(!position.terminal.done){const result=await request({state:position.state,depth:2,maxMs:80});assert.equal(result.error,undefined);assert.ok(position.legal_actions.includes(result.action));position=await advance(position.state,result.action);assert.ok(position.state.turn<=(gameId==='pulse'?120:(gameId==='fortress'||gameId==='mirror')?100:80));}
+  while(!position.terminal.done){const result=await request({state:position.state,depth:2,maxMs:80});assert.equal(result.error,undefined);assert.ok(position.legal_actions.includes(result.action));position=await advance(position.state,result.action);assert.ok(position.state.turn<=(gameId==='pulse'?120:gameId==='mirror'?60:gameId==='fortress'?100:80));}
   const report={game:gameId,passed:true,productionBundle:bundle,fixtureRequests:fixtures.length,requestIdsVerified:id,errorRecovery:true,completedGame:{turns:position.state.turn,winner:position.terminal.winner},scope:'Node worker_threads shim plus Python rule oracle for production worker messaging; not browser or visual QA'};
   if(process.argv.includes('--output'))await writeFile(resolve(process.argv[process.argv.indexOf('--output')+1]),JSON.stringify(report,null,2));
   console.log(JSON.stringify(report,null,2));

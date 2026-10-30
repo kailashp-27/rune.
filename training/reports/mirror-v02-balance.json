@@ -1,0 +1,11 @@
+{
+  "game": "mirror",
+  "rules_version": "mirror-v0.2",
+  "games": 1000,
+  "gold_wins": 375,
+  "purple_wins": 371,
+  "draws": 254,
+  "average_length": 44.316,
+  "seed": 42,
+  "scope": "Random self-play balance smoke test only; not optimal-play balance or trained strength."
+}

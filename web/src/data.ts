@@ -10,6 +10,7 @@ export type Game = typeof games[number];
 export type Difficulty = 'Easy' | 'Medium' | 'Hard';
 export type Mode = 'human' | 'watch';
 export const difficulties: Difficulty[] = ['Easy', 'Medium', 'Hard'];
+// Rollout fallback budgets; trained checkpoints carry their own search budgets.
 export const budgets: Record<Difficulty, number> = { Easy: 80, Medium: 400, Hard: 1200 };
 
 export function readSaved<T>(key: string, fallback: T, validate: (value: unknown) => value is T): T {

@@ -1,0 +1,38 @@
+{
+  "game": "fortress",
+  "rules_version": "fortress-v0.1",
+  "model": {
+    "game": "fortress",
+    "rulesVersion": "fortress-v0.1",
+    "id": "fortress-83257af8a79fa4f2",
+    "url": "/models/fortress-83257af8a79fa4f2.onnx",
+    "parityUrl": "/models/fortress-83257af8a79fa4f2-parity.json",
+    "status": "candidate"
+  },
+  "sha256": "83257af8a79fa4f29974aa4a087704ec2596e139828c3d8480788d0bde6a8742",
+  "checkpoint_sha256": "cfa25f08ec15e61fe71c5db8d4638496fef5774ec486294b0e275374eb2979c3",
+  "config": {
+    "planes": 6,
+    "height": 5,
+    "width": 5,
+    "actions": 625,
+    "channels": 32,
+    "blocks": 2
+  },
+  "iteration": 1,
+  "arena_score": null,
+  "promoted": false,
+  "cpu_parity": {
+    "states": 50,
+    "max_error": 4.76837158203125e-06,
+    "passed": true
+  },
+  "bytes": 293956,
+  "training_origin": {
+    "method": "cumulative-heuristic-teacher",
+    "games": 8,
+    "steps": 200,
+    "tier": "Easy",
+    "seed": 891
+  }
+}

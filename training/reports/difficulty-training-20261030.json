@@ -1,0 +1,164 @@
+[
+  {
+    "game": "connect4",
+    "rules_version": "connect4-v1",
+    "tiers": [
+      {
+        "tier": "Easy",
+        "games": 8,
+        "steps": 200,
+        "positions": 182,
+        "loss": 1.4981684684753418
+      },
+      {
+        "tier": "Medium",
+        "games": 24,
+        "steps": 400,
+        "positions": 676,
+        "loss": 1.4433128833770752
+      },
+      {
+        "tier": "Hard",
+        "games": 64,
+        "steps": 800,
+        "positions": 1678,
+        "loss": 1.4352002143859863
+      }
+    ]
+  },
+  {
+    "game": "terraform",
+    "rules_version": "terraform-v0.1",
+    "tiers": [
+      {
+        "tier": "Easy",
+        "games": 8,
+        "steps": 200,
+        "positions": 2400,
+        "loss": 2.2585883140563965
+      },
+      {
+        "tier": "Medium",
+        "games": 24,
+        "steps": 400,
+        "positions": 7344,
+        "loss": 1.8834059238433838
+      },
+      {
+        "tier": "Hard",
+        "games": 64,
+        "steps": 800,
+        "positions": 20720,
+        "loss": 2.0889430046081543
+      }
+    ]
+  },
+  {
+    "game": "tidal",
+    "rules_version": "tidal-v0.2",
+    "tiers": [
+      {
+        "tier": "Easy",
+        "games": 8,
+        "steps": 200,
+        "positions": 260,
+        "loss": 1.7431344985961914
+      },
+      {
+        "tier": "Medium",
+        "games": 24,
+        "steps": 400,
+        "positions": 772,
+        "loss": 1.9979580640792847
+      },
+      {
+        "tier": "Hard",
+        "games": 64,
+        "steps": 800,
+        "positions": 1898,
+        "loss": 1.807822823524475
+      }
+    ]
+  },
+  {
+    "game": "pulse",
+    "rules_version": "pulse-v0.1",
+    "tiers": [
+      {
+        "tier": "Easy",
+        "games": 8,
+        "steps": 200,
+        "positions": 6984,
+        "loss": 2.8331360816955566
+      },
+      {
+        "tier": "Medium",
+        "games": 24,
+        "steps": 400,
+        "positions": 21912,
+        "loss": 2.546485185623169
+      },
+      {
+        "tier": "Hard",
+        "games": 64,
+        "steps": 800,
+        "positions": 58592,
+        "loss": 2.1145222187042236
+      }
+    ]
+  },
+  {
+    "game": "fortress",
+    "rules_version": "fortress-v0.1",
+    "tiers": [
+      {
+        "tier": "Easy",
+        "games": 8,
+        "steps": 200,
+        "positions": 1528,
+        "loss": 2.7744882106781006
+      },
+      {
+        "tier": "Medium",
+        "games": 24,
+        "steps": 400,
+        "positions": 3960,
+        "loss": 2.4611473083496094
+      },
+      {
+        "tier": "Hard",
+        "games": 64,
+        "steps": 800,
+        "positions": 10112,
+        "loss": 2.369969606399536
+      }
+    ]
+  },
+  {
+    "game": "mirror",
+    "rules_version": "mirror-v0.2",
+    "tiers": [
+      {
+        "tier": "Easy",
+        "games": 8,
+        "steps": 200,
+        "positions": 2544,
+        "loss": 2.597140312194824
+      },
+      {
+        "tier": "Medium",
+        "games": 24,
+        "steps": 400,
+        "positions": 8568,
+        "loss": 2.108733892440796
+      },
+      {
+        "tier": "Hard",
+        "games": 64,
+        "steps": 800,
+        "positions": 22280,
+        "loss": 2.0832743644714355
+      }
+    ]
+  }
+]

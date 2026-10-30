@@ -26,7 +26,7 @@ export function useMatch<S extends TurnState>({rules,createWorker,request,diffic
     setBusy(true);setError('');
     try{worker=workerRef.current??createWorker();workerRef.current=worker;}
     catch(error){failed(error instanceof Error?error:new Error(String(error)));return;}
-    const job=requestMove<SearchReply>(worker,{...request(state,difficulty),id},{delayMs:mode==='watch'?550:150,onFailure:failed,onReply:data=>{
+    const job=requestMove<SearchReply>(worker,{...request(state,difficulty),id},{delayMs:0,minReplyMs:aiTurn?1000:0,onFailure:failed,onReply:data=>{
       if(!rules.legalMoves(state)[data.action])throw new Error('The AI returned an invalid move.');
       setBusy(false);
       setReply(data);

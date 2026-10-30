@@ -1,8 +1,8 @@
 {
   "game": "fortress",
   "rulesVersion": "fortress-v0.1",
-  "id": "fortress-129d96f789a5398b",
-  "url": "/models/fortress-129d96f789a5398b.onnx",
-  "parityUrl": "/models/fortress-129d96f789a5398b-parity.json",
+  "id": "fortress-e23090508f60d0af",
+  "url": "/models/fortress-e23090508f60d0af.onnx",
+  "parityUrl": "/models/fortress-e23090508f60d0af-parity.json",
   "status": "candidate"
 }

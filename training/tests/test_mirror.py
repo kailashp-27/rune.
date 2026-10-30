@@ -38,7 +38,7 @@ class MirrorTests(unittest.TestCase):
         self.assertEqual(g.isTerminal(s),{'done':True,'winner':0})
         s=self.position({12:1},{4:-1});self.assertEqual(g.isTerminal(s)['winner'],1)
         s=self.position({12:1,4:-1});s['player']=-1;s['ghosts'][20]=1;s['ghostTimers'][20]=1
-        planes=g.encode(s);self.assertEqual(len(planes),6);self.assertEqual(planes[3][4][0],1)
+        planes=g.encode(s);self.assertEqual(len(planes),7);self.assertEqual(planes[3][4][0],1)
 
     def test_full_symmetry_preserves_ghost_timers_and_transitions(self):
         rng=random.Random(23);s=g.initialState();policy=list(range(625))
@@ -48,3 +48,13 @@ class MirrorTests(unittest.TestCase):
             for t,(transformed,_) in enumerate(g.symmetries(s,policy)):
                 for a in actions:self.assertEqual(g.applyMove(transformed,g.transformAction(a,t)),g.symmetries(g.applyMove(s,a),policy)[t][0])
             s=g.applyMove(s,rng.choice(actions))
+
+    def test_outer_ring_closes_after_equal_turns_and_prevents_corner_camping(self):
+        s=self.position({0:-1,1:-1,11:1,24:1});s['player']=-1;s['turn']=23
+        n=g.applyMove(s,1*25+6)
+        self.assertEqual(n['turn'],24)
+        self.assertTrue(all(n['board'][c]==0 and n['ghostTimers'][c]==0 for c in g.RIM))
+        self.assertEqual(n['board'][6],-1);self.assertEqual(n['board'][11],1)
+        for action,legal in enumerate(g.legalMoves(n)):
+            if legal:self.assertNotIn(action%25,g.RIM)
+        self.assertTrue(all(g.encode(n)[6][c//5][c%5]==1 for c in g.RIM))

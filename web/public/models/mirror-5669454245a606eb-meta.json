@@ -1,0 +1,38 @@
+{
+  "game": "mirror",
+  "rules_version": "mirror-v0.2",
+  "model": {
+    "game": "mirror",
+    "rulesVersion": "mirror-v0.2",
+    "id": "mirror-5669454245a606eb",
+    "url": "/models/mirror-5669454245a606eb.onnx",
+    "parityUrl": "/models/mirror-5669454245a606eb-parity.json",
+    "status": "candidate"
+  },
+  "sha256": "5669454245a606eba5b80a0860a9e40134ccd2b7f3d3f4f041ca2e0a0d856e78",
+  "checkpoint_sha256": "5f11764d9faa9eb82a9aab992520966f9b4ff6e6ccefaeab6ac32ad7ddea726b",
+  "config": {
+    "planes": 7,
+    "height": 5,
+    "width": 5,
+    "actions": 625,
+    "channels": 32,
+    "blocks": 2
+  },
+  "iteration": 1,
+  "arena_score": null,
+  "promoted": false,
+  "cpu_parity": {
+    "states": 50,
+    "max_error": 4.76837158203125e-06,
+    "passed": true
+  },
+  "bytes": 295108,
+  "training_origin": {
+    "method": "cumulative-heuristic-teacher",
+    "games": 8,
+    "steps": 200,
+    "tier": "Easy",
+    "seed": 891
+  }
+}

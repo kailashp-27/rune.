@@ -1,8 +1,8 @@
 {
   "game": "mirror",
-  "rulesVersion": "mirror-v0.1",
-  "id": "mirror-7c6b1bf749956698",
-  "url": "/models/mirror-7c6b1bf749956698.onnx",
-  "parityUrl": "/models/mirror-7c6b1bf749956698-parity.json",
+  "rulesVersion": "mirror-v0.2",
+  "id": "mirror-8e3e4d3ce650e5ca",
+  "url": "/models/mirror-8e3e4d3ce650e5ca.onnx",
+  "parityUrl": "/models/mirror-8e3e4d3ce650e5ca-parity.json",
   "status": "candidate"
 }

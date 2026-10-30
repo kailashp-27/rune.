@@ -1,0 +1,161 @@
+{
+  "date": "2026-10-30",
+  "cases": [
+    {
+      "game": "Connect Four",
+      "level": "Easy",
+      "model": "connect4-8501664b4e3b72d9",
+      "elapsedMs": 1096,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Terraform",
+      "level": "Easy",
+      "model": "terraform-a5eff687576627cd",
+      "elapsedMs": 1417,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Tidal Lock",
+      "level": "Easy",
+      "model": "tidal-75c0849e77e890b7",
+      "elapsedMs": 1201,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Pulse",
+      "level": "Easy",
+      "model": "pulse-de06d69ba0543c38",
+      "elapsedMs": 1470,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Fortress",
+      "level": "Easy",
+      "model": "fortress-83257af8a79fa4f2",
+      "elapsedMs": 1771,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Mirror Siege",
+      "level": "Easy",
+      "model": "mirror-5669454245a606eb",
+      "elapsedMs": 1728,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Connect Four",
+      "level": "Medium",
+      "model": "connect4-412cb65872211d49",
+      "elapsedMs": 1169,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Terraform",
+      "level": "Medium",
+      "model": "terraform-13a72ca49dad8e12",
+      "elapsedMs": 1396,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Tidal Lock",
+      "level": "Medium",
+      "model": "tidal-0a41b90e7571f2c8",
+      "elapsedMs": 1110,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Pulse",
+      "level": "Medium",
+      "model": "pulse-afd1a909d2ad8792",
+      "elapsedMs": 1287,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Fortress",
+      "level": "Medium",
+      "model": "fortress-da4ff8850f82ca29",
+      "elapsedMs": 1686,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Mirror Siege",
+      "level": "Medium",
+      "model": "mirror-24808fe103329c1c",
+      "elapsedMs": 1696,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Connect Four",
+      "level": "Hard",
+      "model": "connect4-6e6c655ebea5d8fd",
+      "elapsedMs": 1168,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Terraform",
+      "level": "Hard",
+      "model": "terraform-e80547f16f17cb43",
+      "elapsedMs": 1423,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Tidal Lock",
+      "level": "Hard",
+      "model": "tidal-16d0881da765e91b",
+      "elapsedMs": 1118,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Pulse",
+      "level": "Hard",
+      "model": "pulse-2b87d441f8a1d88d",
+      "elapsedMs": 1296,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Fortress",
+      "level": "Hard",
+      "model": "fortress-e23090508f60d0af",
+      "elapsedMs": 1698,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Mirror Siege",
+      "level": "Hard",
+      "model": "mirror-8e3e4d3ce650e5ca",
+      "elapsedMs": 1700,
+      "hint": true,
+      "undo": true
+    }
+  ],
+  "minimumAiPresentationMs": 1000,
+  "terraformFeedback": "Rune: lower C2 · height 1 → 0",
+  "cornerCamping": {
+    "edgeSealedAt": 24,
+    "resultPopup": "draw"
+  },
+  "resultPopup": {
+    "fortressWin": true,
+    "mirrorDraw": true,
+    "tryAgain": true,
+    "backToGames": true
+  }
+}

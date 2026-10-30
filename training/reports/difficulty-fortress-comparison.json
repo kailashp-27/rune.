@@ -1,0 +1,98 @@
+{
+  "games": [
+    {
+      "game": "fortress",
+      "models": {
+        "Easy": {
+          "game": "fortress",
+          "rulesVersion": "fortress-v0.1",
+          "id": "fortress-83257af8a79fa4f2",
+          "url": "/models/fortress-83257af8a79fa4f2.onnx",
+          "parityUrl": "/models/fortress-83257af8a79fa4f2-parity.json",
+          "status": "candidate",
+          "trainingGames": 8,
+          "tier": "Easy",
+          "simulations": 8
+        },
+        "Medium": {
+          "game": "fortress",
+          "rulesVersion": "fortress-v0.1",
+          "id": "fortress-da4ff8850f82ca29",
+          "url": "/models/fortress-da4ff8850f82ca29.onnx",
+          "parityUrl": "/models/fortress-da4ff8850f82ca29-parity.json",
+          "status": "candidate",
+          "trainingGames": 24,
+          "tier": "Medium",
+          "simulations": 40
+        },
+        "Hard": {
+          "game": "fortress",
+          "rulesVersion": "fortress-v0.1",
+          "id": "fortress-e23090508f60d0af",
+          "url": "/models/fortress-e23090508f60d0af.onnx",
+          "parityUrl": "/models/fortress-e23090508f60d0af-parity.json",
+          "status": "candidate",
+          "trainingGames": 64,
+          "tier": "Hard",
+          "simulations": 128
+        }
+      },
+      "parity": {
+        "Easy": {
+          "modelId": "fortress-83257af8a79fa4f2",
+          "game": "fortress",
+          "rulesVersion": "fortress-v0.1",
+          "states": 50,
+          "maxError": 0.00000667572021484375,
+          "passed": true
+        },
+        "Medium": {
+          "modelId": "fortress-da4ff8850f82ca29",
+          "game": "fortress",
+          "rulesVersion": "fortress-v0.1",
+          "states": 50,
+          "maxError": 0.00000762939453125,
+          "passed": true
+        },
+        "Hard": {
+          "modelId": "fortress-e23090508f60d0af",
+          "game": "fortress",
+          "rulesVersion": "fortress-v0.1",
+          "states": 50,
+          "maxError": 0.0000095367431640625,
+          "passed": true
+        }
+      },
+      "duels": [
+        {
+          "strong": "Hard",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 11,
+          "losses": 1,
+          "draws": 0,
+          "score": 0.9166666666666666
+        },
+        {
+          "strong": "Medium",
+          "weak": "Easy",
+          "games": 12,
+          "wins": 10,
+          "losses": 2,
+          "draws": 0,
+          "score": 0.8333333333333334
+        },
+        {
+          "strong": "Hard",
+          "weak": "Medium",
+          "games": 12,
+          "wins": 8,
+          "losses": 4,
+          "draws": 0,
+          "score": 0.6666666666666666
+        }
+      ],
+      "ordered": true
+    }
+  ]
+}

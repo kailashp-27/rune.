@@ -38,3 +38,5 @@ test('failed search and invalid move callback both release the worker',()=>{
     assert.match(reason,kind==='error'?/Search failed/:/Illegal move/);assert.equal(failed.calls.terminations,1);
   }
 });
+test('an already-computed move waits for the minimum presentation time',async()=>{const quick=fakeWorker();const started=performance.now();let delivered=false;const done=new Promise<void>(resolve=>{requestMove(quick.worker,{id:6},{minReplyMs:45,onReply:()=>{delivered=true;resolve();},onFailure:assert.fail});});quick.reply({id:6,action:0});assert.equal(delivered,false);await done;assert.ok(performance.now()-started>=40);});
+test('undo during the presentation delay cancels the held move',()=>{const quick=fakeWorker();let delivered=false;const job=requestMove(quick.worker,{id:7},{minReplyMs:10000,onReply:()=>{delivered=true;},onFailure:assert.fail});quick.reply({id:7,action:0});job.cancel();assert.equal(delivered,false);assert.equal(quick.calls.terminations,1);});

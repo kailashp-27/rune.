@@ -1,0 +1,38 @@
+{
+  "game": "pulse",
+  "rules_version": "pulse-v0.1",
+  "model": {
+    "game": "pulse",
+    "rulesVersion": "pulse-v0.1",
+    "id": "pulse-de06d69ba0543c38",
+    "url": "/models/pulse-de06d69ba0543c38.onnx",
+    "parityUrl": "/models/pulse-de06d69ba0543c38-parity.json",
+    "status": "candidate"
+  },
+  "sha256": "de06d69ba0543c380b9865b6a546627411b0a0bd170775cfed741dd8bcc96061",
+  "checkpoint_sha256": "158d663e1e3f25780a1ccc962a05ced1d295677a4e9555aeffd14e49d57f730b",
+  "config": {
+    "planes": 7,
+    "height": 5,
+    "width": 5,
+    "actions": 51,
+    "channels": 32,
+    "blocks": 2
+  },
+  "iteration": 1,
+  "arena_score": null,
+  "promoted": false,
+  "cpu_parity": {
+    "states": 50,
+    "max_error": 3.337860107421875e-06,
+    "passed": true
+  },
+  "bytes": 178007,
+  "training_origin": {
+    "method": "cumulative-heuristic-teacher",
+    "games": 8,
+    "steps": 200,
+    "tier": "Easy",
+    "seed": 891
+  }
+}

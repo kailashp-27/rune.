@@ -1,9 +1,13 @@
-"""Mirror Siege alpha: rook captures with a one-reply blocking ghost."""
+"""Mirror Siege v0.2: one-reply ghosts, outer edge seals after 24 actions."""
 from training.games.fortress import RAYS, transformCell, transformAction
 ACTION_SIZE=625
-INPUT_SHAPE=(6,5,5)
-RULES_VERSION='mirror-v0.1'
-MOVE_CAP=100
+INPUT_SHAPE=(7,5,5)
+RULES_VERSION='mirror-v0.2'
+MOVE_CAP=60
+SEAL_TURN=24
+RIM=[c for c in range(25) if c//5 in (0,4) or c%5 in (0,4)]
+
+def sealed(state,cell):return state['turn']>=SEAL_TURN and cell in RIM
 
 
 def initialState():
@@ -19,7 +23,7 @@ def rawLegal(state):
         if owner!=state['player']:continue
         for ray in RAYS[origin]:
             for target in ray:
-                if state['board'][target] or state['ghostTimers'][target]>0:break
+                if sealed(state,target) or state['board'][target] or state['ghostTimers'][target]>0:break
                 mask[origin*25+target]=True
     return mask
 
@@ -49,13 +53,17 @@ def applyMove(state,action):
                 break
     for cell in captured:board[cell]=0
     ghosts=[0]*25;timers=[0]*25;ghosts[origin]=state['player'];timers[origin]=1
+    if state['turn']+1>=SEAL_TURN:
+        for cell in RIM:
+            if board[cell]:captured.append(cell)
+            board[cell]=0;ghosts[cell]=0;timers[cell]=0
     return dict(board=board,ghosts=ghosts,ghostTimers=timers,player=-state['player'],turn=state['turn']+1,captured=sorted(captured),lastAction=action)
 
 
 def encode(state):
     values=[[float(p==state['player']) for p in state['board']],[float(p==-state['player']) for p in state['board']],
             [float(state['ghosts'][c]==state['player'] and state['ghostTimers'][c]>0) for c in range(25)],
-            [float(state['ghosts'][c]==-state['player'] and state['ghostTimers'][c]>0) for c in range(25)],state['ghostTimers'],[state['turn']/MOVE_CAP]*25]
+            [float(state['ghosts'][c]==-state['player'] and state['ghostTimers'][c]>0) for c in range(25)],state['ghostTimers'],[state['turn']/MOVE_CAP]*25,[float(sealed(state,c)) for c in range(25)]]
     return [[plane[r*5:r*5+5] for r in range(5)] for plane in values]
 
 

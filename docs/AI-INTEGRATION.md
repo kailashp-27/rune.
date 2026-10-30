@@ -1,5 +1,8 @@
 # Browser AI and measured training
 
+> Historical milestone. The current 30 October build uses distinct difficulty checkpoints and Mirror Siege v0.2. See [current status](PROJECT-STATUS.md) and [playability update](PLAYABILITY-2026-10-30.md).
+
+
 All six games share lazy single-thread ONNX inference and a versioned model contract. The five originals use a shared PUCT worker with actor-relative values, lazy transitions, full-state evaluation caching and independent chance sampling for Tidal Lock. Missing, obsolete or broken models fall back to the existing bounded search opponent.
 
 ## Enabled models (29 October 2026)

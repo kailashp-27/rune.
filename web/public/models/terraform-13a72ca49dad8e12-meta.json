@@ -1,0 +1,38 @@
+{
+  "game": "terraform",
+  "rules_version": "terraform-v0.1",
+  "model": {
+    "game": "terraform",
+    "rulesVersion": "terraform-v0.1",
+    "id": "terraform-13a72ca49dad8e12",
+    "url": "/models/terraform-13a72ca49dad8e12.onnx",
+    "parityUrl": "/models/terraform-13a72ca49dad8e12-parity.json",
+    "status": "candidate"
+  },
+  "sha256": "13a72ca49dad8e125d7b0775285f36131798b59777f7181e3c11e2c23d203d3f",
+  "checkpoint_sha256": "63199de93588bea8449825f81cde6f4fcd74437c9cdf4c55acb99960c5ada1f6",
+  "config": {
+    "planes": 8,
+    "height": 5,
+    "width": 5,
+    "actions": 251,
+    "channels": 32,
+    "blocks": 2
+  },
+  "iteration": 2,
+  "arena_score": null,
+  "promoted": false,
+  "cpu_parity": {
+    "states": 50,
+    "max_error": 7.62939453125e-06,
+    "passed": true
+  },
+  "bytes": 219964,
+  "training_origin": {
+    "method": "cumulative-heuristic-teacher",
+    "games": 24,
+    "steps": 600,
+    "tier": "Medium",
+    "seed": 891
+  }
+}
