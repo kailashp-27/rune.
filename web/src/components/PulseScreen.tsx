@@ -1,3 +1,4 @@
+import {MatchError} from './MatchError';
 import {SearchInsights} from './SearchInsights';
 import {useState,type CSSProperties} from 'react';
 import {CircleHelp,Lightbulb,Undo2,RotateCcw,Plus,Zap,Hourglass} from 'lucide-react';
@@ -22,13 +23,13 @@ export function PulseBoard({state,actions=[],hint=null,onCell,illustration=false
 }
 
 export function PulseScreen({difficulty,mode,paused,muted,vibration,showSearch,onHelp}:{difficulty:Difficulty;mode:Mode;paused:boolean;muted:boolean;vibration:boolean;showSearch:boolean;onHelp:()=>void}){
-  const {state,history,actionHistory,terminal,aiTurn,busy,hintPending,hint,reply,error,play,undo,reset,requestHint,clearHint}=useMatch({rules,createWorker,request,difficulty,mode,paused,muted,vibration});
+  const {state,history,actionHistory,terminal,aiTurn,busy,hintPending,hint,reply,error,retry,play,undo,reset,requestHint,clearHint}=useMatch({rules,createWorker,request,difficulty,mode,paused,muted,vibration});
   const [selected,setSelected]=useState<'build'|'boost'>('build');
   const kind=hint!==null&&hint<50?hint<25?'build':'boost':selected;
   const legal=rules.legalMoves(state).flatMap((ok,a)=>ok?[a]:[]),playable=!busy&&!paused&&!aiTurn&&!terminal.done&&mode==='human';
   const actions=playable?legal.filter(a=>kind==='build'?a<25:a>=25&&a<50):[];
   const [gold,purple]=rules.territory(state);
-  const status=terminal.done?terminal.winner===0?'IT’S A DRAW!':terminal.winner===1?mode==='watch'?'GOLD WINS!':'YOU WIN!':mode==='watch'?'PURPLE WINS!':'RUNE WINS!':busy?hintPending?'FINDING A HINT…':'RUNE IS THINKING…':mode==='watch'?'WATCH THE PULSE':'YOUR TURN';
+  const status=error?'MOVE PAUSED':terminal.done?terminal.winner===0?'IT’S A DRAW!':terminal.winner===1?mode==='watch'?'GOLD WINS!':'YOU WIN!':mode==='watch'?'PURPLE WINS!':'RUNE WINS!':busy?hintPending?'FINDING A HINT…':'RUNE IS THINKING…':mode==='watch'?'WATCH THE PULSE':'YOUR TURN';
   function restart(){reset();setSelected('build');}
   return <section className="match-screen pulse-match">
     <div className="match-meta"><span className={`difficulty-tag tag-${difficulty.toLowerCase()}`}>{difficulty}</span><span>{mode==='watch'?'AI vs AI':'You vs Rune'}</span><button className="round-button small help-shortcut" onClick={onHelp} aria-label="How to play"><CircleHelp/></button></div>
@@ -40,7 +41,7 @@ export function PulseScreen({difficulty,mode,paused,muted,vibration,showSearch,o
     {hint!==null&&!busy&&<p className="hint-message" role="status">Try {rules.describeAction(state,hint)}.</p>}
     <div className="match-actions"><button className="chunky purple-button" onClick={undo} disabled={history.length<2||mode==='watch'}><Undo2/><span>UNDO</span></button><button className="chunky purple-button" onClick={requestHint} disabled={!playable}><Lightbulb/><span>HINT</span></button><button className="chunky purple-button" onClick={restart}><RotateCcw/><span>NEW GAME</span></button></div>
     {terminal.done&&<button className="chunky coral-button rematch" onClick={restart}>PLAY AGAIN</button>}
-    {error&&<p className="error-message" role="alert">{error}</p>}
+    {error&&<MatchError message={error} onRetry={retry}/>}
     {showSearch&&<details className="search-details" open><summary>Search & move history</summary><SearchInsights reply={reply} history={history} describe={rules.describeAction}/><p className="history">{actionHistory.map((action,i)=>`${i+1}. ${rules.describeAction(history[i],action)}`).join(' · ')||'No moves yet.'}</p></details>}
   </section>;
 }

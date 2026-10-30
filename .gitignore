@@ -16,3 +16,4 @@ parity/pulse-full.jsonl
 parity/fortress-full.jsonl
 parity/mirror-full.jsonl
 web/tsconfig.tsbuildinfo
+.rune-local/

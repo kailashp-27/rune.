@@ -1,3 +1,16 @@
+## Local game recovery, 30 October 2026
+
+Reproduced Mirror Siege's failure after a legal human move. The local server had stopped while its already-loaded board stayed visible; a fresh AI worker could not load. Restoring the server restored the reply. The new `Rune.cmd` launcher serves a stable production build in a detached background process, reuses an existing Rune server, and keeps logs outside Git in `.rune-local`.
+
+Failed requests now discard the worker, preserve the match, show **Move paused** and offer **Retry**. Requests cover startup errors, search errors, unreadable replies, cancellation, invalid moves and a 30-second timeout. A failed hint retains its pending request for Retry. Console diagnostics keep the actual failure reason.
+
+- Actual browser, production build: all six games at Easy, Medium and Hard completed a legal human move, AI reply, hint and undo (18 cases).
+- Deliberate server outage: Mirror B5 to B3 stayed at turn 2; after restarting the server, Retry advanced the same match to turn 3 without New game or page reload.
+- Production build and all 42 TypeScript tests passed, including four worker-lifecycle regression tests.
+- Launcher exited while the server continued responding; a second launch reused it.
+
+Evidence: [browser report](training/reports/browser-game-recovery.json), [recovered Mirror screenshot](docs/mirror-recovered-mobile.png). This is functional browser verification, not a claim about AI strength or physical-device performance.
+
 ## Mirror Siege: all six games playable
 
 > Current status (29 October 2026): all six games are playable. Terraform, Pulse and Fortress Medium now use qualified trained models; the other slots use search opponents. All original games support browser neural inference. See [current status](docs/PROJECT-STATUS.md) and [AI integration](docs/AI-INTEGRATION.md). Older milestones below remain historical.

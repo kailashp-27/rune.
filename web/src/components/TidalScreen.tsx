@@ -1,3 +1,4 @@
+import {MatchError} from './MatchError';
 import {SearchInsights} from './SearchInsights';
 import {useState} from 'react';
 import {CircleHelp,Lightbulb,Undo2,RotateCcw,Plus,Move,Waves} from 'lucide-react';
@@ -23,14 +24,14 @@ export function TidalBoard({state,targets=[],sources=[],selected=-1,hint=null,on
 }
 
 export function TidalScreen({difficulty,mode,paused,muted,vibration,showSearch,onHelp}:{difficulty:Difficulty;mode:Mode;paused:boolean;muted:boolean;vibration:boolean;showSearch:boolean;onHelp:()=>void}){
-  const {state,history,actionHistory,terminal,aiTurn,busy,hintPending,hint,reply,error,play,undo,reset,requestHint,clearHint}=useMatch({rules:liveRules,createWorker,request,difficulty,mode,paused,muted,vibration});
+  const {state,history,actionHistory,terminal,aiTurn,busy,hintPending,hint,reply,error,retry,play,undo,reset,requestHint,clearHint}=useMatch({rules:liveRules,createWorker,request,difficulty,mode,paused,muted,vibration});
   const [choice,setChoice]=useState<{turn:number;kind:'place'|'nudge';source:number}>({turn:0,kind:'place',source:-1});
   const current=choice.turn===state.turn?choice:{turn:state.turn,kind:'place' as const,source:-1};
   const kind=hint===null?current.kind:hint<25?'place':'nudge',source=kind==='place'?-1:hint!==null?rules.origin(hint):current.source;
   const legal=rules.legalMoves(state).flatMap((ok,a)=>ok?[a]:[]),playable=!busy&&!paused&&!aiTurn&&!terminal.done&&mode==='human';
   const actions=playable?legal.filter(a=>kind==='place'?a<25:a>=25&&rules.origin(a)===source):[];
   const sources=playable&&kind==='nudge'?[...new Set(legal.filter(a=>a>=25).map(rules.origin))]:[];
-  const status=terminal.done?terminal.winner===0?'IT’S A DRAW!':terminal.winner===1?mode==='watch'?'GOLD WINS!':'YOU WIN!':mode==='watch'?'PURPLE WINS!':'RUNE WINS!':busy?hintPending?'FINDING A HINT…':'RUNE IS THINKING…':mode==='watch'?'WATCH THE TIDE':'YOUR TURN';
+  const status=error?'MOVE PAUSED':terminal.done?terminal.winner===0?'IT’S A DRAW!':terminal.winner===1?mode==='watch'?'GOLD WINS!':'YOU WIN!':mode==='watch'?'PURPLE WINS!':'RUNE WINS!':busy?hintPending?'FINDING A HINT…':'RUNE IS THINKING…':mode==='watch'?'WATCH THE TIDE':'YOUR TURN';
   function restart(){reset();setChoice({turn:0,kind:'place',source:-1});}
   return <section className="match-screen tidal-match">
     <div className="match-meta"><span className={`difficulty-tag tag-${difficulty.toLowerCase()}`}>{difficulty}</span><span>{mode==='watch'?'AI vs AI':'You vs Rune'}</span><button className="round-button small help-shortcut" onClick={onHelp} aria-label="How to play"><CircleHelp/></button></div>
@@ -42,7 +43,7 @@ export function TidalScreen({difficulty,mode,paused,muted,vibration,showSearch,o
     {hint!==null&&!busy&&<p className="hint-message" role="status">Try {rules.describeAction(state,hint)}.</p>}
     <div className="match-actions"><button className="chunky purple-button" onClick={undo} disabled={history.length<2||mode==='watch'}><Undo2/><span>UNDO</span></button><button className="chunky purple-button" onClick={requestHint} disabled={!playable}><Lightbulb/><span>HINT</span></button><button className="chunky purple-button" onClick={restart}><RotateCcw/><span>NEW GAME</span></button></div>
     {terminal.done&&<button className="chunky coral-button rematch" onClick={restart}>PLAY AGAIN</button>}
-    {error&&<p className="error-message" role="alert">{error}</p>}
+    {error&&<MatchError message={error} onRetry={retry}/>}
     {showSearch&&<details className="search-details" open><summary>Search & move history</summary><SearchInsights reply={reply} history={history} describe={rules.describeAction}/><p className="history">{actionHistory.map((action,i)=>`${i+1}. ${rules.describeAction(history[i],action)}`).join(' · ')||'No moves yet.'}</p></details>}
   </section>;
 }

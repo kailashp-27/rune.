@@ -1,3 +1,4 @@
+import {MatchError} from './MatchError';
 import {SearchInsights} from './SearchInsights';
 import {useEffect,useState,type CSSProperties} from 'react';
 import {ArrowUp,ArrowDown,Footprints,CircleHelp,Lightbulb,Undo2,RotateCcw} from 'lucide-react';
@@ -22,13 +23,13 @@ export function TerrainBoard({state,kind='move',activeActions=[],hint=null,onCel
 }
 
 export function TerraformScreen({difficulty,mode,paused,muted,vibration,showSearch,onHelp}:{difficulty:Difficulty;mode:Mode;paused:boolean;muted:boolean;vibration:boolean;showSearch:boolean;onHelp:()=>void}){
-  const {state,history,actionHistory,terminal,aiTurn,busy,hintPending,hint,reply,error,play,undo,reset,requestHint}=useMatch({rules,createWorker,request,difficulty,mode,paused,muted,vibration});
+  const {state,history,actionHistory,terminal,aiTurn,busy,hintPending,hint,reply,error,retry,play,undo,reset,requestHint}=useMatch({rules,createWorker,request,difficulty,mode,paused,muted,vibration});
   const [kind,setKind]=useState<rules.ActionKind>('move');
   useEffect(()=>{if(hint!==null)setKind(rules.actionKind(hint));},[hint]);
   const legal=rules.legalMoves(state).flatMap((ok,a)=>ok?[a]:[]);
   const playable=!busy&&!paused&&!aiTurn&&!terminal.done&&mode==='human';
   const actions=playable?legal.filter(a=>rules.actionKind(a)===kind):[];
-  const status=terminal.done?terminal.winner===0?'IT’S A DRAW!':terminal.winner===1?mode==='watch'?'GOLD WINS!':'YOU WIN!':'RUNE WINS!':busy?hintPending?'FINDING A HINT…':'RUNE IS THINKING…':mode==='watch'?'WATCH THEM PLAY':'YOUR TURN';
+  const status=error?'MOVE PAUSED':terminal.done?terminal.winner===0?'IT’S A DRAW!':terminal.winner===1?mode==='watch'?'GOLD WINS!':'YOU WIN!':'RUNE WINS!':busy?hintPending?'FINDING A HINT…':'RUNE IS THINKING…':mode==='watch'?'WATCH THEM PLAY':'YOUR TURN';
   return <section className="match-screen terraform-match">
     <div className="match-meta"><span className={`difficulty-tag tag-${difficulty.toLowerCase()}`}>{difficulty}</span><span>{mode==='watch'?'AI vs AI':'You vs Rune'}</span><button className="round-button small help-shortcut" onClick={onHelp} aria-label="How to play"><CircleHelp/></button></div>
     <div className={`turn-banner ${terminal.done?'match-ended':''}`} role="status">{status}</div>
@@ -40,7 +41,7 @@ export function TerraformScreen({difficulty,mode,paused,muted,vibration,showSear
     {hint!==null&&!busy&&<p className="hint-message" role="status">Try {rules.describeAction(state,hint)} — it’s glowing.</p>}
     <div className="match-actions"><button className="chunky purple-button" onClick={undo} disabled={history.length<2||mode==='watch'}><Undo2/><span>UNDO</span></button><button className="chunky purple-button" onClick={requestHint} disabled={!playable}><Lightbulb/><span>HINT</span></button><button className="chunky purple-button" onClick={()=>{reset();setKind('move');}}><RotateCcw/><span>NEW GAME</span></button></div>
     {terminal.done&&<button className="chunky coral-button rematch" onClick={()=>{reset();setKind('move');}}>PLAY AGAIN</button>}
-    {error&&<p className="error-message" role="alert">{error}</p>}
+    {error&&<MatchError message={error} onRetry={retry}/>}
     {showSearch&&<details className="search-details" open><summary>Search & move history</summary><SearchInsights reply={reply} history={history} describe={rules.describeAction}/><p className="history">{actionHistory.map((action,i)=>`${i+1}. ${rules.describeAction(history[i],action)}`).join(' · ')||'No moves yet.'}</p></details>}
   </section>;
 }

@@ -1,0 +1,142 @@
+{
+  "date": "2026-10-30",
+  "origin": "http://127.0.0.1:5173",
+  "build": "production preview",
+  "passed": true,
+  "cases": [
+    {
+      "game": "Connect Four",
+      "difficulty": "Medium",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Terraform",
+      "difficulty": "Medium",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Tidal Lock",
+      "difficulty": "Medium",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Pulse",
+      "difficulty": "Medium",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Fortress",
+      "difficulty": "Medium",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Mirror Siege",
+      "difficulty": "Medium",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Connect Four",
+      "difficulty": "Easy",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Terraform",
+      "difficulty": "Easy",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Tidal Lock",
+      "difficulty": "Easy",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Pulse",
+      "difficulty": "Easy",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Fortress",
+      "difficulty": "Easy",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Mirror Siege",
+      "difficulty": "Easy",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Connect Four",
+      "difficulty": "Hard",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Terraform",
+      "difficulty": "Hard",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Tidal Lock",
+      "difficulty": "Hard",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Pulse",
+      "difficulty": "Hard",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Fortress",
+      "difficulty": "Hard",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    },
+    {
+      "game": "Mirror Siege",
+      "difficulty": "Hard",
+      "aiReply": true,
+      "hint": true,
+      "undo": true
+    }
+  ],
+  "serverOutageRecovery": {
+    "game": "Mirror Siege",
+    "preservedPlayerMove": "B5 to B3",
+    "pausedTurn": 2,
+    "recoveredTurn": 3,
+    "retry": true
+  },
+  "scope": "Actual browser UI: legal human move and AI reply, hint, undo for all six games at Easy/Medium/Hard; deliberate server outage and retry. Not strength or physical-device testing."
+}

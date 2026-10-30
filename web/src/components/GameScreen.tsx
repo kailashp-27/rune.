@@ -1,3 +1,4 @@
+import {MatchError} from './MatchError';
 import { CircleHelp, Lightbulb, RotateCcw, Undo2 } from 'lucide-react';
 import * as rules from '../engine/connect4';
 import { budgets, type Difficulty, type Mode } from '../data';
@@ -7,10 +8,10 @@ const request=(state:rules.State,difficulty:Difficulty)=>({state,difficulty,simu
 export function GameScreen({ difficulty, mode, muted, vibration, paused, showSearch, onHelp }: {
   difficulty: Difficulty; mode: Mode; muted: boolean; vibration: boolean; paused: boolean; showSearch: boolean; onHelp: () => void;
 }) {
-  const {state,history,terminal,aiTurn,busy,hintPending,hint,reply,error,play:move,reset,undo,requestHint}=useMatch({rules,createWorker,request,difficulty,mode,muted,vibration,paused});
+  const {state,history,terminal,aiTurn,busy,hintPending,hint,reply,error,retry,play:move,reset,undo,requestHint}=useMatch({rules,createWorker,request,difficulty,mode,muted,vibration,paused});
   const legal=rules.legalMoves(state),winning=rules.winningCells(state),analysis=reply?.policy??null;
   const engineInfo=reply?.engine==='neural'?`Neural search · ${reply.modelId}`:reply?.fallbackReason?'Search baseline · model unavailable':'Search baseline';
-  const status = terminal.done
+  const status = error ? 'MOVE PAUSED' : terminal.done
     ? terminal.winner === 0 ? 'IT’S A DRAW!' : terminal.winner === 1 ? mode === 'watch' ? 'GOLD WINS!' : 'YOU WIN!' : 'RUNE WINS!'
     : busy ? hintPending ? 'FINDING A HINT…' : 'RUNE IS THINKING…' : mode === 'watch' ? 'WATCH THEM PLAY' : 'YOUR TURN';
 
@@ -27,7 +28,7 @@ export function GameScreen({ difficulty, mode, muted, vibration, paused, showSea
     {hint !== null && !busy && <p className="hint-message" role="status">Try column {hint + 1} — it’s glowing on the board.</p>}
     <div className="match-actions"><button className="chunky purple-button" onClick={undo} disabled={history.length < 2 || mode === 'watch'}><Undo2 /><span>UNDO</span></button><button className="chunky purple-button" onClick={requestHint} disabled={paused || busy || aiTurn || terminal.done || mode === 'watch'}><Lightbulb /><span>HINT</span></button><button className="chunky purple-button" onClick={reset}><RotateCcw /><span>NEW GAME</span></button></div>
     {terminal.done && <button className="chunky coral-button rematch" onClick={reset}>PLAY AGAIN</button>}
-    {error && <p className="error-message" role="alert">{error}</p>}
+    {error && <MatchError message={error} onRetry={retry}/>}
     {showSearch && <details className="search-details" open><summary>Search & move history</summary><p>{engineInfo}</p><div className="policy-bars">{Array.from({ length: 7 }, (_, i) => <div key={i}><span style={{ height: `${Math.max(3, (analysis?.[i] ?? 0) * 100)}%` }} /><small>{i + 1}</small></div>)}</div><p>{analysis ? 'Search visits by column' : 'Search appears after Rune’s first move.'}</p><p className="history">{history.slice(1).map((s, i) => `${i + 1}. ${s.board.findIndex((value, j) => value !== history[i].board[j]) % 7 + 1}`).join(' · ') || 'No moves yet.'}</p></details>}
   </section>;
 }

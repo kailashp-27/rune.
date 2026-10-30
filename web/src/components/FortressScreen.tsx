@@ -1,3 +1,4 @@
+import {MatchError} from './MatchError';
 import {SearchInsights} from './SearchInsights';
 import {useState} from 'react';
 import {CircleHelp,Lightbulb,Undo2,RotateCcw,Crown} from 'lucide-react';
@@ -21,12 +22,12 @@ export function FortressBoard({state,targets=[],sources=[],selected=-1,hint=null
 }
 
 export function FortressScreen({difficulty,mode,paused,muted,vibration,showSearch,onHelp}:{difficulty:Difficulty;mode:Mode;paused:boolean;muted:boolean;vibration:boolean;showSearch:boolean;onHelp:()=>void}){
-  const {state,history,actionHistory,terminal,aiTurn,busy,hintPending,hint,reply,error,play,undo,reset,requestHint,clearHint}=useMatch({rules,createWorker,request,difficulty,mode,paused,muted,vibration});
+  const {state,history,actionHistory,terminal,aiTurn,busy,hintPending,hint,reply,error,retry,play,undo,reset,requestHint,clearHint}=useMatch({rules,createWorker,request,difficulty,mode,paused,muted,vibration});
   const [selection,setSelection]=useState({turn:-1,cell:-1});
   const selected=hint!==null?Math.floor(hint/25):selection.turn===state.turn?selection.cell:-1;
   const legal=rules.legalMoves(state).flatMap((ok,a)=>ok?[a]:[]),playable=!busy&&!paused&&!aiTurn&&!terminal.done&&mode==='human';
   const sources=playable?[...new Set(legal.map(a=>Math.floor(a/25)))]:[],targets=playable?legal.filter(a=>Math.floor(a/25)===selected).map(a=>a%25):[];
-  const status=terminal.done?terminal.winner===0?'IT’S A DRAW!':terminal.winner===1?mode==='watch'?'GOLD WINS!':'YOU WIN!':mode==='watch'?'PURPLE WINS!':'RUNE WINS!':busy?hintPending?'FINDING A HINT…':'RUNE IS THINKING…':mode==='watch'?'WATCH THE SIEGE':'YOUR TURN';
+  const status=error?'MOVE PAUSED':terminal.done?terminal.winner===0?'IT’S A DRAW!':terminal.winner===1?mode==='watch'?'GOLD WINS!':'YOU WIN!':mode==='watch'?'PURPLE WINS!':'RUNE WINS!':busy?hintPending?'FINDING A HINT…':'RUNE IS THINKING…':mode==='watch'?'WATCH THE SIEGE':'YOUR TURN';
   const counts=[1,-1].map(p=>state.board.filter(owner=>owner===p).length);
   function restart(){reset();setSelection({turn:-1,cell:-1});}
   return <section className="match-screen fortress-match">
@@ -39,7 +40,7 @@ export function FortressScreen({difficulty,mode,paused,muted,vibration,showSearc
     {state.captured.length>0&&<p className="fortress-capture-note" role="status">{state.captured.length} {state.captured.length===1?'rook captured':'rooks captured'}</p>}
     <div className="match-actions"><button className="chunky purple-button" onClick={undo} disabled={history.length<2||mode==='watch'}><Undo2/><span>UNDO</span></button><button className="chunky purple-button" onClick={requestHint} disabled={!playable}><Lightbulb/><span>HINT</span></button><button className="chunky purple-button" onClick={restart}><RotateCcw/><span>NEW GAME</span></button></div>
     {terminal.done&&<button className="chunky coral-button rematch" onClick={restart}>PLAY AGAIN</button>}
-    {error&&<p className="error-message" role="alert">{error}</p>}
+    {error&&<MatchError message={error} onRetry={retry}/>}
     {showSearch&&<details className="search-details" open><summary>Search & move history</summary><SearchInsights reply={reply} history={history} describe={rules.describeAction}/><p className="history">{actionHistory.map((action,i)=>`${i+1}. ${rules.describeAction(history[i],action)}`).join(' · ')||'No moves yet.'}</p></details>}
   </section>;
 }
