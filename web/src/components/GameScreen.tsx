@@ -10,29 +10,26 @@ const request=(state:rules.State,difficulty:Difficulty)=>({state,difficulty,simu
 export function GameScreen({ difficulty, mode, muted, vibration, paused, showSearch, onBack }: {
   difficulty: Difficulty; mode: Mode; muted: boolean; vibration: boolean; paused: boolean; showSearch: boolean; onBack: () => void;
 }) {
-  const {state,history,actionHistory,terminal,aiTurn,busy,hintPending,hint,reply,error,retry,play:move,reset,undo,requestHint}=useMatch({rules,createWorker,request,difficulty,mode,muted,vibration,paused});
+  const {state,history,actionHistory,terminal,resultReady,status,aiTurn,busy,hint,reply,error,retry,play:move,reset,undo,requestHint}=useMatch({gameId:'connect',rules,createWorker,request,difficulty,mode,muted,vibration,paused});
   const legal=rules.legalMoves(state),winning=rules.winningCells(state),analysis=reply?.policy??null;
   const last=latestMove(history,actionHistory,mode);
-  const lastText=last?`${mode==='watch'?(last.player===1?'Gold':'Purple'):'Rune'}: ${`drop in column ${last.action+1}`}`:null;
+  const lastText=last?`${mode==='friend'?(last.player===1?'Gold':'Purple'):'Rune'}: ${`drop in column ${last.action+1}`}`:null;
   const engineInfo=reply?.engine==='neural'?`Neural search · ${reply.modelId}`:reply?.fallbackReason?'Search baseline · model unavailable':'Search baseline';
-  const status = error ? 'MOVE PAUSED' : terminal.done
-    ? terminal.winner === 0 ? 'IT’S A DRAW!' : terminal.winner === 1 ? mode === 'watch' ? 'GOLD WINS!' : 'YOU WIN!' : mode==='watch'?'PURPLE WINS!':'RUNE WINS!'
-    : busy ? hintPending ? 'FINDING A HINT…' : 'RUNE IS THINKING…' : mode === 'watch' ? 'WATCH THEM PLAY' : 'YOUR TURN';
 
   return <section className="match-screen">
-    <div className="match-meta"><span className={`difficulty-tag tag-${difficulty.toLowerCase()}`}>{difficulty}</span><span>{mode === 'watch' ? 'AI vs AI' : 'You vs Rune'}</span></div>
+    <div className="match-meta"><span className={`difficulty-tag tag-${difficulty.toLowerCase()}`}>{mode==='friend'?'2 PLAYERS':difficulty}</span><span>{mode === 'friend' ? 'Play vs. Friend' : 'You vs Rune'}</span></div>
     <div className={`turn-banner ${terminal.done ? 'match-ended' : ''}`} role="status" aria-live="polite">{status}</div>
-    <div className="players"><span className={state.player === 1 && !terminal.done ? 'player-active' : ''}><i className="gold" />{mode === 'watch' ? 'GOLD' : 'YOU'}</span><span className="move-count">MOVE {state.turn + (terminal.done ? 0 : 1)}</span><span className={state.player === -1 && !terminal.done ? 'player-active' : ''}><i className="purple" />{mode === 'watch' ? 'PURPLE' : 'RUNE'}</span></div>
+    <div className="players"><span className={state.player === 1 && !terminal.done ? 'player-active' : ''}><i className="gold" />{mode === 'friend' ? 'GOLD' : 'YOU'}</span><span className="move-count">MOVE {state.turn + (terminal.done ? 0 : 1)}</span><span className={state.player === -1 && !terminal.done ? 'player-active' : ''}><i className="purple" />{mode === 'friend' ? 'PURPLE' : 'RUNE'}</span></div>
     <div className="board-base"><div className="play-board" aria-label="Connect Four board">
-      {Array.from({ length: 7 }, (_, c) => <button key={c} className={`play-column ${hint === c ? 'hint-column' : ''}`} aria-label={`Drop piece in column ${c + 1}`} disabled={paused || busy || aiTurn || !legal[c] || mode === 'watch'} onClick={() => move(c)}>
+      {Array.from({ length: 7 }, (_, c) => <button key={c} className={`play-column ${hint === c ? 'hint-column' : ''}`} aria-label={`Drop piece in column ${c + 1}`} disabled={paused || busy || aiTurn || !legal[c] || terminal.done} onClick={() => move(c)}>
         <span className="column-arrow">▼</span>
         {Array.from({ length: 6 }, (_, r) => { const i = r * 7 + c; return <span key={r} className={`slot ${state.board[i] === 1 ? 'gold' : state.board[i] === -1 ? 'purple' : ''} ${winning.includes(i) ? 'winner' : ''}`} />; })}
       </button>)}
     </div></div>
     {hint !== null && !busy && <p className="hint-message" role="status">Try column {hint + 1} — it’s glowing on the board.</p>}
-    <LastMove text={lastText}/><div className="match-actions"><button className="chunky purple-button" onClick={undo} disabled={history.length < 2 || mode === 'watch'}><Undo2 /><span>UNDO</span></button><button className="chunky purple-button" onClick={requestHint} disabled={paused || busy || aiTurn || terminal.done || mode === 'watch'}><Lightbulb /><span>HINT</span></button><button className="chunky purple-button" onClick={reset}><RotateCcw /><span>NEW GAME</span></button></div>
-    {terminal.done && <MatchResult key={state.turn} winner={terminal.winner} mode={mode} onReplay={reset} onBack={onBack}/>}
-    {terminal.done && <button className="chunky coral-button rematch" onClick={reset}>PLAY AGAIN</button>}
+    <LastMove text={lastText}/><div className="match-actions"><button className="chunky purple-button" onClick={undo} disabled={history.length < 2 || terminal.done}><Undo2 /><span>UNDO</span></button><button className="chunky purple-button" onClick={requestHint} disabled={paused || busy || aiTurn || terminal.done}><Lightbulb /><span>HINT</span></button><button className="chunky purple-button" onClick={reset}><RotateCcw /><span>NEW GAME</span></button></div>
+    {resultReady && !paused && <MatchResult key={state.turn} winner={terminal.winner} mode={mode} onReplay={reset} onBack={onBack}/>}
+    {resultReady && <button className="chunky coral-button rematch" onClick={reset}>PLAY AGAIN</button>}
     {error && <MatchError message={error} onRetry={retry}/>}
     {showSearch && <details className="search-details" open><summary>Search & move history</summary><p>{engineInfo}</p><div className="policy-bars">{Array.from({ length: 7 }, (_, i) => <div key={i}><span style={{ height: `${Math.max(3, (analysis?.[i] ?? 0) * 100)}%` }} /><small>{i + 1}</small></div>)}</div><p>{analysis ? 'Search visits by column' : 'Search appears after Rune’s first move.'}</p><p className="history">{history.slice(1).map((s, i) => `${i + 1}. ${s.board.findIndex((value, j) => value !== history[i].board[j]) % 7 + 1}`).join(' · ') || 'No moves yet.'}</p></details>}
   </section>;

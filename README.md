@@ -22,7 +22,7 @@ Open the local URL printed by Vite. `npm run build` produces `web/dist` for Netl
 - Mobile-first collection with two-column illustrated game cards, favourites, a full-page menu and settings, and large touch controls.
 - Game setup with Easy/Medium/Hard slider, human/AI match modes, and Play/help buttons. Rune has matches, not numbered progression levels.
 - Five-step illustrated Connect Four tutorial, available from setup and the board; shown before the first match. Instructions live in the guide, while search details are optional in Settings.
-- Play Connect Four, request hints, undo a round, reset, or watch AI vs AI.
+- Play against Rune or a friend on the same device, request hints, undo, reset and view saved statistics for every game. Favourites appear first in the collection.
 - Play Terraform's v0.1 prototype with a terrain board, Move/Raise/Lower controls, opening swap, eight-step guide, and heuristic worker opponent. Its opening balance remains provisional; see [docs/TERRAFORM-ALPHA.md](docs/TERRAFORM-ALPHA.md).
 - Play Tidal Lock's v0.2 prototype with random horizontal/vertical water, no next-wave preview, Place/Nudge actions, eight lessons, hints, undo, and watch mode. Search and training account for chance; the old fixed-schedule checkpoint is incompatible. See [docs/TIDAL-RANDOM-WAVES.md](docs/TIDAL-RANDOM-WAVES.md).
 - Play Pulse's v0.1 prototype with Build/Boost/Wait actions, integer wave collisions, emitter captures, countdowns, territory scoring, and eight illustrated lessons. Its worker/rule tests pass; visual browser QA is pending because the browser connection failed. See [docs/PULSE-ALPHA.md](docs/PULSE-ALPHA.md).

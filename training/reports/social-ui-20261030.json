@@ -1,0 +1,65 @@
+{
+  "friendChecks": [
+    {
+      "game": "Connect Four",
+      "threeHumanMoves": true,
+      "purpleCanPlay": true,
+      "noAutoAI": true,
+      "statisticsAvailable": true
+    },
+    {
+      "game": "Terraform",
+      "threeHumanMoves": true,
+      "purpleCanPlay": true,
+      "noAutoAI": true,
+      "statisticsAvailable": true
+    },
+    {
+      "game": "Tidal Lock",
+      "threeHumanMoves": true,
+      "purpleCanPlay": true,
+      "noAutoAI": true,
+      "statisticsAvailable": true
+    },
+    {
+      "game": "Pulse",
+      "threeHumanMoves": true,
+      "purpleCanPlay": true,
+      "noAutoAI": true,
+      "statisticsAvailable": true
+    },
+    {
+      "game": "Fortress",
+      "threeHumanMoves": true,
+      "purpleCanPlay": true,
+      "noAutoAI": true,
+      "statisticsAvailable": true
+    },
+    {
+      "game": "Mirror Siege",
+      "threeHumanMoves": true,
+      "purpleCanPlay": true,
+      "noAutoAI": true,
+      "statisticsAvailable": true
+    }
+  ],
+  "favouriteFirstAfterReload": true,
+  "resultDelay": {
+    "immediateMs": 375,
+    "earlyPopup": false,
+    "battleComplete": true
+  },
+  "completedFriendGame": {
+    "game": "connect",
+    "goldWins": 1,
+    "purpleWins": 0,
+    "bestStreak": 1,
+    "persistedAfterReload": true
+  },
+  "completedRuneGame": {
+    "game": "connect",
+    "wins": 0,
+    "losses": 1,
+    "rematchDoesNotCountAsResult": true
+  }
+}

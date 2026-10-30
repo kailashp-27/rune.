@@ -7,6 +7,7 @@ import {TidalLesson,tidalSteps} from './TidalLesson';
 import {PulseLesson,pulseSteps} from './PulseLesson';
 import {FortressLesson,fortressSteps} from './FortressLesson';
 import {MirrorLesson,mirrorSteps} from './MirrorLesson';
+import type {Mode} from '../data';
 
 const steps = [
   { title: 'Pick a column', text: 'Tap any open column to drop your gold piece into the board.' },
@@ -39,28 +40,29 @@ function TerrainLesson({step}:{step:number}){
   return <div className="lesson-scene terrain-lesson-scene"><TerrainBoard state={state} kind={kind} activeActions={step===0||step===6?[]:actions} illustration/>{step===6&&<span className="terrain-turn-badge">80 TURNS</span>}{step===5&&<span className="terrain-goal-badge">REACH 3 ★</span>}</div>;
 }
 
-function LessonBoard({ step }: { step: number }) {
+function LessonBoard({ step,mode }: { step: number;mode:Mode }) {
   const gold = step === 0 ? [37] : step === 1 ? [37, 30] : step === 2 ? [37, 31] : step === 3 ? [35, 36, 37, 38] : [35, 28];
   const purple = step < 2 ? [] : step === 2 ? [38, 36] : step === 3 ? [39, 40, 31] : [36, 37, 38];
   return <div className={`lesson-scene lesson-${step}`} aria-hidden="true">
     {step < 2 && <div className="lesson-drop"><span className="lesson-token gold" /><ArrowDown strokeWidth={4} /></div>}
     <div className="lesson-board">{Array.from({ length: 42 }, (_, i) => <span key={i} className={`lesson-hole ${gold.includes(i) ? 'gold' : purple.includes(i) ? 'purple' : ''} ${step === 3 && gold.includes(i) ? 'lesson-win' : ''} ${step === 4 && i === 39 ? 'lesson-block' : ''}`} />)}</div>
     {step === 0 && <Hand className="lesson-hand" fill="#fff0d9" stroke="#3f374b" strokeWidth={2} size={60} />}
-    {step === 2 && <div className="lesson-players"><span><i className="gold" />YOU</span><span><i className="purple" />RUNE</span></div>}
+    {step === 2 && <div className="lesson-players"><span><i className="gold" />{mode==='friend'?'GOLD':'YOU'}</span><span><i className="purple" />{mode==='friend'?'PURPLE':'RUNE'}</span></div>}
     {step === 3 && <div className="win-directions"><span>↔</span><span>↕</span><span>⤢</span></div>}
     {step === 4 && <span className="block-label">BLOCK HERE! <ArrowDown size={22} strokeWidth={4} /></span>}
   </div>;
 }
 
-export function Tutorial({ onClose,game='connect' }: { onClose: () => void;game?:string }) {
+export function Tutorial({ onClose,game='connect',mode='human' }: { onClose: () => void;game?:string;mode?:Mode }) {
   const [step, setStep] = useState(0);
   const instructions=game==='mirror'?mirrorSteps:game==='fortress'?fortressSteps:game==='pulse'?pulseSteps:game==='tidal'?tidalSteps:game==='terraform'?terrainSteps:steps;
+  const copy=(text:string)=>mode==='friend'?text.replaceAll('Rune','your friend'):text;
   return <Dialog title="How to play" onClose={onClose} className="tutorial-dialog">
     <div className="lesson-card" aria-live="polite" aria-atomic="true">
-      {game==='mirror'?<MirrorLesson step={step}/>:game==='fortress'?<FortressLesson step={step}/>:game==='pulse'?<PulseLesson step={step}/>:game==='tidal'?<TidalLesson step={step}/>:game==='terraform'?<TerrainLesson step={step}/>:<LessonBoard step={step} />}
-      <div className="lesson-copy"><span className="step-label">STEP {step + 1} OF {instructions.length}</span><h3>{instructions[step].title}</h3><p>{instructions[step].text}</p></div>
+      {game==='mirror'?<MirrorLesson step={step}/>:game==='fortress'?<FortressLesson step={step}/>:game==='pulse'?<PulseLesson step={step}/>:game==='tidal'?<TidalLesson step={step}/>:game==='terraform'?<TerrainLesson step={step}/>:<LessonBoard step={step} mode={mode}/>}
+      <div className="lesson-copy"><span className="step-label">STEP {step + 1} OF {instructions.length}</span><h3>{copy(instructions[step].title)}</h3><p>{copy(instructions[step].text)}</p></div>
     </div>
-    <div className="step-dots" aria-label="Tutorial steps">{instructions.map((s, i) => <button key={s.title} className={i === step ? 'current' : ''} onClick={() => setStep(i)} aria-label={`Step ${i + 1}: ${s.title}`} aria-current={i === step ? 'step' : undefined} />)}</div>
+    <div className="step-dots" aria-label="Tutorial steps">{instructions.map((s, i) => <button key={s.title} className={i === step ? 'current' : ''} onClick={() => setStep(i)} aria-label={`Step ${i + 1}: ${copy(s.title)}`} aria-current={i === step ? 'step' : undefined} />)}</div>
     <div className="lesson-controls"><button className="chunky purple-button square" disabled={step === 0} onClick={() => setStep(s => s - 1)} aria-label="Previous step"><ArrowLeftToLine /></button><button className="chunky purple-button" onClick={onClose}>{step === instructions.length - 1 ? 'LET’S PLAY' : 'OK'}</button><button className="chunky purple-button square" disabled={step === instructions.length - 1} onClick={() => setStep(s => s + 1)} aria-label="Next step"><ArrowRightToLine /></button></div>
   </Dialog>;
 }

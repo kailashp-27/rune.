@@ -8,7 +8,7 @@ export const games = [
 ] as const;
 export type Game = typeof games[number];
 export type Difficulty = 'Easy' | 'Medium' | 'Hard';
-export type Mode = 'human' | 'watch';
+export type Mode = 'human' | 'friend';
 export const difficulties: Difficulty[] = ['Easy', 'Medium', 'Hard'];
 // Rollout fallback budgets; trained checkpoints carry their own search budgets.
 export const budgets: Record<Difficulty, number> = { Easy: 80, Medium: 400, Hard: 1200 };

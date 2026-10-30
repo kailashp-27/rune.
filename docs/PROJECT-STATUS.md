@@ -30,3 +30,5 @@ Tier behavior includes search budgets and more exploration/missed moves for Easy
 Larger self-play training, more independent strength/balance testing, calibrated win probabilities, measured Elo, full-game perfect-solver comparisons, and physical Android/iPhone sound/vibration/performance checks remain. Current model values and visit shares are not calibrated win probabilities. Human playtesting is still needed before treating prototype rules as final. Netlify publication and native-store packaging remain deferred/optional.
 
 See [playability update](PLAYABILITY-2026-10-30.md), [Mirror rules](MIRROR-RULES.md), and the checked-in browser reports for evidence. Earlier milestone documents are historical.
+
+Latest UI follow-up: local Play vs. Friend replaces spectator mode; all games have separate saved Rune/friend statistics, result dialogs wait one second after the final move, and favourites sort first. The smooth difficulty slider stays on setup for Rune matches. See PLAYABILITY-2026-10-30.md.

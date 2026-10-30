@@ -25,28 +25,27 @@ export function TerrainBoard({state,kind='move',activeActions=[],hint=null,onCel
 }
 
 export function TerraformScreen({difficulty,mode,paused,muted,vibration,showSearch,onBack}:{difficulty:Difficulty;mode:Mode;paused:boolean;muted:boolean;vibration:boolean;showSearch:boolean;onBack:()=>void;}){
-  const {state,history,actionHistory,terminal,aiTurn,busy,hintPending,hint,reply,error,retry,play,undo,reset,requestHint}=useMatch({rules,createWorker,request,difficulty,mode,paused,muted,vibration});
+  const {state,history,actionHistory,terminal,resultReady,status,aiTurn,busy,hint,reply,error,retry,play,undo,reset,requestHint}=useMatch({gameId:'terraform',rules,createWorker,request,difficulty,mode,paused,muted,vibration});
   const [kind,setKind]=useState<rules.ActionKind>('move');
   useEffect(()=>{if(hint!==null)setKind(rules.actionKind(hint));},[hint]);
   const legal=rules.legalMoves(state).flatMap((ok,a)=>ok?[a]:[]);
-  const playable=!busy&&!paused&&!aiTurn&&!terminal.done&&mode==='human';
+  const playable=!busy&&!paused&&!aiTurn&&!terminal.done;
   const actions=playable?legal.filter(a=>rules.actionKind(a)===kind):[];
   const last=latestMove(history,actionHistory,mode);
   const lastCell=last?rules.destination(last.before,last.action):-1;
-  const lastText=last?`${mode==='watch'?(last.player===1?'Gold':'Purple'):'Rune'}: ${rules.describeAction(last.before,last.action)}${last.action>=200&&last.action<250?` · height ${last.before.board[lastCell]} → ${last.after.board[lastCell]}`:''}`:null;
-  const status=error?'MOVE PAUSED':terminal.done?terminal.winner===0?'IT’S A DRAW!':terminal.winner===1?mode==='watch'?'GOLD WINS!':'YOU WIN!':'RUNE WINS!':busy?hintPending?'FINDING A HINT…':'RUNE IS THINKING…':mode==='watch'?'WATCH THEM PLAY':'YOUR TURN';
+  const lastText=last?`${mode==='friend'?(last.player===1?'Gold':'Purple'):'Rune'}: ${rules.describeAction(last.before,last.action)}${last.action>=200&&last.action<250?` · height ${last.before.board[lastCell]} → ${last.after.board[lastCell]}`:''}`:null;
   return <section className="match-screen terraform-match">
-    <div className="match-meta"><span className={`difficulty-tag tag-${difficulty.toLowerCase()}`}>{difficulty}</span><span>{mode==='watch'?'AI vs AI':'You vs Rune'}</span></div>
+    <div className="match-meta"><span className={`difficulty-tag tag-${difficulty.toLowerCase()}`}>{mode==='friend'?'2 PLAYERS':difficulty}</span><span>{mode==='friend'?'Play vs. Friend':'You vs Rune'}</span></div>
     <div className={`turn-banner ${terminal.done?'match-ended':''}`} role="status">{status}</div>
-    <div className="players"><span className={state.player===1&&!terminal.done?'player-active':''}><i className="gold"/>{mode==='watch'?'GOLD':'YOU'}</span><span className="move-count">TURN {state.turn+(terminal.done?0:1)} / 80</span><span className={state.player===-1&&!terminal.done?'player-active':''}><i className="purple"/>{mode==='watch'?'PURPLE':'RUNE'}</span></div>
-    <div className="terrain-frame"><div className="terrain-columns" aria-hidden="true">{['A','B','C','D','E'].map(c=><span key={c}>{c}</span>)}</div><TerrainBoard state={state} lastCell={lastCell} kind={kind} activeActions={actions} hint={hint} disabled={!playable} onCell={cell=>{const action=actions.find(a=>rules.destination(state,a)===cell);if(action!==undefined)play(action);}}/><div className="terrain-key" aria-hidden="true"><span>LOW</span>{[0,1,2,3].map(h=><i key={h} className={`key-height-${h}`}>{h}</i>)}<span>SUMMIT</span></div></div>
+    <div className="players"><span className={state.player===1&&!terminal.done?'player-active':''}><i className="gold"/>{mode==='friend'?'GOLD':'YOU'}</span><span className="move-count">TURN {state.turn+(terminal.done?0:1)} / 80</span><span className={state.player===-1&&!terminal.done?'player-active':''}><i className="purple"/>{mode==='friend'?'PURPLE':'RUNE'}</span></div>
+    <div className="terrain-frame"><div className="terrain-columns" aria-hidden="true">{['A','B','C','D','E'].map(c=><span key={c}>{c}</span>)}</div><TerrainBoard state={state} lastCell={mode==='human'?lastCell:-1} kind={kind} activeActions={actions} hint={hint} disabled={!playable} onCell={cell=>{const action=actions.find(a=>rules.destination(state,a)===cell);if(action!==undefined)play(action);}}/><div className="terrain-key" aria-hidden="true"><span>LOW</span>{[0,1,2,3].map(h=><i key={h} className={`key-height-${h}`}>{h}</i>)}<span>SUMMIT</span></div></div>
     <div className="terrain-modes" aria-label="Choose action">{(['move','raise','lower'] as const).map(action=><button key={action} className={kind===action?'selected':''} onClick={()=>setKind(action)} disabled={!playable} aria-pressed={kind===action}>{action==='move'?<Footprints/>:action==='raise'?<ArrowUp/>:<ArrowDown/>}<span>{labels[action]}</span></button>)}</div>
     {playable&&legal.includes(250)&&<button className="chunky purple-button swap-climbers" onClick={()=>play(250)}>SWAP CLIMBERS</button>}
-    {history.length>1&&state.units[0]===history[history.length-2].units[1]&&state.units[1]===history[history.length-2].units[0]&&<p className="hint-message" role="status">Climbers swapped. Your climber is still gold.</p>}
+    {history.length>1&&state.units[0]===history[history.length-2].units[1]&&state.units[1]===history[history.length-2].units[0]&&<p className="hint-message" role="status">Climbers swapped. Gold and Purple keep their colours.</p>}
     {hint!==null&&!busy&&<p className="hint-message" role="status">Try {rules.describeAction(state,hint)} — it’s glowing.</p>}
-    <LastMove text={lastText}/><div className="match-actions"><button className="chunky purple-button" onClick={undo} disabled={history.length<2||mode==='watch'}><Undo2/><span>UNDO</span></button><button className="chunky purple-button" onClick={requestHint} disabled={!playable}><Lightbulb/><span>HINT</span></button><button className="chunky purple-button" onClick={()=>{reset();setKind('move');}}><RotateCcw/><span>NEW GAME</span></button></div>
-    {terminal.done&&<MatchResult key={state.turn} winner={terminal.winner} mode={mode} onReplay={()=>{reset();setKind('move');}} onBack={onBack}/>}
-    {terminal.done&&<button className="chunky coral-button rematch" onClick={()=>{reset();setKind('move');}}>PLAY AGAIN</button>}
+    <LastMove text={lastText}/><div className="match-actions"><button className="chunky purple-button" onClick={undo} disabled={history.length<2||terminal.done}><Undo2/><span>UNDO</span></button><button className="chunky purple-button" onClick={requestHint} disabled={!playable}><Lightbulb/><span>HINT</span></button><button className="chunky purple-button" onClick={()=>{reset();setKind('move');}}><RotateCcw/><span>NEW GAME</span></button></div>
+    {resultReady&&!paused&&<MatchResult key={state.turn} winner={terminal.winner} mode={mode} onReplay={()=>{reset();setKind('move');}} onBack={onBack}/>}
+    {resultReady&&<button className="chunky coral-button rematch" onClick={()=>{reset();setKind('move');}}>PLAY AGAIN</button>}
     {error&&<MatchError message={error} onRetry={retry}/>}
     {showSearch&&<details className="search-details" open><summary>Search & move history</summary><SearchInsights reply={reply} history={history} describe={rules.describeAction}/><p className="history">{actionHistory.map((action,i)=>`${i+1}. ${rules.describeAction(history[i],action)}`).join(' · ')||'No moves yet.'}</p></details>}
   </section>;
